@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		E032D2EE28DDDE9900159F3D /* jjbaksaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */; };
-		E032D2F028DDDE9900159F3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E032D2EF28DDDE9900159F3D /* ContentView.swift */; };
 		E032D2F228DDDE9A00159F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E032D2F128DDDE9A00159F3D /* Assets.xcassets */; };
 		E032D2F528DDDE9A00159F3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E032D2F428DDDE9A00159F3D /* Preview Assets.xcassets */; };
+		E032D30428DDDEEC00159F3D /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E032D30328DDDEEC00159F3D /* RootScreen.swift */; };
+		E032D30628DDDF0400159F3D /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E032D30528DDDF0400159F3D /* RootViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E032D2EA28DDDE9900159F3D /* jjbaksa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjbaksa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jjbaksaApp.swift; sourceTree = "<group>"; };
-		E032D2EF28DDDE9900159F3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E032D2F128DDDE9A00159F3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E032D2F428DDDE9A00159F3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E032D30328DDDEEC00159F3D /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
+		E032D30528DDDF0400159F3D /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,12 @@
 		E032D2EC28DDDE9900159F3D /* jjbaksa */ = {
 			isa = PBXGroup;
 			children = (
+				E032D2FF28DDDEC500159F3D /* Widgets */,
+				E032D2FE28DDDEC000159F3D /* Utils */,
+				E032D2FD28DDDEB900159F3D /* Screens */,
+				E032D2FC28DDDEB000159F3D /* Repositories */,
+				E032D2FB28DDDEAA00159F3D /* Models */,
 				E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */,
-				E032D2EF28DDDE9900159F3D /* ContentView.swift */,
 				E032D2F128DDDE9A00159F3D /* Assets.xcassets */,
 				E032D2F328DDDE9A00159F3D /* Preview Content */,
 			);
@@ -65,6 +71,67 @@
 				E032D2F428DDDE9A00159F3D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E032D2FB28DDDEAA00159F3D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E032D2FC28DDDEB000159F3D /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		E032D2FD28DDDEB900159F3D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E032D30028DDDED400159F3D /* Root */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E032D2FE28DDDEC000159F3D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E032D2FF28DDDEC500159F3D /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		E032D30028DDDED400159F3D /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E032D30228DDDEDF00159F3D /* Widgets */,
+				E032D30128DDDED800159F3D /* ViewModels */,
+				E032D30328DDDEEC00159F3D /* RootScreen.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		E032D30128DDDED800159F3D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E032D30528DDDF0400159F3D /* RootViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E032D30228DDDEDF00159F3D /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E032D2F028DDDE9900159F3D /* ContentView.swift in Sources */,
 				E032D2EE28DDDE9900159F3D /* jjbaksaApp.swift in Sources */,
+				E032D30628DDDF0400159F3D /* RootViewModel.swift in Sources */,
+				E032D30428DDDEEC00159F3D /* RootScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
