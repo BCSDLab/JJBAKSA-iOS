@@ -11,7 +11,7 @@ import SwiftUI
 struct jjbaksaApp: App {
     var body: some Scene {
         WindowGroup {
-            RootScreen()
+            LogInScreen()
         }
     }
 }

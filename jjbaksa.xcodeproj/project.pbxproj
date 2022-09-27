@@ -12,15 +12,27 @@
 		E032D2F528DDDE9A00159F3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E032D2F428DDDE9A00159F3D /* Preview Assets.xcassets */; };
 		E032D30428DDDEEC00159F3D /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E032D30328DDDEEC00159F3D /* RootScreen.swift */; };
 		E032D30628DDDF0400159F3D /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E032D30528DDDF0400159F3D /* RootViewModel.swift */; };
+		E0343E3E28E31F3100221072 /* LogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0343E3D28E31F3100221072 /* LogInScreen.swift */; };
+		E0343E4228E31F5000221072 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0343E4128E31F5000221072 /* LogInViewModel.swift */; };
+		E0343E4428E322DB00221072 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0343E4328E322DB00221072 /* UserRepository.swift */; };
+		E0343E4728E3237F00221072 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0343E4628E3237F00221072 /* Alamofire */; };
+		E0343E4A28E323D600221072 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0343E4928E323D600221072 /* Token.swift */; };
+		E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0343E4B28E3248100221072 /* LogInRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB88C60566CCF3B54FD82205 /* Pods_jjbaksa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jjbaksa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2EA28DDDE9900159F3D /* jjbaksa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjbaksa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jjbaksaApp.swift; sourceTree = "<group>"; };
 		E032D2F128DDDE9A00159F3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E032D2F428DDDE9A00159F3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E032D30328DDDEEC00159F3D /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
 		E032D30528DDDF0400159F3D /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		E0343E3D28E31F3100221072 /* LogInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInScreen.swift; sourceTree = "<group>"; };
+		E0343E4128E31F5000221072 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		E0343E4328E322DB00221072 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		E0343E4928E323D600221072 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		E0343E4B28E3248100221072 /* LogInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,17 +40,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0343E4728E3237F00221072 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D32A30ACCB39FB3E279E8AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB88C60566CCF3B54FD82205 /* Pods_jjbaksa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E032D2E128DDDE9900159F3D = {
 			isa = PBXGroup;
 			children = (
 				E032D2EC28DDDE9900159F3D /* jjbaksa */,
 				E032D2EB28DDDE9900159F3D /* Products */,
+				6D32A30ACCB39FB3E279E8AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +105,7 @@
 		E032D2FC28DDDEB000159F3D /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				E0343E4328E322DB00221072 /* UserRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -90,6 +113,7 @@
 		E032D2FD28DDDEB900159F3D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E0343E3C28E31F0100221072 /* LogIn */,
 				E032D30028DDDED400159F3D /* Root */,
 			);
 			path = Screens;
@@ -134,6 +158,41 @@
 			path = Widgets;
 			sourceTree = "<group>";
 		};
+		E0343E3C28E31F0100221072 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				E0343E4828E323C600221072 /* Models */,
+				E0343E4028E31F3C00221072 /* Widgets */,
+				E0343E3F28E31F3600221072 /* ViewModels */,
+				E0343E3D28E31F3100221072 /* LogInScreen.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		E0343E3F28E31F3600221072 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E0343E4128E31F5000221072 /* LogInViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E0343E4028E31F3C00221072 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		E0343E4828E323C600221072 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E0343E4928E323D600221072 /* Token.swift */,
+				E0343E4B28E3248100221072 /* LogInRequest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,6 +209,9 @@
 			dependencies = (
 			);
 			name = jjbaksa;
+			packageProductDependencies = (
+				E0343E4628E3237F00221072 /* Alamofire */,
+			);
 			productName = jjbaksa;
 			productReference = E032D2EA28DDDE9900159F3D /* jjbaksa.app */;
 			productType = "com.apple.product-type.application";
@@ -178,6 +240,9 @@
 				Base,
 			);
 			mainGroup = E032D2E128DDDE9900159F3D;
+			packageReferences = (
+				E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = E032D2EB28DDDE9900159F3D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -204,9 +269,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0343E4A28E323D600221072 /* Token.swift in Sources */,
 				E032D2EE28DDDE9900159F3D /* jjbaksaApp.swift in Sources */,
+				E0343E4228E31F5000221072 /* LogInViewModel.swift in Sources */,
+				E0343E4428E322DB00221072 /* UserRepository.swift in Sources */,
+				E0343E3E28E31F3100221072 /* LogInScreen.swift in Sources */,
 				E032D30628DDDF0400159F3D /* RootViewModel.swift in Sources */,
 				E032D30428DDDEEC00159F3D /* RootScreen.swift in Sources */,
+				E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +477,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E0343E4628E3237F00221072 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E032D2E228DDDE9900159F3D /* Project object */;
 }
