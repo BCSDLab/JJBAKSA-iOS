@@ -9,12 +9,10 @@ import SwiftUI
 
 struct LogInScreen: View {
     @ObservedObject var viewModel: LogInViewModel = LogInViewModel()
-    var isInfoNotEmpty: Bool {  //유저가 아이디 비밀번호 모두 입력했는지.
-        return !viewModel.account.isEmpty && !viewModel.password.isEmpty
-    }
-    
+   
     var body: some View {
         VStack {
+            Spacer()
             HStack {
                 Image(systemName: "circle.fill") //임시 로고
                     .font(Font.system(size: 30))
@@ -22,12 +20,13 @@ struct LogInScreen: View {
                 Text("쩝쩝박사")
                     .font(Font.system(size: 18, weight: .bold))
             }
-            .padding([.top], 114)
+
             //이 사이에 로그인 실패 메세지 출력
             
             Text("로그인")
                 .font(Font.system(size: 14))
-                .padding(EdgeInsets(top: 105, leading: 81, bottom: 0, trailing: 257))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(EdgeInsets(top: 105, leading: 85, bottom: 0, trailing: 0))
             
             TextField("아이디", text: $viewModel.account)
                 .autocorrectionDisabled(true)
@@ -68,7 +67,8 @@ struct LogInScreen: View {
                     .foregroundColor(Color(viewModel.isAutoLogIn ? UIColor(Color("MainColor")) : UIColor(Color("TextMainColor"))))
                     
             }
-            .padding(EdgeInsets(top: 7, leading: 81, bottom: 51, trailing: 211))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(EdgeInsets(top: 7, leading: 85, bottom: 51, trailing: 0))
             
             //isInfoNotEmpty == false 일 때 버튼 작동 안하게.
             Button(action: viewModel.logIn) {
@@ -77,7 +77,7 @@ struct LogInScreen: View {
             .frame(width: 227, height: 40)
             .font(Font.system(size: 14))
             .foregroundColor(Color("TextSubColor"))
-            .background(Capsule().fill(Color(isInfoNotEmpty ? UIColor(Color("MainColor")) : UIColor(Color("BaseColor")))))
+            .background(Capsule().fill(Color(viewModel.infoNotEmptyCheck() ? UIColor(Color("MainColor")) : UIColor(Color("BaseColor")))))
             .padding([.bottom], 7)
             
             //소셜 로그인 기능 삽입.
@@ -95,7 +95,8 @@ struct LogInScreen: View {
                 .font(Font.system(size: 12))
                 .underline()
                 .padding([.top], 32)
-                .padding([.bottom], 226)
+            
+            Spacer()
         }
     }
 }

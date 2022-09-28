@@ -14,6 +14,11 @@ class LogInViewModel: ObservableObject {
     
     @Published var token: Token? = nil
     
+    //account와 password가 비어있는지 확인.
+    func infoNotEmptyCheck() -> Bool {
+        return !self.account.isEmpty && !self.password.isEmpty
+    }
+    
     func logIn() {
         UserRepository.logIn(account: account, password: password) { result in
             switch(result) {
