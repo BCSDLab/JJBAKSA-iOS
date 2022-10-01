@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B47B7AD28E81516007E929B /* AccountFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47B7AC28E81516007E929B /* AccountFilter.swift */; };
-		1B47B7AF28E81840007E929B /* PasswordFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47B7AE28E81840007E929B /* PasswordFilter.swift */; };
 		E032D2EE28DDDE9900159F3D /* jjbaksaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */; };
 		E032D2F228DDDE9A00159F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E032D2F128DDDE9A00159F3D /* Assets.xcassets */; };
 		E032D2F528DDDE9A00159F3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E032D2F428DDDE9A00159F3D /* Preview Assets.xcassets */; };
@@ -23,8 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B47B7AC28E81516007E929B /* AccountFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFilter.swift; sourceTree = "<group>"; };
-		1B47B7AE28E81840007E929B /* PasswordFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordFilter.swift; sourceTree = "<group>"; };
 		DB88C60566CCF3B54FD82205 /* Pods_jjbaksa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jjbaksa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2EA28DDDE9900159F3D /* jjbaksa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjbaksa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jjbaksaApp.swift; sourceTree = "<group>"; };
@@ -177,8 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				E0343E4128E31F5000221072 /* LogInViewModel.swift */,
-				1B47B7AC28E81516007E929B /* AccountFilter.swift */,
-				1B47B7AE28E81840007E929B /* PasswordFilter.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -275,13 +269,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B47B7AD28E81516007E929B /* AccountFilter.swift in Sources */,
 				E0343E4A28E323D600221072 /* Token.swift in Sources */,
 				E032D2EE28DDDE9900159F3D /* jjbaksaApp.swift in Sources */,
 				E0343E4228E31F5000221072 /* LogInViewModel.swift in Sources */,
 				E0343E4428E322DB00221072 /* UserRepository.swift in Sources */,
 				E0343E3E28E31F3100221072 /* LogInScreen.swift in Sources */,
-				1B47B7AF28E81840007E929B /* PasswordFilter.swift in Sources */,
 				E032D30628DDDF0400159F3D /* RootViewModel.swift in Sources */,
 				E032D30428DDDEEC00159F3D /* RootScreen.swift in Sources */,
 				E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */,
