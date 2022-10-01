@@ -15,8 +15,8 @@ class LogInViewModel: ObservableObject {
     @Published var token: Token? = nil
     
     //account와 password가 비어있는지 확인.
-    func infoNotEmptyCheck() -> Bool {
-        return !self.account.isEmpty && !self.password.isEmpty
+    var infoNotEmptyCheck: Bool {
+        !self.account.isEmpty && !self.password.isEmpty
     }
     
     func logIn() {
@@ -24,6 +24,7 @@ class LogInViewModel: ObservableObject {
             switch(result) {
             case .success(let value):
                 self.token = value
+                print(value)
                 break
             case .failure(let error):
                 print(error)

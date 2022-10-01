@@ -9,7 +9,9 @@ import SwiftUI
 
 struct LogInScreen: View {
     @ObservedObject var viewModel: LogInViewModel = LogInViewModel()
-   
+    let accountFilter: String = "abcdefghijklmnopqrstuvwxyz0123456789"  //account filter를 위한 문자열
+    let passwordFilter: String = "!@#$" //password filter에 추가될 특수문자열
+    
     var body: some View {
         VStack {
             Spacer()
@@ -21,7 +23,7 @@ struct LogInScreen: View {
                     .font(Font.system(size: 18, weight: .bold))
             }
 
-            //이 사이에 로그인 실패 메세지 출력
+            //TODO: 로그인 실패 메세지 출력
             
             Text("로그인")
                 .font(Font.system(size: 14))
@@ -29,6 +31,13 @@ struct LogInScreen: View {
                 .padding(EdgeInsets(top: 105, leading: 85, bottom: 0, trailing: 0))
             
             TextField("아이디", text: $viewModel.account)
+                .onChange(of: viewModel.account) { newValue in //소문자 알파벳과 숫자를 제외하고 필터
+                    let filtered = newValue.filter { accountFilter.contains($0) }
+                    if filtered != newValue {
+                        self.viewModel.account = filtered
+                    }
+                    
+                }
                 .autocorrectionDisabled(true)
                 .autocapitalization(.none)
                 .frame(width: 227, height: 30)
@@ -38,6 +47,13 @@ struct LogInScreen: View {
             
             
             SecureField("비밀번호", text: $viewModel.password)
+                .onChange(of: viewModel.password) { newValue in //소문자 알파벳과 숫자, 정해진 특수문자를 제외하고 필터
+                    let filtered = newValue.filter { "\(accountFilter)\(passwordFilter)".contains($0) }
+                    if filtered != newValue {
+                        self.viewModel.password = filtered
+                    }
+                    
+                }
                 .autocorrectionDisabled(true)
                 .autocapitalization(.none)
                 .frame(width: 227, height: 30)
@@ -72,22 +88,24 @@ struct LogInScreen: View {
             
             //isInfoNotEmpty == false 일 때 버튼 작동 안하게.
             Button(action: viewModel.logIn) {
-                Text("로그인")
+                Text("로그인")          //button이 아닌 label에 frame을 줘서 버튼 클릭 범위를 늘림
+                    .frame(width: 227, height: 40)
+                    .font(Font.system(size: 14))
+                    .foregroundColor(Color("TextSubColor"))
+                    .background(Capsule().fill(Color(viewModel.infoNotEmptyCheck ? UIColor(Color("MainColor")) : UIColor(Color("BaseColor")))))
+                    .padding([.bottom], 7)
             }
-            .frame(width: 227, height: 40)
-            .font(Font.system(size: 14))
-            .foregroundColor(Color("TextSubColor"))
-            .background(Capsule().fill(Color(viewModel.infoNotEmptyCheck() ? UIColor(Color("MainColor")) : UIColor(Color("BaseColor")))))
-            .padding([.bottom], 7)
+            
             
             //소셜 로그인 기능 삽입.
             Button(action: viewModel.logIn) {
-                Text("소셜 로그인")
+                Text("소셜 로그인")      //button이 아닌 label에 frame을 줘서 버튼 클릭 범위를 늘림
+                    .frame(width: 227, height: 40)
+                    .font(Font.system(size: 14))
+                    .foregroundColor(Color("MainColor"))
+                    .background(Capsule().stroke(Color("MainColor")))
             }
-            .frame(width: 227, height: 40)
-            .font(Font.system(size: 14))
-            .foregroundColor(Color("MainColor"))
-            .background(Capsule().stroke(Color("MainColor")))
+            
             
             //회원가입 button 또는 NavigationLink 기능 삽입
             Text("회원가입")
