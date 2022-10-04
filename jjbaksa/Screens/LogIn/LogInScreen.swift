@@ -23,30 +23,27 @@ struct LogInScreen: View {
                     .font(Font.system(size: 18, weight: .bold))
             }
 
-            if viewModel.isLogInFailed == false {
-                HStack {
+            
+            
+            HStack {
+                if viewModel.isLogInFailed {
                     Image(systemName: "exclamationmark.triangle")
                     Text("회원이 아니시거나, 아이디 또는 비밀번호를 잘못 입력했습니다.")
                 }
-                .font(Font.system(size: 11))
-                .foregroundColor(Color("MainColor"))
-                .frame(maxWidth: 250, alignment: .leading)
-                .padding(EdgeInsets(top: 50, leading: 25, bottom: -70, trailing: 0))
             }
+            .font(.system(size: 11))
+            .foregroundColor(Color("MainColor"))
+            .frame(height: 35)
+            .padding(.horizontal, 80)
+            .padding(.top, 37)
+//            .padding(EdgeInsets(top: 50, leading: 25, bottom: -70, trailing: 0))
             
             Text("로그인")
                 .font(Font.system(size: 14))
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(EdgeInsets(top: 120, leading: 85, bottom: 0, trailing: 0))
+                .padding(EdgeInsets(top: 24, leading: 82, bottom: 0, trailing: 0))
             
             TextField("아이디", text: $viewModel.account)
-                .onChange(of: viewModel.account) { newValue in //소문자 알파벳과 숫자를 제외하고 필터
-                    let filtered = newValue.filter { accountFilter.contains($0) }
-                    if filtered != newValue {
-                        self.viewModel.account = filtered
-                    }
-                    
-                }
                 .autocorrectionDisabled(true)
                 .autocapitalization(.none)
                 .frame(width: 227, height: 30)
@@ -56,12 +53,6 @@ struct LogInScreen: View {
             
             
             SecureField("비밀번호", text: $viewModel.password)
-                .onChange(of: viewModel.password) { newValue in //소문자 알파벳과 숫자, 정해진 특수문자를 제외하고 필터
-                    let filtered = newValue.filter { "\(accountFilter)\(passwordFilter)".contains($0) }
-                    if filtered != newValue {
-                        self.viewModel.password = filtered
-                    }
-                }
                 .autocorrectionDisabled(true)
                 .autocapitalization(.none)
                 .frame(width: 227, height: 30)
@@ -96,7 +87,9 @@ struct LogInScreen: View {
             
             //isInfoNotEmpty가 True일 때만 작동.
             Group{  //Extra argument in call Error 해결을 위한 Grouping
-                Button(action: { if viewModel.isInfoNotEmpty { viewModel.logIn() }}) {
+                Button(action: {
+                    viewModel.logIn()
+                }) {
                     Text("로그인")          //button이 아닌 label에 frame을 줘서 버튼 클릭 범위를 늘림
                         .frame(width: 227, height: 40)
                         .font(Font.system(size: 14))
