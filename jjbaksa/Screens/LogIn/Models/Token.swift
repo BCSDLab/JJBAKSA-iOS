@@ -8,6 +8,6 @@
 import Foundation
 
 // MARK: - Token
-struct Token: Codable {
+struct Token: Codable, Equatable {
     let accessToken, refreshToken: String
 }

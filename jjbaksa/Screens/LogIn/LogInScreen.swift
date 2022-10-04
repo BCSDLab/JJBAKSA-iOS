@@ -9,8 +9,7 @@ import SwiftUI
 
 struct LogInScreen: View {
     @ObservedObject var viewModel: LogInViewModel = LogInViewModel()
-    let accountFilter: String = "abcdefghijklmnopqrstuvwxyz0123456789"  //account filter를 위한 문자열
-    let passwordFilter: String = "!@#$" //password filter에 추가될 특수문자열
+    @EnvironmentObject var rootViewModel: RootViewModel
     
     var body: some View {
         VStack {
@@ -36,7 +35,7 @@ struct LogInScreen: View {
             .frame(height: 35)
             .padding(.horizontal, 80)
             .padding(.top, 37)
-//            .padding(EdgeInsets(top: 50, leading: 25, bottom: -70, trailing: 0))
+
             
             Text("로그인")
                 .font(Font.system(size: 14))
@@ -61,7 +60,7 @@ struct LogInScreen: View {
                 .background(Capsule().fill(Color("LineColor")))
             
             HStack {
-                ZStack { //SwiftUI 자체 Toggle을 사용하려 했으나 style 설정이 어려워 custom Toggle 제작
+                ZStack {
                     Capsule()
                         .frame(width:24,height:12)
                         .foregroundColor(Color(viewModel.isAutoLogIn ? UIColor(Color("MainColor")) : UIColor(Color("BaseColor"))))
@@ -84,6 +83,11 @@ struct LogInScreen: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(EdgeInsets(top: 7, leading: 85, bottom: 51, trailing: 0))
+            .onChange(of: self.viewModel.token) { token in
+                if(token != nil) {
+                    self.rootViewModel.loadToken(token: token!)
+                }
+            }
             
             //isInfoNotEmpty가 True일 때만 작동.
             Group{  //Extra argument in call Error 해결을 위한 Grouping
