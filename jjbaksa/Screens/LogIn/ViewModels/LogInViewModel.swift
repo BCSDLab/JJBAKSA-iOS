@@ -11,11 +11,11 @@ class LogInViewModel: ObservableObject {
     @Published var account: String = ""
     @Published var password: String = ""
     @Published var isAutoLogIn: Bool = true
-    
+    @Published var isLogInFailed: Bool = false
     @Published var token: Token? = nil
     
     //account와 password가 비어있는지 확인.
-    var infoNotEmptyCheck: Bool {
+    var isInfoNotEmpty: Bool {
         !self.account.isEmpty && !self.password.isEmpty
     }
     
@@ -24,9 +24,11 @@ class LogInViewModel: ObservableObject {
             switch(result) {
             case .success(let value):
                 self.token = value
+                self.isLogInFailed = false
                 print(value)
                 break
             case .failure(let error):
+                self.isLogInFailed = true
                 print(error)
                 break
             }
