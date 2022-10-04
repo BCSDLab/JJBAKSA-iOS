@@ -11,17 +11,20 @@ import Combine
 
 class RootViewModel: ObservableObject {
     @Published var user: User = User()          // 유저 정보
-    @Published var isLoggedIn: Bool = false     // 로그인 여부
-    @Published var token: String = ""           // 토큰
+    @Published var token: Token? = nil           // 토큰
     
     // 토큰 불러오기
-    func loadToken() {
-        
+    func loadToken(token: Token) {
+        self.token = token
     }
     
     // 유저 정보 불러오기
     func loadUser() {
         
+    }
+    
+    func logOut() {
+        self.token = nil
     }
 }
 
