@@ -8,22 +8,24 @@
 import Foundation
 
 class LogInViewModel: ObservableObject {
-    let accountFilter: String = "abcdefghijklmnopqrstuvwxyz0123456789"  //account filter를 위한 문자열
-    let passwordFilter: String = "!@#$" //password filter에 추가될 특수문자열
+    let accountFilter: String = "[^0-9a-zA-Z]"  //account filter 정규 표현식
+    let passwordFilter: String = "[^0-9a-zA-Z~!@#\\$%\\^&\\*]" //password filter 정규 표현식
     
     @Published var account: String = "" {
         didSet {
-            let filtered = oldValue.filter { accountFilter.contains($0) }
-            if filtered != oldValue {
-                self.account = filtered
+            let value = oldValue.replacingOccurrences(
+                                of: accountFilter, with: "", options: .regularExpression)
+            if value != oldValue {
+                self.account = value
             }
         }
     }
     @Published var password: String = "" {
         didSet {
-            let filtered = oldValue.filter { "\(accountFilter)\(passwordFilter)".contains($0) }
-            if filtered != oldValue {
-                self.password = filtered
+            let value = oldValue.replacingOccurrences(
+                                of: passwordFilter, with: "", options: .regularExpression)
+            if value != oldValue {
+                self.password = value
             }
         }
     }
