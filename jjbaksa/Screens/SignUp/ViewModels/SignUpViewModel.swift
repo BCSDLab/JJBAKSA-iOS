@@ -53,12 +53,25 @@ class SignUpViewModel: ObservableObject {
     }
     
     @Published var isOverlapCheck: Bool = true
-    @Published var errorCode: Int = 0
+    @Published var isOverlap: String = ""
     @Published var signUpValid: Bool = false
+    @Published var signUpErrorCode: SignUpError = .none
     
-    func isAccountOverlapValid() -> Bool {
-        //TODO: 아이디 중복 검사
-            return true
+    func isAccountOverlapValid() {
+        ExistRepository.isOverlap(account: account) { result in
+            switch(result) {
+            case .success(let value):
+                self.isOverlap = value
+                if value != "OK" {
+                    self.signUpErrorCode = .accountOverlapError
+                } else { self.signUpErrorCode = .none }
+                print(value)
+                break
+            case .failure(let error):
+                print(error)
+                break
+            }
+        }
     }
     
     func isEmailValid() -> Bool {
@@ -73,20 +86,20 @@ class SignUpViewModel: ObservableObject {
     
     
     func isSignUpValid() -> Bool {
-        if !isAccountOverlapValid() {
-            self.errorCode = 1
+        if isOverlap != "OK" {
+            self.signUpErrorCode = .accountOverlapError
             return false
         } else if !isEmailValid() {
-            self.errorCode = 2
+            self.signUpErrorCode = .emailValidError
             return false
         } else if !isPasswordValid() {
-            self.errorCode = 3
+            self.signUpErrorCode = .passwordValidError
             return false
         } else if password != checkPassword {
-            self.errorCode = 4
+            self.signUpErrorCode = .passwordEqualityError
             return false
         } else {
-            self.errorCode = 0
+            self.signUpErrorCode = .none
             return true
         }
     }
