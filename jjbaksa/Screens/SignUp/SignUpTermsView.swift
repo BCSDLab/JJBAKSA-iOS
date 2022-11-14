@@ -24,7 +24,7 @@ struct SignUpTermsView: View {
                     .frame(width: 227, height: 40)
                     .font(Font.system(size: 14))
                     .foregroundColor(Color("TextSubColor"))
-                    .background(Capsule().fill(Color(viewModel.signUpValid ? UIColor(Color("MainColor")) : UIColor(Color("BaseColor")))))
+                    .background(Capsule().fill(Color("BaseColor")))
             }
             Spacer()
         }

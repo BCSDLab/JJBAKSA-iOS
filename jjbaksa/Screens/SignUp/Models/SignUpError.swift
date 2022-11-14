@@ -8,9 +8,11 @@
 import Foundation
 
 enum SignUpError {
-    case accountOverlapError
+    case accountOverlapValidError
+    case accountOverlapCheckError
     case emailValidError
     case passwordValidError
     case passwordEqualityError
+    case hold
     case none
 }
