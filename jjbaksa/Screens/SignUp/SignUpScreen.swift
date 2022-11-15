@@ -10,12 +10,13 @@ import SwiftUI
 struct SignUpScreen: View {
     @State var currentTab: Int = 0
     var body: some View {
-        TabView(selection: $currentTab) { //TODO: View 이동 시 애니메이션 추가
+        TabView(selection: $currentTab) { //TODO: Drag Gesture Block
             SignUpTermsView(currentTab: $currentTab).tag(0)
             SignUpInfoView(currentTab: $currentTab).tag(1)
             SignUpSuccessView().tag(2)
         }
-        
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        .animation(.default, value: currentTab)
         .navigationBarBackButtonHidden(true)
     }
 }

@@ -83,7 +83,7 @@ class SignUpViewModel: ObservableObject {
     }
     
     func isAccountOverlapCheck() {
-        if self.accountOverlapValue == "" {
+        if self.accountOverlapValue.isEmpty {
             self.signUpErrorCode = .accountOverlapCheckError
         }
     }
