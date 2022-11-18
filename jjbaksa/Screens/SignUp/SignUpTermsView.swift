@@ -15,16 +15,15 @@ struct SignUpTermsView: View {
             Spacer()
             Text("This is SignUpTermsView")
             Spacer()
-            
+
             Button(action: {
                 viewModel.currentTab += 1
-                print(viewModel.signUpErrorCode)
             }) {
                 Text("다음")
-                    .frame(width: 227, height: 40)
-                    .font(.system(size: 14))
-                    .foregroundColor(.textSub)
-                    .background(Capsule().fill(Color.base))
+                        .frame(width: 227, height: 40)
+                        .font(Font.system(size: 14))
+                        .foregroundColor(.textSub)
+                        .background(Capsule().fill(Color.base))
             }
             Spacer()
         }

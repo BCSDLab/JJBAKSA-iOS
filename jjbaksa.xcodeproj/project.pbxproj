@@ -301,6 +301,8 @@
 				E032D30628DDDF0400159F3D /* RootViewModel.swift in Sources */,
 				E032D30428DDDEEC00159F3D /* RootScreen.swift in Sources */,
 				E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */,
+				833731B288B9D7CB2FA5B103 /* String+Regex.swift in Sources */,
+				83373428AF1B882F828AC7F8 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

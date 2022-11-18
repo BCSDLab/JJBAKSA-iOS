@@ -36,19 +36,21 @@ class SignUpViewModel: ObservableObject {
     var isInfoIsNotEmpty: Bool {
         !account.isEmpty && !eMail.isEmpty && !password.isEmpty && !checkPassword.isEmpty
     }
-    
+
     func resetAccountCheck() {
         _isAccountDuplicated = nil
     }
-    
+
     func isAccountOverlapValid() {
         UserRepository.isOverlap(account: account) { result in
             switch (result) {
             case .success(let value):
                 if value != "OK" {
                     self.isAccountDuplicated = true
+                    self.isAccountDuplicated = true
                     self.signUpErrorCode = .accountOverlapValidError
                 } else {
+                    self.isAccountDuplicated = false
                     self.isAccountDuplicated = false
                     self.signUpErrorCode = .hold
                 }
@@ -59,18 +61,23 @@ class SignUpViewModel: ObservableObject {
                     self.isAccountDuplicated = false
                     self.signUpErrorCode = .accountOverlapValidError
                 }
+                let responseCode = error.responseCode ?? 0;
+                if (responseCode >= 400 && responseCode < 500) {
+                    self.isAccountDuplicated = false
+                    self.signUpErrorCode = .accountOverlapValidError
+                }
                 print(error)
                 break
             }
         }
     }
-    
+
     func isAccountOverlapCheck() {
         if isAccountDuplicated {
             signUpErrorCode = .accountOverlapCheckError
         }
     }
-    
+
     func isEmailValid() {
         if eMail.regexMatches(emailRegex) {
             signUpErrorCode = .emailValidError
@@ -78,7 +85,7 @@ class SignUpViewModel: ObservableObject {
             signUpErrorCode = .hold
         }
     }
-    
+
     func isPasswordValid() {
         if password.regexMatches(passwordRegex) {
             signUpErrorCode = .passwordValidError
@@ -86,7 +93,7 @@ class SignUpViewModel: ObservableObject {
             signUpErrorCode = .hold
         }
     }
-    
+
     func isPasswordEqual() {
         if password != checkPassword {
             signUpErrorCode = .passwordEqualityError
@@ -94,8 +101,8 @@ class SignUpViewModel: ObservableObject {
             signUpErrorCode = .hold
         }
     }
-    
-    func isSignUpValid(){
+
+    func isSignUpValid() {
         isPasswordEqual()
         isPasswordValid()
         isEmailValid()

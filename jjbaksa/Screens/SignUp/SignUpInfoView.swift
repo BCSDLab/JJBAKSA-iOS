@@ -310,9 +310,9 @@ struct SignUpInfoView: View {
     }
 }
 /*
- struct SignUpScreen_Previews: PreviewProvider {
- static var previews: some View {
- SignUpInfoView()
- }
- }
- */
+struct SignUpScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        SignUpInfoView()
+    }
+}
+
