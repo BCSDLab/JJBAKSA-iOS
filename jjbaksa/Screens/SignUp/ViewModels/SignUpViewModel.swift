@@ -8,74 +8,57 @@
 import Foundation
 
 class SignUpViewModel: ObservableObject {
-    @Published var signUpErrorCode: SignUpError = .none
-    @Published var accountOverlapValue: String = ""
+    @Published var signUpErrorCode: SignUpError = .hold
     
-    @Published var account: String = "" {
-        didSet {
-            let accountFilter: String = "[^0-9a-zA-Z]"  //account filter 정규 표현식
-            let value = oldValue.replacingOccurrences(
-                of: accountFilter, with: "", options: .regularExpression)
-            if value != oldValue {
-                self.account = value
+    // null일땐 아직 요청 안한걸로,
+    // false일땐 중복 문제 없는 걸로
+    // true일땐 중복이 있는 걸로
+    @Published private var _isAccountDuplicated: Bool?
+
+    var isAccountDuplicated: Bool {
+        get {
+            if let isAccountDuplicated = _isAccountDuplicated {
+                return isAccountDuplicated
             }
+            return true
+        }
+        set {
+            _isAccountDuplicated = newValue
         }
     }
     
-    @Published var eMail: String = "" {
-        didSet {
-            let eMailFilter: String = "[^0-9a-zA-Z@._%+-]" //Email filter 정규 표현식
-            let value = oldValue.replacingOccurrences(
-                of: eMailFilter, with: "", options: .regularExpression)
-            if value != oldValue {
-                self.eMail = value
-            }
-        }
-    }
+    @Published var currentTab: Int = 0
+    @Published var account: String = ""
+    @Published var eMail: String = ""
+    @Published var password: String = ""
+    @Published var checkPassword: String = ""
     
-    @Published var password: String = ""{
-        didSet {
-            let passwordFilter: String = "[^0-9a-zA-Z~!@#\\$%\\^&\\*]" //password filter 정규 표현식
-            let value = oldValue.replacingOccurrences(
-                                of: passwordFilter, with: "", options: .regularExpression)
-            if value != oldValue {
-                self.password = value
-            }
-        }
-    }
-    
-    @Published var checkPassword: String = ""{
-        didSet {
-            let passwordFilter: String = "[^0-9a-zA-Z~!@#\\$%\\^&\\*]" //password filter 정규 표현식
-            let value = oldValue.replacingOccurrences(
-                                of: passwordFilter, with: "", options: .regularExpression)
-            if value != oldValue {
-                self.checkPassword = value
-            }
-        }
-    }
-    
-    var isInfoisNotEmpty: Bool {
-        !self.account.isEmpty && !self.eMail.isEmpty && !self.password.isEmpty && !self.checkPassword.isEmpty
+    var isInfoIsNotEmpty: Bool {
+        !account.isEmpty && !eMail.isEmpty && !password.isEmpty && !checkPassword.isEmpty
     }
     
     func resetAccountCheck() {
-        self.accountOverlapValue = ""
+        _isAccountDuplicated = nil
     }
     
     func isAccountOverlapValid() {
-        ExistRepository.isOverlap(account: account) { result in
-            switch(result) {
+        UserRepository.isOverlap(account: account) { result in
+            switch (result) {
             case .success(let value):
-                self.accountOverlapValue = value
                 if value != "OK" {
+                    self.isAccountDuplicated = true
                     self.signUpErrorCode = .accountOverlapValidError
                 } else {
+                    self.isAccountDuplicated = false
                     self.signUpErrorCode = .hold
                 }
-                print(value)
                 break
             case .failure(let error):
+                let responseCode = error.responseCode ?? 0;
+                if (responseCode >= 400 && responseCode < 500) {
+                    self.isAccountDuplicated = false
+                    self.signUpErrorCode = .accountOverlapValidError
+                }
                 print(error)
                 break
             }
@@ -83,34 +66,32 @@ class SignUpViewModel: ObservableObject {
     }
     
     func isAccountOverlapCheck() {
-        if self.accountOverlapValue.isEmpty {
-            self.signUpErrorCode = .accountOverlapCheckError
+        if isAccountDuplicated {
+            signUpErrorCode = .accountOverlapCheckError
         }
     }
     
     func isEmailValid() {
-        let eMailRegex: String = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}" //Email 정규 표현식
-        if (self.eMail.range(of:eMailRegex, options: .regularExpression) != nil) == false {
-            self.signUpErrorCode = .emailValidError
-        } else if self.signUpErrorCode == .emailValidError {
-            self.signUpErrorCode = .hold
+        if eMail.regexMatches(emailRegex) {
+            signUpErrorCode = .emailValidError
+        } else if signUpErrorCode == .emailValidError {
+            signUpErrorCode = .hold
         }
     }
     
     func isPasswordValid() {
-        let passwordRegex: String = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]).{8,}" //Password 정규 표현식
-        if (self.password.range(of: passwordRegex, options: .regularExpression) != nil && !(self.password.count >= 16)) == false {
-            self.signUpErrorCode = .passwordValidError
-        } else if self.signUpErrorCode == .passwordValidError {
-            self.signUpErrorCode = .hold
+        if password.regexMatches(passwordRegex) {
+            signUpErrorCode = .passwordValidError
+        } else if signUpErrorCode == .passwordValidError {
+            signUpErrorCode = .hold
         }
     }
     
     func isPasswordEqual() {
-        if self.password != self.checkPassword {
-            self.signUpErrorCode = .passwordEqualityError
-        } else if self.signUpErrorCode == .passwordEqualityError {
-            self.signUpErrorCode = .hold
+        if password != checkPassword {
+            signUpErrorCode = .passwordEqualityError
+        } else if signUpErrorCode == .passwordEqualityError {
+            signUpErrorCode = .hold
         }
     }
     
@@ -119,8 +100,8 @@ class SignUpViewModel: ObservableObject {
         isPasswordValid()
         isEmailValid()
         isAccountOverlapCheck()
-        if self.signUpErrorCode == .hold {
-            self.signUpErrorCode = .none
+        if signUpErrorCode == .hold {
+            signUpErrorCode = .none
         }
     }
 }

@@ -14,5 +14,7 @@ enum SignUpError {
     case passwordValidError
     case passwordEqualityError
     case hold
+    //대기 상태.
     case none
+    //오류 없음.
 }

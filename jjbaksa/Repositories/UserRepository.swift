@@ -22,4 +22,18 @@ class UserRepository {
             }
         }
     }
+    
+    static func isOverlap(account: String, completion: @escaping (Result<String, AFError>) -> Void) {
+            AF.request("https://api.stage.jjbaksa.com:443/user/exists?account=\(account)", method: .get)
+                    .responseString { response in
+                        switch (response.result) {
+                        case .success(let result):
+                            completion(.success(result))
+                            break
+                        case .failure(let error):
+                            completion(.failure(error))
+                            break
+                        }
+                    }
+        }
 }

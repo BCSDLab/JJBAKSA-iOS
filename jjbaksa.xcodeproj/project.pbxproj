@@ -10,12 +10,11 @@
 		1BFAC8A82918820500188F82 /* SignUpInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8A72918820500188F82 /* SignUpInfoView.swift */; };
 		1BFAC8AB291896BE00188F82 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8AA291896BE00188F82 /* SignUpViewModel.swift */; };
 		1BFAC8AE291B292800188F82 /* SignUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8AD291B292800188F82 /* SignUpError.swift */; };
-		1BFAC8B0291B814200188F82 /* ExistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8AF291B814200188F82 /* ExistRepository.swift */; };
 		1BFAC8B2291B852D00188F82 /* SignUpTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8B1291B852D00188F82 /* SignUpTermsView.swift */; };
 		1BFAC8B4291B855D00188F82 /* SignUpSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8B3291B855D00188F82 /* SignUpSuccessView.swift */; };
 		1BFAC8B6291B856D00188F82 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8B5291B856D00188F82 /* SignUpScreen.swift */; };
-		1BFAC8B82921D9E300188F82 /* ExistRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8B72921D9E300188F82 /* ExistRequest.swift */; };
-		1BFAC8BA2921DA6000188F82 /* ExistResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8B92921DA6000188F82 /* ExistResult.swift */; };
+		1BFAC8C32924B3E400188F82 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8C22924B3E400188F82 /* String+Regex.swift */; };
+		1BFAC8C52924B42500188F82 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8C42924B42500188F82 /* Color.swift */; };
 		E032D2EE28DDDE9900159F3D /* jjbaksaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */; };
 		E032D2F228DDDE9A00159F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E032D2F128DDDE9A00159F3D /* Assets.xcassets */; };
 		E032D2F528DDDE9A00159F3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E032D2F428DDDE9A00159F3D /* Preview Assets.xcassets */; };
@@ -33,12 +32,11 @@
 		1BFAC8A72918820500188F82 /* SignUpInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfoView.swift; sourceTree = "<group>"; };
 		1BFAC8AA291896BE00188F82 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		1BFAC8AD291B292800188F82 /* SignUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpError.swift; sourceTree = "<group>"; };
-		1BFAC8AF291B814200188F82 /* ExistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistRepository.swift; sourceTree = "<group>"; };
 		1BFAC8B1291B852D00188F82 /* SignUpTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTermsView.swift; sourceTree = "<group>"; };
 		1BFAC8B3291B855D00188F82 /* SignUpSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSuccessView.swift; sourceTree = "<group>"; };
 		1BFAC8B5291B856D00188F82 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
-		1BFAC8B72921D9E300188F82 /* ExistRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistRequest.swift; sourceTree = "<group>"; };
-		1BFAC8B92921DA6000188F82 /* ExistResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistResult.swift; sourceTree = "<group>"; };
+		1BFAC8C22924B3E400188F82 /* String+Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
+		1BFAC8C42924B42500188F82 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		DB88C60566CCF3B54FD82205 /* Pods_jjbaksa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jjbaksa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2EA28DDDE9900159F3D /* jjbaksa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjbaksa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jjbaksaApp.swift; sourceTree = "<group>"; };
@@ -90,10 +88,17 @@
 			isa = PBXGroup;
 			children = (
 				1BFAC8AD291B292800188F82 /* SignUpError.swift */,
-				1BFAC8B72921D9E300188F82 /* ExistRequest.swift */,
-				1BFAC8B92921DA6000188F82 /* ExistResult.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1BFAC8C12924B3D800188F82 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1BFAC8C22924B3E400188F82 /* String+Regex.swift */,
+				1BFAC8C42924B42500188F82 /* Color.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		6D32A30ACCB39FB3E279E8AB /* Frameworks */ = {
@@ -124,11 +129,9 @@
 		E032D2EC28DDDE9900159F3D /* jjbaksa */ = {
 			isa = PBXGroup;
 			children = (
-				E032D2FF28DDDEC500159F3D /* Widgets */,
-				E032D2FE28DDDEC000159F3D /* Utils */,
+				1BFAC8C12924B3D800188F82 /* Utils */,
 				E032D2FD28DDDEB900159F3D /* Screens */,
 				E032D2FC28DDDEB000159F3D /* Repositories */,
-				E032D2FB28DDDEAA00159F3D /* Models */,
 				E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */,
 				E032D2F128DDDE9A00159F3D /* Assets.xcassets */,
 				E032D2F328DDDE9A00159F3D /* Preview Content */,
@@ -144,18 +147,10 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		E032D2FB28DDDEAA00159F3D /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		E032D2FC28DDDEB000159F3D /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
 				E0343E4328E322DB00221072 /* UserRepository.swift */,
-				1BFAC8AF291B814200188F82 /* ExistRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -170,24 +165,9 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		E032D2FE28DDDEC000159F3D /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		E032D2FF28DDDEC500159F3D /* Widgets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Widgets;
-			sourceTree = "<group>";
-		};
 		E032D30028DDDED400159F3D /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				E032D30228DDDEDF00159F3D /* Widgets */,
 				E032D30128DDDED800159F3D /* ViewModels */,
 				E032D30328DDDEEC00159F3D /* RootScreen.swift */,
 			);
@@ -202,18 +182,10 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		E032D30228DDDEDF00159F3D /* Widgets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Widgets;
-			sourceTree = "<group>";
-		};
 		E0343E3C28E31F0100221072 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
 				E0343E4828E323C600221072 /* Models */,
-				E0343E4028E31F3C00221072 /* Widgets */,
 				E0343E3F28E31F3600221072 /* ViewModels */,
 				E0343E3D28E31F3100221072 /* LogInScreen.swift */,
 			);
@@ -226,13 +198,6 @@
 				E0343E4128E31F5000221072 /* LogInViewModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		E0343E4028E31F3C00221072 /* Widgets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Widgets;
 			sourceTree = "<group>";
 		};
 		E0343E4828E323C600221072 /* Models */ = {
@@ -322,15 +287,14 @@
 			files = (
 				E0343E4A28E323D600221072 /* Token.swift in Sources */,
 				E032D2EE28DDDE9900159F3D /* jjbaksaApp.swift in Sources */,
+				1BFAC8C32924B3E400188F82 /* String+Regex.swift in Sources */,
 				1BFAC8AE291B292800188F82 /* SignUpError.swift in Sources */,
-				1BFAC8B82921D9E300188F82 /* ExistRequest.swift in Sources */,
 				1BFAC8AB291896BE00188F82 /* SignUpViewModel.swift in Sources */,
 				1BFAC8A82918820500188F82 /* SignUpInfoView.swift in Sources */,
 				1BFAC8B6291B856D00188F82 /* SignUpScreen.swift in Sources */,
-				1BFAC8BA2921DA6000188F82 /* ExistResult.swift in Sources */,
 				E0343E4228E31F5000221072 /* LogInViewModel.swift in Sources */,
 				E0343E4428E322DB00221072 /* UserRepository.swift in Sources */,
-				1BFAC8B0291B814200188F82 /* ExistRepository.swift in Sources */,
+				1BFAC8C52924B42500188F82 /* Color.swift in Sources */,
 				1BFAC8B2291B852D00188F82 /* SignUpTermsView.swift in Sources */,
 				E0343E3E28E31F3100221072 /* LogInScreen.swift in Sources */,
 				1BFAC8B4291B855D00188F82 /* SignUpSuccessView.swift in Sources */,

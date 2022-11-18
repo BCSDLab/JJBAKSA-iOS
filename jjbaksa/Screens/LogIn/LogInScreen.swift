@@ -17,10 +17,10 @@ struct LogInScreen: View {
                 Spacer()
                 HStack {
                     Image(systemName: "circle.fill") //임시 로고
-                        .font(Font.system(size: 30))
+                        .font(.system(size: 30))
                         .padding([.trailing], 7)
                     Text("쩝쩝박사")
-                        .font(Font.system(size: 18, weight: .bold))
+                        .font(.system(size: 18, weight: .bold))
                 }
                 
                 
@@ -32,14 +32,14 @@ struct LogInScreen: View {
                     }
                 }
                 .font(.system(size: 11))
-                .foregroundColor(Color("MainColor"))
+                .foregroundColor(.main)
                 .frame(height: 35)
                 .padding(.horizontal, 80)
                 .padding(.top, 37)
                 
                 
                 Text("로그인")
-                    .font(Font.system(size: 14))
+                    .font(.system(size: 14))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 24, leading: 82, bottom: 0, trailing: 0))
                 
@@ -47,24 +47,24 @@ struct LogInScreen: View {
                     .autocorrectionDisabled(true)
                     .autocapitalization(.none)
                     .frame(width: 227, height: 30)
-                    .font(Font.system(size: 12))
+                    .font(.system(size: 12))
                     .padding([.leading], 10)
-                    .background(Capsule().fill(Color("LineColor")))
+                    .background(Capsule().fill(Color.line))
                 
                 
                 SecureField("비밀번호", text: $viewModel.password)
                     .autocorrectionDisabled(true)
                     .autocapitalization(.none)
                     .frame(width: 227, height: 30)
-                    .font(Font.system(size: 12))
+                    .font(.system(size: 12))
                     .padding([.leading], 10)
-                    .background(Capsule().fill(Color("LineColor")))
+                    .background(Capsule().fill(Color.line))
                 
                 HStack {
                     ZStack {
                         Capsule()
                             .frame(width:24,height:12)
-                            .foregroundColor(Color(viewModel.isAutoLogIn ? UIColor(Color("MainColor")) : UIColor(Color("BaseColor"))))
+                            .foregroundColor(Color(viewModel.isAutoLogIn ? UIColor(.main) : UIColor(.base)))
                         ZStack{
                             Circle()
                                 .frame(width:10, height:10)
@@ -78,8 +78,8 @@ struct LogInScreen: View {
                     }
                     
                     Text("자동 로그인")
-                        .font(Font.system(size: 11))
-                        .foregroundColor(Color(viewModel.isAutoLogIn ? UIColor(Color("MainColor")) : UIColor(Color("TextMainColor"))))
+                        .font(.system(size: 11))
+                        .foregroundColor(Color(viewModel.isAutoLogIn ? UIColor(.main) : UIColor(.textMain)))
                     
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -97,24 +97,24 @@ struct LogInScreen: View {
                     }) {
                         Text("로그인")          //button이 아닌 label에 frame을 줘서 버튼 클릭 범위를 늘림
                             .frame(width: 227, height: 40)
-                            .font(Font.system(size: 14))
-                            .foregroundColor(Color("TextSubColor"))
-                            .background(Capsule().fill(Color(viewModel.isInfoNotEmpty ? UIColor(Color("MainColor")) : UIColor(Color("BaseColor")))))
+                            .font(.system(size: 14))
+                            .foregroundColor(.textSub)
+                            .background(Capsule().fill(Color(viewModel.isInfoNotEmpty ? UIColor(.main) : UIColor(.base))))
                             .padding([.bottom], 7)
                     }
                     
                     Button(action: {()}) { //TODO: 소셜 로그인 페이지 이동
                         Text("소셜 로그인")      //button이 아닌 label에 frame을 줘서 버튼 클릭 범위를 늘림
                             .frame(width: 227, height: 40)
-                            .font(Font.system(size: 14))
-                            .foregroundColor(Color("MainColor"))
-                            .background(Capsule().stroke(Color("MainColor")))
+                            .font(.system(size: 14))
+                            .foregroundColor(.main)
+                            .background(Capsule().stroke(Color.main))
                     }
                     
                     NavigationLink(destination: SignUpScreen()) { //TODO: 회원가입 페이지 이동
                         Text("회원가입")
-                            .foregroundColor(Color("MainColor"))
-                            .font(Font.system(size: 12))
+                            .foregroundColor(.main)
+                            .font(.system(size: 12))
                             .underline()
                     }
                     .padding([.top], 32)

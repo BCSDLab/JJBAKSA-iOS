@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct SignUpScreen: View {
-    @State var currentTab: Int = 0
+    @ObservedObject var viewModel = SignUpViewModel()
+    
     var body: some View {
-        TabView(selection: $currentTab) { //TODO: Drag Gesture Block
-            SignUpTermsView(currentTab: $currentTab).tag(0)
-            SignUpInfoView(currentTab: $currentTab).tag(1)
+        TabView(selection: $viewModel.currentTab) { //TODO: Block Drag Gesture 
+            SignUpTermsView().tag(0)
+                .environmentObject(viewModel)
+            SignUpInfoView().tag(1)
+                .environmentObject(viewModel)
             SignUpSuccessView().tag(2)
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        .animation(.default, value: currentTab)
+        .animation(.default, value: viewModel.currentTab)
         .navigationBarBackButtonHidden(true)
     }
 }

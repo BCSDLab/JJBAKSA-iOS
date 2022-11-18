@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct SignUpInfoView: View {
-    @ObservedObject var viewModel = SignUpViewModel()
+    @EnvironmentObject var viewModel: SignUpViewModel
     @State var showPassword: Bool = false
-    @Binding var currentTab: Int
     
     var body: some View {
         VStack {
             Spacer()
             HStack {
                 Image(systemName: "circle.fill") //임시 로고
-                    .font(Font.system(size: 30))
+                    .font(.system(size: 30))
                     .padding([.trailing], 7)
                 Text("쩝쩝박사")
-                    .font(Font.system(size: 18, weight: .bold))
+                    .font(.system(size: 18, weight: .bold))
             }
             
             
@@ -32,7 +31,7 @@ struct SignUpInfoView: View {
                     Text("아이디 중복확인을 해주세요.")
                 }
                 .font(.system(size: 11))
-                .foregroundColor(Color("MainColor"))
+                .foregroundColor(.main)
                 .frame(height: 35)
                 .padding(.horizontal, 80)
                 .padding(.top, 37)
@@ -43,7 +42,7 @@ struct SignUpInfoView: View {
                     Text("이미 존재하는 아이디입니다.")
                 }
                 .font(.system(size: 11))
-                .foregroundColor(Color("MainColor"))
+                .foregroundColor(.main)
                 .frame(height: 35)
                 .padding(.horizontal, 80)
                 .padding(.top, 37)
@@ -54,7 +53,7 @@ struct SignUpInfoView: View {
                     Text("존재하지 않는 도메인입니다.")
                 }
                 .font(.system(size: 11))
-                .foregroundColor(Color("MainColor"))
+                .foregroundColor(.main)
                 .frame(height: 35)
                 .padding(.horizontal, 80)
                 .padding(.top, 37)
@@ -65,7 +64,7 @@ struct SignUpInfoView: View {
                     Text("비밀번호는 문자, 숫자, 특수문자를 포함한 8~16자리로 이루어져야합니다.")
                 }
                 .font(.system(size: 11))
-                .foregroundColor(Color("MainColor"))
+                .foregroundColor(.main)
                 .frame(height: 35)
                 .padding(.horizontal, 80)
                 .padding(.top, 37)
@@ -76,14 +75,14 @@ struct SignUpInfoView: View {
                     Text("비밀번호가 일치하지 않습니다.")
                 }
                 .font(.system(size: 11))
-                .foregroundColor(Color("MainColor"))
+                .foregroundColor(.main)
                 .frame(height: 35)
                 .padding(.horizontal, 80)
                 .padding(.top, 37)
             default: HStack
                 {}
                     .font(.system(size: 11))
-                    .foregroundColor(Color("MainColor"))
+                    .foregroundColor(.main)
                     .frame(height: 35)
                     .padding(.horizontal, 80)
                     .padding(.top, 37)
@@ -91,55 +90,46 @@ struct SignUpInfoView: View {
             
             Group {
                 Text("아이디")
-                    .font(Font.system(size: 14))
+                    .font(.system(size: 14))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 24, leading: 82, bottom: 0, trailing: 0))
                 
                 ZStack {
                     TextField("아이디를 입력하세요.", text: $viewModel.account)
-                        .onChange(of: viewModel.account){ account in
+                        .onChange(of: viewModel.account) { account in
                             viewModel.resetAccountCheck()
                         }
+                        .keyboardType(.asciiCapable)
                         .autocorrectionDisabled(true)
                         .autocapitalization(.none)
                         .frame(width: 227, height: 30)
-                        .font(Font.system(size: 12))
+                        .font(.system(size: 12))
                         .padding([.leading], 10)
-                        .background(Capsule().fill(Color("LineColor")))
+                        .background(Capsule().fill(Color.line))
                     
-                    if viewModel.accountOverlapValue != "OK" {
-                        Button(action: { viewModel.isAccountOverlapValid() }) {
-                            Text("중복확인")
-                                .frame(width: 61, height: 30)
-                                .font(Font.system(size: 11))
-                                .foregroundColor(Color("MainColor"))
-                                .background(Capsule()
-                                    .fill(Color("TextSubColor")))
-                        }
-                        .padding([.leading], 179)
-                        Capsule()
-                            .strokeBorder(Color("MainColor"))
-                            .frame(width: 61, height: 30)
-                            .padding([.leading], 179)
-                    } else {
+                    Button(action: { viewModel.isAccountOverlapValid() }) {
                         Text("중복확인")
                             .frame(width: 61, height: 30)
-                            .font(Font.system(size: 11))
-                            .foregroundColor(Color("TextSubColor"))
+                            .font(.system(size: 11))
+                            .foregroundColor(viewModel.isAccountDuplicated ? Color.main : Color.textSub)
                             .background(Capsule()
-                                .fill(Color("MainColor")))
-                            .padding([.leading], 179)
+                                .fill(viewModel.isAccountDuplicated ? Color.textSub : Color.main))
                     }
+                    .padding([.leading], 174)
+                    Capsule()
+                        .strokeBorder(Color.main)
+                        .frame(width: 61, height: 30)
+                        .padding([.leading], 174)
                     
                     if viewModel.signUpErrorCode == .accountOverlapCheckError || viewModel.signUpErrorCode == .accountOverlapValidError {
                         Capsule()
-                            .strokeBorder(Color("MainColor"))
+                            .strokeBorder(Color.main)
                             .frame(width: 240, height: 30)
                     }
                 }
                 
                 Text("이메일")
-                    .font(Font.system(size: 14))
+                    .font(.system(size: 14))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 8, leading: 82, bottom: 0, trailing: 0))
                 
@@ -150,20 +140,21 @@ struct SignUpInfoView: View {
                                 viewModel.isEmailValid()
                             }
                         }
+                        .keyboardType(.emailAddress)
                         .autocorrectionDisabled(true)
                         .autocapitalization(.none)
                         .frame(width: 227, height: 30)
-                        .font(Font.system(size: 12))
+                        .font(.system(size: 12))
                         .padding([.leading], 10)
-                        .background(Capsule().fill(Color("LineColor")))
+                        .background(Capsule().fill(Color.line))
                     if viewModel.signUpErrorCode == .emailValidError {
                         Capsule()
-                            .strokeBorder(Color("MainColor"))
+                            .strokeBorder(Color.main)
                             .frame(width: 240, height: 30)
                     }
                 }
                 Text("비밀번호")
-                    .font(Font.system(size: 14))
+                    .font(.system(size: 14))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 8, leading: 82, bottom: 0, trailing: 0))
                 
@@ -171,7 +162,7 @@ struct SignUpInfoView: View {
                     ZStack{
                         if viewModel.signUpErrorCode == .passwordValidError {
                             Capsule()
-                                .strokeBorder(Color("MainColor"))
+                                .strokeBorder(Color.main)
                                 .frame(width: 240, height: 30)
                         }
                         TextField("비밀번호를 입력하세요.", text: $viewModel.password)
@@ -180,25 +171,26 @@ struct SignUpInfoView: View {
                                     viewModel.isPasswordValid()
                                 }
                             }
+                            .keyboardType(.asciiCapable)
                             .autocorrectionDisabled(true)
                             .autocapitalization(.none)
-                            .font(Font.system(size: 12))
+                            .font(.system(size: 12))
                             .padding([.leading], 10)
-                        Button(action: { self.showPassword.toggle() }){
+                        Button(action: { showPassword.toggle() }){
                             Image(systemName: "eye")
-                                .foregroundColor(Color("MainColor"))
-                                .font(Font.system(size: 12))
+                                .foregroundColor(.main)
+                                .font(.system(size: 12))
                         }
                         .padding([.leading], 200)
                         
                     }
                     .frame(width: 240, height: 30)
-                    .background(Capsule().fill(Color("LineColor")))
+                    .background(Capsule().fill(Color.line))
                 } else {
                     ZStack{
                         if viewModel.signUpErrorCode == .passwordValidError {
                             Capsule()
-                                .strokeBorder(Color("MainColor"))
+                                .strokeBorder(Color.main)
                                 .frame(width: 240, height: 30)
                         }
                         SecureField("비밀번호를 입력하세요.", text: $viewModel.password)
@@ -207,24 +199,27 @@ struct SignUpInfoView: View {
                                     viewModel.isPasswordValid()
                                 }
                             }
+                            .keyboardType(.asciiCapable)
+                            .textContentType(.newPassword)
                             .autocorrectionDisabled(true)
                             .autocapitalization(.none)
-                            .font(Font.system(size: 12))
+                            .font(.system(size: 12))
                             .padding([.leading], 10)
-                        Button(action: { self.showPassword.toggle() }){
+                        
+                        Button(action: { showPassword.toggle() }){
                             Image(systemName: "eye.slash")
-                                .foregroundColor(Color("BaseColor"))
-                                .font(Font.system(size: 12))
+                                .foregroundColor(.base)
+                                .font(.system(size: 12))
                         }
                         .padding([.leading], 200)
                     }
                     .frame(width: 240, height: 30)
-                    .background(Capsule().fill(Color("LineColor")))
+                    .background(Capsule().fill(Color.line))
                 }
                 
                 
                 Text("비밀번호 확인")
-                    .font(Font.system(size: 14))
+                    .font(.system(size: 14))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 8, leading: 82, bottom: 0, trailing: 0))
                 
@@ -232,7 +227,7 @@ struct SignUpInfoView: View {
                     ZStack{
                         if viewModel.signUpErrorCode == .passwordEqualityError {
                             Capsule()
-                                .strokeBorder(Color("MainColor"))
+                                .strokeBorder(Color.main)
                                 .frame(width: 240, height: 30)
                         }
                         TextField("비밀번호를 입력하세요.", text: $viewModel.checkPassword)
@@ -241,25 +236,26 @@ struct SignUpInfoView: View {
                                     viewModel.isPasswordEqual()
                                 }
                             }
+                            .keyboardType(.asciiCapable)
                             .autocorrectionDisabled(true)
                             .autocapitalization(.none)
-                            .font(Font.system(size: 12))
+                            .font(.system(size: 12))
                             .padding([.leading], 10)
                         
-                        Button(action: { self.showPassword.toggle() }){
+                        Button(action: { showPassword.toggle() }){
                             Image(systemName: "eye")
-                                .foregroundColor(Color("MainColor"))
-                                .font(Font.system(size: 12))
+                                .foregroundColor(.main)
+                                .font(.system(size: 12))
                         }
                         .padding([.leading], 200)
                     }
                     .frame(width: 240, height: 30)
-                    .background(Capsule().fill(Color("LineColor")))
+                    .background(Capsule().fill(Color.line))
                 } else {
                     ZStack{
                         if viewModel.signUpErrorCode == .passwordEqualityError {
                             Capsule()
-                                .strokeBorder(Color("MainColor"))
+                                .strokeBorder(Color.main)
                                 .frame(width: 240, height: 30)
                         }
                         SecureField("비밀번호를 입력하세요.", text: $viewModel.checkPassword)
@@ -268,43 +264,45 @@ struct SignUpInfoView: View {
                                     viewModel.isPasswordEqual()
                                 }
                             }
+                            .keyboardType(.asciiCapable)
+                            .textContentType(.newPassword)
                             .autocorrectionDisabled(true)
                             .autocapitalization(.none)
-                            .font(Font.system(size: 12))
+                            .font(.system(size: 12))
                             .padding([.leading], 10)
-                        Button(action: { self.showPassword.toggle() }){
+                        Button(action: { showPassword.toggle() }){
                             Image(systemName: "eye.slash")
-                                .foregroundColor(Color("BaseColor"))
-                                .font(Font.system(size: 12))
+                                .foregroundColor(.base)
+                                .font(.system(size: 12))
                         }
                         .padding([.leading], 200)
                     }
                     .frame(width: 240, height: 30)
-                    .background(Capsule().fill(Color("LineColor")))
+                    .background(Capsule().fill(Color.line))
                 }
             }
             
             Spacer()
-            if viewModel.isInfoisNotEmpty && (viewModel.signUpErrorCode == .none || viewModel.signUpErrorCode == .hold) {
+            if viewModel.isInfoIsNotEmpty && (viewModel.signUpErrorCode == .none || viewModel.signUpErrorCode == .hold) {
                 Button(action: {
                     viewModel.isSignUpValid()
                     if viewModel.signUpErrorCode == .none {
-                        currentTab += 1
+                        viewModel.currentTab += 1
                     }
                     print(viewModel.signUpErrorCode)
                 }) {
                     Text("다음")
                         .frame(width: 227, height: 40)
-                        .font(Font.system(size: 14))
-                        .foregroundColor(Color("TextSubColor"))
-                        .background(Capsule().fill(Color("MainColor")))
+                        .font(.system(size: 14))
+                        .foregroundColor(.textSub)
+                        .background(Capsule().fill(Color.main))
                 }
             } else {
                 Text("다음")
                     .frame(width: 227, height: 40)
-                    .font(Font.system(size: 14))
-                    .foregroundColor(Color("TextSubColor"))
-                    .background(Capsule().fill(Color("BaseColor")))
+                    .font(.system(size: 14))
+                    .foregroundColor(.textSub)
+                    .background(Capsule().fill(Color.base))
             }
             
             Spacer()

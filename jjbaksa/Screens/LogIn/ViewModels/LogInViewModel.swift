@@ -8,34 +8,15 @@
 import Foundation
 
 class LogInViewModel: ObservableObject {
-    let accountFilter: String = "[^0-9a-zA-Z]"  //account filter 정규 표현식
-    let passwordFilter: String = "[^0-9a-zA-Z~!@#\\$%\\^&\\*]" //password filter 정규 표현식
-    
-    @Published var account: String = "" {
-        didSet {
-            let value = oldValue.replacingOccurrences(
-                                of: accountFilter, with: "", options: .regularExpression)
-            if value != oldValue {
-                self.account = value
-            }
-        }
-    }
-    @Published var password: String = "" {
-        didSet {
-            let value = oldValue.replacingOccurrences(
-                                of: passwordFilter, with: "", options: .regularExpression)
-            if value != oldValue {
-                self.password = value
-            }
-        }
-    }
+    @Published var account: String = ""
+    @Published var password: String = ""
     @Published var isAutoLogIn: Bool = true
     @Published var isLogInFailed: Bool = false
     @Published var token: Token? = nil
     
     //account와 password가 비어있는지 확인.
     var isInfoNotEmpty: Bool {
-        !self.account.isEmpty && !self.password.isEmpty
+        !account.isEmpty && !password.isEmpty
     }
     
     func logIn() {
