@@ -61,11 +61,6 @@ class SignUpViewModel: ObservableObject {
                     self.isAccountDuplicated = false
                     self.signUpErrorCode = .accountOverlapValidError
                 }
-                let responseCode = error.responseCode ?? 0;
-                if (responseCode >= 400 && responseCode < 500) {
-                    self.isAccountDuplicated = false
-                    self.signUpErrorCode = .accountOverlapValidError
-                }
                 print(error)
                 break
             }

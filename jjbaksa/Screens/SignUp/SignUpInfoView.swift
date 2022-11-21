@@ -11,13 +11,24 @@ struct SignUpInfoView: View {
     @EnvironmentObject var viewModel: SignUpViewModel
     @State var showPassword: Bool = false
     
+    
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
+            Button(action : {
+                viewModel.currentTab -= 1
+            }){
+                Image(systemName: "chevron.backward")
+                    .font(.system(size: 16))
+                    .foregroundColor(.base)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(EdgeInsets(top: 20, leading: 30, bottom: 0, trailing: 0))
+            
             Spacer()
             HStack {
                 Image(systemName: "circle.fill") //임시 로고
                     .font(.system(size: 30))
-                    .padding([.trailing], 7)
+                    .padding(.trailing, 7)
                 Text("쩝쩝박사")
                     .font(.system(size: 18, weight: .bold))
             }
@@ -92,7 +103,7 @@ struct SignUpInfoView: View {
                 Text("아이디")
                     .font(.system(size: 14))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(EdgeInsets(top: 24, leading: 82, bottom: 0, trailing: 0))
+                    .padding(EdgeInsets(top: 24, leading: 83, bottom: 8, trailing: 0))
                 
                 ZStack {
                     TextField("아이디를 입력하세요.", text: $viewModel.account)
@@ -104,7 +115,7 @@ struct SignUpInfoView: View {
                         .autocapitalization(.none)
                         .frame(width: 227, height: 30)
                         .font(.system(size: 12))
-                        .padding([.leading], 10)
+                        .padding(.leading, 10)
                         .background(Capsule().fill(Color.line))
                     
                     Button(action: { viewModel.isAccountOverlapValid() }) {
@@ -115,11 +126,11 @@ struct SignUpInfoView: View {
                             .background(Capsule()
                                 .fill(viewModel.isAccountDuplicated ? Color.textSub : Color.main))
                     }
-                    .padding([.leading], 174)
+                    .padding(.leading, 179)
                     Capsule()
                         .strokeBorder(Color.main)
                         .frame(width: 61, height: 30)
-                        .padding([.leading], 174)
+                        .padding(.leading, 179)
                     
                     if viewModel.signUpErrorCode == .accountOverlapCheckError || viewModel.signUpErrorCode == .accountOverlapValidError {
                         Capsule()
@@ -131,7 +142,7 @@ struct SignUpInfoView: View {
                 Text("이메일")
                     .font(.system(size: 14))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(EdgeInsets(top: 8, leading: 82, bottom: 0, trailing: 0))
+                    .padding(EdgeInsets(top: 16, leading: 83, bottom: 8, trailing: 0))
                 
                 ZStack {
                     TextField("이메일을 입력하세요.", text: $viewModel.eMail)
@@ -145,7 +156,7 @@ struct SignUpInfoView: View {
                         .autocapitalization(.none)
                         .frame(width: 227, height: 30)
                         .font(.system(size: 12))
-                        .padding([.leading], 10)
+                        .padding(.leading, 10)
                         .background(Capsule().fill(Color.line))
                     if viewModel.signUpErrorCode == .emailValidError {
                         Capsule()
@@ -156,7 +167,7 @@ struct SignUpInfoView: View {
                 Text("비밀번호")
                     .font(.system(size: 14))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(EdgeInsets(top: 8, leading: 82, bottom: 0, trailing: 0))
+                    .padding(EdgeInsets(top: 16, leading: 83, bottom: 8, trailing: 0))
                 
                 if showPassword {
                     ZStack{
@@ -175,13 +186,13 @@ struct SignUpInfoView: View {
                             .autocorrectionDisabled(true)
                             .autocapitalization(.none)
                             .font(.system(size: 12))
-                            .padding([.leading], 10)
+                            .padding(.leading, 10)
                         Button(action: { showPassword.toggle() }){
                             Image(systemName: "eye")
                                 .foregroundColor(.main)
                                 .font(.system(size: 12))
                         }
-                        .padding([.leading], 200)
+                        .padding(.leading, 200)
                         
                     }
                     .frame(width: 240, height: 30)
@@ -204,14 +215,14 @@ struct SignUpInfoView: View {
                             .autocorrectionDisabled(true)
                             .autocapitalization(.none)
                             .font(.system(size: 12))
-                            .padding([.leading], 10)
+                            .padding(.leading, 10)
                         
                         Button(action: { showPassword.toggle() }){
                             Image(systemName: "eye.slash")
                                 .foregroundColor(.base)
                                 .font(.system(size: 12))
                         }
-                        .padding([.leading], 200)
+                        .padding(.leading, 200)
                     }
                     .frame(width: 240, height: 30)
                     .background(Capsule().fill(Color.line))
@@ -221,7 +232,7 @@ struct SignUpInfoView: View {
                 Text("비밀번호 확인")
                     .font(.system(size: 14))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(EdgeInsets(top: 8, leading: 82, bottom: 0, trailing: 0))
+                    .padding(EdgeInsets(top: 16, leading: 83, bottom: 8, trailing: 0))
                 
                 if showPassword {
                     ZStack{
@@ -240,14 +251,14 @@ struct SignUpInfoView: View {
                             .autocorrectionDisabled(true)
                             .autocapitalization(.none)
                             .font(.system(size: 12))
-                            .padding([.leading], 10)
+                            .padding(.leading, 10)
                         
                         Button(action: { showPassword.toggle() }){
                             Image(systemName: "eye")
                                 .foregroundColor(.main)
                                 .font(.system(size: 12))
                         }
-                        .padding([.leading], 200)
+                        .padding(.leading, 200)
                     }
                     .frame(width: 240, height: 30)
                     .background(Capsule().fill(Color.line))
@@ -269,13 +280,13 @@ struct SignUpInfoView: View {
                             .autocorrectionDisabled(true)
                             .autocapitalization(.none)
                             .font(.system(size: 12))
-                            .padding([.leading], 10)
+                            .padding(.leading, 10)
                         Button(action: { showPassword.toggle() }){
                             Image(systemName: "eye.slash")
                                 .foregroundColor(.base)
                                 .font(.system(size: 12))
                         }
-                        .padding([.leading], 200)
+                        .padding(.leading, 200)
                     }
                     .frame(width: 240, height: 30)
                     .background(Capsule().fill(Color.line))
@@ -283,6 +294,7 @@ struct SignUpInfoView: View {
             }
             
             Spacer()
+            
             if viewModel.isInfoIsNotEmpty && (viewModel.signUpErrorCode == .none || viewModel.signUpErrorCode == .hold) {
                 Button(action: {
                     viewModel.isSignUpValid()
@@ -309,10 +321,11 @@ struct SignUpInfoView: View {
         }
     }
 }
-/*
-struct SignUpScreen_Previews: PreviewProvider {
+
+struct SignUpInfoView_Previews: PreviewProvider {
     static var previews: some View {
         SignUpInfoView()
+            .environmentObject(SignUpViewModel())
     }
 }
 
