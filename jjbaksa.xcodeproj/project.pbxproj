@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BFAC8CA292B1A8A00188F82 /* SocialLogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8C9292B1A8A00188F82 /* SocialLogInScreen.swift */; };
 		E032D2EE28DDDE9900159F3D /* jjbaksaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */; };
 		E032D2F228DDDE9A00159F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E032D2F128DDDE9A00159F3D /* Assets.xcassets */; };
 		E032D2F528DDDE9A00159F3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E032D2F428DDDE9A00159F3D /* Preview Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BFAC8C9292B1A8A00188F82 /* SocialLogInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogInScreen.swift; sourceTree = "<group>"; };
 		DB88C60566CCF3B54FD82205 /* Pods_jjbaksa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jjbaksa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2EA28DDDE9900159F3D /* jjbaksa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjbaksa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jjbaksaApp.swift; sourceTree = "<group>"; };
@@ -75,11 +77,8 @@
 		E032D2EC28DDDE9900159F3D /* jjbaksa */ = {
 			isa = PBXGroup;
 			children = (
-				E032D2FF28DDDEC500159F3D /* Widgets */,
-				E032D2FE28DDDEC000159F3D /* Utils */,
 				E032D2FD28DDDEB900159F3D /* Screens */,
 				E032D2FC28DDDEB000159F3D /* Repositories */,
-				E032D2FB28DDDEAA00159F3D /* Models */,
 				E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */,
 				E032D2F128DDDE9A00159F3D /* Assets.xcassets */,
 				E032D2F328DDDE9A00159F3D /* Preview Content */,
@@ -93,13 +92,6 @@
 				E032D2F428DDDE9A00159F3D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		E032D2FB28DDDEAA00159F3D /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		E032D2FC28DDDEB000159F3D /* Repositories */ = {
@@ -117,20 +109,6 @@
 				E032D30028DDDED400159F3D /* Root */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		E032D2FE28DDDEC000159F3D /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		E032D2FF28DDDEC500159F3D /* Widgets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Widgets;
 			sourceTree = "<group>";
 		};
 		E032D30028DDDED400159F3D /* Root */ = {
@@ -162,9 +140,9 @@
 			isa = PBXGroup;
 			children = (
 				E0343E4828E323C600221072 /* Models */,
-				E0343E4028E31F3C00221072 /* Widgets */,
 				E0343E3F28E31F3600221072 /* ViewModels */,
 				E0343E3D28E31F3100221072 /* LogInScreen.swift */,
+				1BFAC8C9292B1A8A00188F82 /* SocialLogInScreen.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -175,13 +153,6 @@
 				E0343E4128E31F5000221072 /* LogInViewModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		E0343E4028E31F3C00221072 /* Widgets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Widgets;
 			sourceTree = "<group>";
 		};
 		E0343E4828E323C600221072 /* Models */ = {
@@ -272,6 +243,7 @@
 				E0343E4A28E323D600221072 /* Token.swift in Sources */,
 				E032D2EE28DDDE9900159F3D /* jjbaksaApp.swift in Sources */,
 				E0343E4228E31F5000221072 /* LogInViewModel.swift in Sources */,
+				1BFAC8CA292B1A8A00188F82 /* SocialLogInScreen.swift in Sources */,
 				E0343E4428E322DB00221072 /* UserRepository.swift in Sources */,
 				E0343E3E28E31F3100221072 /* LogInScreen.swift in Sources */,
 				E032D30628DDDF0400159F3D /* RootViewModel.swift in Sources */,
