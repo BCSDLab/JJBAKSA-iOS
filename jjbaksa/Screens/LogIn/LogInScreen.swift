@@ -17,10 +17,10 @@ struct LogInScreen: View {
                 Spacer()
                 HStack {
                     Image(systemName: "circle.fill") //임시 로고
-                            .font(Font.system(size: 30))
+                            .sizeCustom(30)
                             .padding([.trailing], 7)
                     Text("쩝쩝박사")
-                            .font(Font.system(size: 18, weight: .bold))
+                            .size18Bold()
                 }
 
 
@@ -30,7 +30,7 @@ struct LogInScreen: View {
                         Text("회원이 아니시거나, 아이디 또는 비밀번호를 잘못 입력했습니다.")
                     }
                 }
-                        .font(.system(size: 11))
+                        .size11Regular()
                         .foregroundColor(.main)
                         .frame(height: 35)
                         .padding(.horizontal, 80)
@@ -38,7 +38,7 @@ struct LogInScreen: View {
 
 
                 Text("로그인")
-                        .font(Font.system(size: 14))
+                        .size14Regular()
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(EdgeInsets(top: 24, leading: 82, bottom: 0, trailing: 0))
 
@@ -46,7 +46,7 @@ struct LogInScreen: View {
                         .autocorrectionDisabled(true)
                         .autocapitalization(.none)
                         .frame(width: 227, height: 30)
-                        .font(Font.system(size: 12))
+                        .size12Regular()
                         .padding([.leading], 10)
                         .background(Capsule().fill(Color.line))
 
@@ -55,7 +55,7 @@ struct LogInScreen: View {
                         .autocorrectionDisabled(true)
                         .autocapitalization(.none)
                         .frame(width: 227, height: 30)
-                        .font(Font.system(size: 12))
+                        .size12Regular()
                         .padding([.leading], 10)
                         .background(Capsule().fill(Color.line))
 
@@ -96,7 +96,7 @@ struct LogInScreen: View {
                     }) {
                         Text("로그인")          //button이 아닌 label에 frame을 줘서 버튼 클릭 범위를 늘림
                                 .frame(width: 227, height: 40)
-                                .font(Font.system(size: 14))
+                                .size14Regular()
                                 .foregroundColor(.textSub)
                                 .background(Capsule().fill(Color(viewModel.isInfoNotEmpty ? UIColor(.main) : UIColor(.base))))
                                 .padding([.bottom], 7)
