@@ -67,7 +67,7 @@ struct LogInScreen: View {
                         ZStack {
                             Circle()
                                     .frame(width: 10, height: 10)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.textSub)
                         }
                                 .offset(x: viewModel.isAutoLogIn ? 6 : -6)
                                 .animation(.spring())
@@ -77,7 +77,7 @@ struct LogInScreen: View {
                             }
 
                     Text("자동 로그인")
-                            .font(Font.system(size: 11))
+                            .size11Regular()
                             .foregroundColor(Color(viewModel.isAutoLogIn ? UIColor(.main) : UIColor(.textMain)))
 
                 }
@@ -105,7 +105,7 @@ struct LogInScreen: View {
                     Button(action: { () }) { //TODO: 소셜 로그인 페이지 이동
                         Text("소셜 로그인")      //button이 아닌 label에 frame을 줘서 버튼 클릭 범위를 늘림
                                 .frame(width: 227, height: 40)
-                                .font(Font.system(size: 14))
+                                .size14Regular()
                                 .foregroundColor(.main)
                                 .background(Capsule().stroke(Color.main))
                     }
@@ -113,7 +113,7 @@ struct LogInScreen: View {
                     NavigationLink(destination: SignUpScreen()) { //TODO: 회원가입 페이지 이동
                         Text("회원가입")
                                 .foregroundColor(.main)
-                                .font(Font.system(size: 12))
+                                .size12Regular()
                                 .underline()
                     }
                             .padding([.top], 32)

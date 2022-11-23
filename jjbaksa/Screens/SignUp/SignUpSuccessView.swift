@@ -14,20 +14,20 @@ struct SignUpSuccessView: View {
             Spacer()
             HStack {
                 Image(systemName: "circle.fill") //임시 로고
-                    .font(.system(size: 30))
+                    .sizeCustom(30)
                     .padding(.trailing, 7)
                 Text("쩝쩝박사")
-                    .font(.system(size: 18, weight: .bold))
+                    .size18Bold()
             }
             Text("🎉")
-                .font(.system(size: 50))
+                .sizeCustom(50)
                 .padding(.top, 101)
                 .padding(.bottom, 11)
             
             Text("회원가입을 축하합니다!")
-                .font(.system(size: 14))
+                .size14Regular()
             Text("당신을 어떻게 부르면 좋을까요?")
-                .font(.system(size: 14))
+                .size14Regular()
                 .padding(.bottom, 47)
             
             
@@ -36,16 +36,16 @@ struct SignUpSuccessView: View {
                 .autocapitalization(.none)
                 .multilineTextAlignment(.center)
                 .frame(width: 227, height: 30)
-                .font(.system(size: 14))
-                .background(Capsule().fill(Color("LineColor")))
+                .size14Regular()
+                .background(Capsule().fill(Color.line))
                 .padding(.bottom, 161)
             
             Button(action: {()}) {
                 Text("완료")
                     .frame(width: 227, height: 40)
-                    .font(.system(size: 14))
-                    .foregroundColor(Color("TextSubColor"))
-                    .background(Capsule().fill(Color("MainColor")))
+                    .size14Regular()
+                    .foregroundColor(.textSub)
+                    .background(Capsule().fill(Color.main))
             }
  
             Spacer()

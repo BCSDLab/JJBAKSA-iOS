@@ -18,7 +18,7 @@ struct SignUpInfoView: View {
                 viewModel.currentTab -= 1
             }){
                 Image(systemName: "chevron.backward")
-                    .font(.system(size: 16))
+                    .size16Regular()
                     .foregroundColor(.base)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -27,10 +27,10 @@ struct SignUpInfoView: View {
             Spacer()
             HStack {
                 Image(systemName: "circle.fill") //임시 로고
-                    .font(.system(size: 30))
+                    .sizeCustom(30)
                     .padding(.trailing, 7)
                 Text("쩝쩝박사")
-                    .font(.system(size: 18, weight: .bold))
+                    .size18Bold()
             }
             
             
@@ -41,7 +41,7 @@ struct SignUpInfoView: View {
                     Image(systemName: "exclamationmark.triangle")
                     Text("아이디 중복확인을 해주세요.")
                 }
-                .font(.system(size: 11))
+                .size11Regular()
                 .foregroundColor(.main)
                 .frame(height: 35)
                 .padding(.horizontal, 80)
@@ -52,7 +52,7 @@ struct SignUpInfoView: View {
                     Image(systemName: "exclamationmark.triangle")
                     Text("이미 존재하는 아이디입니다.")
                 }
-                .font(.system(size: 11))
+                .size11Regular()
                 .foregroundColor(.main)
                 .frame(height: 35)
                 .padding(.horizontal, 80)
@@ -63,7 +63,7 @@ struct SignUpInfoView: View {
                     Image(systemName: "exclamationmark.triangle")
                     Text("존재하지 않는 도메인입니다.")
                 }
-                .font(.system(size: 11))
+                .size11Regular()
                 .foregroundColor(.main)
                 .frame(height: 35)
                 .padding(.horizontal, 80)
@@ -74,7 +74,7 @@ struct SignUpInfoView: View {
                     Image(systemName: "exclamationmark.triangle")
                     Text("비밀번호는 문자, 숫자, 특수문자를 포함한 8~16자리로 이루어져야합니다.")
                 }
-                .font(.system(size: 11))
+                .size11Regular()
                 .foregroundColor(.main)
                 .frame(height: 35)
                 .padding(.horizontal, 80)
@@ -85,14 +85,14 @@ struct SignUpInfoView: View {
                     Image(systemName: "exclamationmark.triangle")
                     Text("비밀번호가 일치하지 않습니다.")
                 }
-                .font(.system(size: 11))
+                .size11Regular()
                 .foregroundColor(.main)
                 .frame(height: 35)
                 .padding(.horizontal, 80)
                 .padding(.top, 37)
             default: HStack
                 {}
-                    .font(.system(size: 11))
+                    .size11Regular()
                     .foregroundColor(.main)
                     .frame(height: 35)
                     .padding(.horizontal, 80)
@@ -101,7 +101,7 @@ struct SignUpInfoView: View {
             
             Group {
                 Text("아이디")
-                    .font(.system(size: 14))
+                    .size14Regular()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 24, leading: 83, bottom: 8, trailing: 0))
                 
@@ -114,14 +114,14 @@ struct SignUpInfoView: View {
                         .autocorrectionDisabled(true)
                         .autocapitalization(.none)
                         .frame(width: 227, height: 30)
-                        .font(.system(size: 12))
+                        .size12Regular()
                         .padding(.leading, 10)
                         .background(Capsule().fill(Color.line))
                     
                     Button(action: { viewModel.isAccountOverlapValid() }) {
                         Text("중복확인")
                             .frame(width: 61, height: 30)
-                            .font(.system(size: 11))
+                            .size11Regular()
                             .foregroundColor(viewModel.isAccountDuplicated ? Color.main : Color.textSub)
                             .background(Capsule()
                                 .fill(viewModel.isAccountDuplicated ? Color.textSub : Color.main))
@@ -140,7 +140,7 @@ struct SignUpInfoView: View {
                 }
                 
                 Text("이메일")
-                    .font(.system(size: 14))
+                    .size14Regular()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 16, leading: 83, bottom: 8, trailing: 0))
                 
@@ -155,7 +155,7 @@ struct SignUpInfoView: View {
                         .autocorrectionDisabled(true)
                         .autocapitalization(.none)
                         .frame(width: 227, height: 30)
-                        .font(.system(size: 12))
+                        .size12Regular()
                         .padding(.leading, 10)
                         .background(Capsule().fill(Color.line))
                     if viewModel.signUpErrorCode == .emailValidError {
@@ -165,7 +165,7 @@ struct SignUpInfoView: View {
                     }
                 }
                 Text("비밀번호")
-                    .font(.system(size: 14))
+                    .size14Regular()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 16, leading: 83, bottom: 8, trailing: 0))
                 
@@ -185,12 +185,12 @@ struct SignUpInfoView: View {
                             .keyboardType(.asciiCapable)
                             .autocorrectionDisabled(true)
                             .autocapitalization(.none)
-                            .font(.system(size: 12))
+                            .size12Regular()
                             .padding(.leading, 10)
                         Button(action: { showPassword.toggle() }){
                             Image(systemName: "eye")
                                 .foregroundColor(.main)
-                                .font(.system(size: 12))
+                                .size12Regular()
                         }
                         .padding(.leading, 200)
                         
@@ -214,13 +214,13 @@ struct SignUpInfoView: View {
                             .textContentType(.newPassword)
                             .autocorrectionDisabled(true)
                             .autocapitalization(.none)
-                            .font(.system(size: 12))
+                            .size12Regular()
                             .padding(.leading, 10)
                         
                         Button(action: { showPassword.toggle() }){
                             Image(systemName: "eye.slash")
                                 .foregroundColor(.base)
-                                .font(.system(size: 12))
+                                .size12Regular()
                         }
                         .padding(.leading, 200)
                     }
@@ -230,7 +230,7 @@ struct SignUpInfoView: View {
                 
                 
                 Text("비밀번호 확인")
-                    .font(.system(size: 14))
+                    .size14Regular()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 16, leading: 83, bottom: 8, trailing: 0))
                 
@@ -250,13 +250,13 @@ struct SignUpInfoView: View {
                             .keyboardType(.asciiCapable)
                             .autocorrectionDisabled(true)
                             .autocapitalization(.none)
-                            .font(.system(size: 12))
+                            .size12Regular()
                             .padding(.leading, 10)
                         
                         Button(action: { showPassword.toggle() }){
                             Image(systemName: "eye")
                                 .foregroundColor(.main)
-                                .font(.system(size: 12))
+                                .size12Regular()
                         }
                         .padding(.leading, 200)
                     }
@@ -279,12 +279,12 @@ struct SignUpInfoView: View {
                             .textContentType(.newPassword)
                             .autocorrectionDisabled(true)
                             .autocapitalization(.none)
-                            .font(.system(size: 12))
+                            .size12Regular()
                             .padding(.leading, 10)
                         Button(action: { showPassword.toggle() }){
                             Image(systemName: "eye.slash")
                                 .foregroundColor(.base)
-                                .font(.system(size: 12))
+                                .size12Regular()
                         }
                         .padding(.leading, 200)
                     }
@@ -305,14 +305,14 @@ struct SignUpInfoView: View {
                 }) {
                     Text("다음")
                         .frame(width: 227, height: 40)
-                        .font(.system(size: 14))
+                        .size14Regular()
                         .foregroundColor(.textSub)
                         .background(Capsule().fill(Color.main))
                 }
             } else {
                 Text("다음")
                     .frame(width: 227, height: 40)
-                    .font(.system(size: 14))
+                    .size14Regular()
                     .foregroundColor(.textSub)
                     .background(Capsule().fill(Color.base))
             }
