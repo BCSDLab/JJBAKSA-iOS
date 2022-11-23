@@ -6,5 +6,6 @@ target 'jjbaksa' do
   use_frameworks!
 
   # Pods for jjbaksa
+  pod 'NMapsMap'
 
 end

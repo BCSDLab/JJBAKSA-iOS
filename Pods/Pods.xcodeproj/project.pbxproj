@@ -6,54 +6,66 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		8E049F5F4E3BDC647F924FEF22D49D90 /* NMapsMap */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A1B213981E68CAFF0A1F18AAD44F4839 /* Build configuration list for PBXAggregateTarget "NMapsMap" */;
+			buildPhases = (
+				ED4155E71C3B4448F7BAFEA64A58DBE8 /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+			);
+			name = NMapsMap;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		3BFC95FD106ABAB8620F62400B51444F /* Pods-jjbaksa-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FD28B155F4ECB0FDDCA75058FE3EAE0 /* Pods-jjbaksa-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49680214BBDDB2426291BFCE42F1C476 /* Pods-jjbaksa-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F2769A30E0B2151F373B61FC2DCB44 /* Pods-jjbaksa-dummy.m */; };
-		B17FA65C0179CBB407AD5FD768FC366A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		3647CD3A9B881FB1F1CF580420C98964 /* Pods-jjbaksa-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 68420319D479AF2FD6FD5D0E36B299CD /* Pods-jjbaksa-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		548176CAFDFC0CB49D1256E1A67B88CE /* Pods-jjbaksa-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8371D6849DA1EBEA9F3A36BEBF96CB /* Pods-jjbaksa-dummy.m */; };
+		79BD2869CB0AAB513F93A7AD639D5807 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3DAF8C6726A29C99F2C7D6A5B97E632A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E049F5F4E3BDC647F924FEF22D49D90;
+			remoteInfo = NMapsMap;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		141F88EA2C7D9F03198A11BB983FED48 /* Pods-jjbaksa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-jjbaksa.debug.xcconfig"; sourceTree = "<group>"; };
+		20BEEEB7F2F5BFF3346E15906C53EA8D /* NMapsMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMapsMap.debug.xcconfig; sourceTree = "<group>"; };
+		3B58982A6753EB0DE41AA99DB73B4943 /* NMapsMap.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = NMapsMap.xcframework; path = framework/NMapsMap.xcframework; sourceTree = "<group>"; };
+		48606F347EC993F12935638AAB3F9CCD /* Pods-jjbaksa.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-jjbaksa.modulemap"; sourceTree = "<group>"; };
 		49C44382F79A420FFA8C12E1BA9B5204 /* Pods-jjbaksa */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-jjbaksa"; path = Pods_jjbaksa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		71F03B2F830C3A828502BE5E32FFEE51 /* Pods-jjbaksa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-jjbaksa.debug.xcconfig"; sourceTree = "<group>"; };
+		5F25BF3AF494B34C54F1E554B790C64B /* NMapsMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMapsMap.release.xcconfig; sourceTree = "<group>"; };
+		68420319D479AF2FD6FD5D0E36B299CD /* Pods-jjbaksa-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-jjbaksa-umbrella.h"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		737700DE25F26C5B862C39365F72B276 /* Pods-jjbaksa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-jjbaksa.release.xcconfig"; sourceTree = "<group>"; };
-		7D440AD97E8DE663D86CB2D113074F05 /* Pods-jjbaksa.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-jjbaksa.modulemap"; sourceTree = "<group>"; };
-		856C6C8F8F92D052A91C8520EA97B0D8 /* Pods-jjbaksa-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-jjbaksa-Info.plist"; sourceTree = "<group>"; };
-		8842C81FFC7CE4722D928AD919A62798 /* Pods-jjbaksa-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-jjbaksa-acknowledgements.markdown"; sourceTree = "<group>"; };
+		90409BCB8204159D741FE77FCDB0D343 /* Pods-jjbaksa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-jjbaksa.release.xcconfig"; sourceTree = "<group>"; };
+		9683B2C1858ADF2ABBD64638CA86F160 /* Pods-jjbaksa-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-jjbaksa-Info.plist"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9FD28B155F4ECB0FDDCA75058FE3EAE0 /* Pods-jjbaksa-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-jjbaksa-umbrella.h"; sourceTree = "<group>"; };
-		B1F2769A30E0B2151F373B61FC2DCB44 /* Pods-jjbaksa-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-jjbaksa-dummy.m"; sourceTree = "<group>"; };
-		F49A2D2F927C3002DB574EDC3068998D /* Pods-jjbaksa-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-jjbaksa-acknowledgements.plist"; sourceTree = "<group>"; };
+		B3AD33EB2CDBBC3934A4B139AD5DBDBE /* Pods-jjbaksa-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-jjbaksa-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CC0A54D193CAAEB4327C49B9E8745AEE /* Pods-jjbaksa-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-jjbaksa-frameworks.sh"; sourceTree = "<group>"; };
+		CC36C9CBF5D2D40AF8D86DF9B96D6CA3 /* NMapsMap-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "NMapsMap-xcframeworks.sh"; sourceTree = "<group>"; };
+		D5B6624D58FFB4FE2A393370B5DEECE8 /* Pods-jjbaksa-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-jjbaksa-acknowledgements.plist"; sourceTree = "<group>"; };
+		DF8371D6849DA1EBEA9F3A36BEBF96CB /* Pods-jjbaksa-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-jjbaksa-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2FCC2AF5BE4396EED8AE46C3DA2AA736 /* Frameworks */ = {
+		504B3F1010833B01BA4DB771B6EFA256 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B17FA65C0179CBB407AD5FD768FC366A /* Foundation.framework in Frameworks */,
+				79BD2869CB0AAB513F93A7AD639D5807 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		351A1B56650A9D7B9EFB3EF0CE5FE480 /* Pods-jjbaksa */ = {
-			isa = PBXGroup;
-			children = (
-				7D440AD97E8DE663D86CB2D113074F05 /* Pods-jjbaksa.modulemap */,
-				8842C81FFC7CE4722D928AD919A62798 /* Pods-jjbaksa-acknowledgements.markdown */,
-				F49A2D2F927C3002DB574EDC3068998D /* Pods-jjbaksa-acknowledgements.plist */,
-				B1F2769A30E0B2151F373B61FC2DCB44 /* Pods-jjbaksa-dummy.m */,
-				856C6C8F8F92D052A91C8520EA97B0D8 /* Pods-jjbaksa-Info.plist */,
-				9FD28B155F4ECB0FDDCA75058FE3EAE0 /* Pods-jjbaksa-umbrella.h */,
-				71F03B2F830C3A828502BE5E32FFEE51 /* Pods-jjbaksa.debug.xcconfig */,
-				737700DE25F26C5B862C39365F72B276 /* Pods-jjbaksa.release.xcconfig */,
-			);
-			name = "Pods-jjbaksa";
-			path = "Target Support Files/Pods-jjbaksa";
-			sourceTree = "<group>";
-		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -62,12 +74,55 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		B5B3ABD471B838BA16A87273F4AD566E /* Targets Support Files */ = {
+		7453819D9A6489588C2ABC2D5CB7E00F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				351A1B56650A9D7B9EFB3EF0CE5FE480 /* Pods-jjbaksa */,
+				C0F3F3C3E4EC46DA6CB2F554D5A220C3 /* NMapsMap */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		990B947B8C4DBD76D39D345BC517D69E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CED3050A8EC40780F08714B71D1D8730 /* Pods-jjbaksa */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C0F3F3C3E4EC46DA6CB2F554D5A220C3 /* NMapsMap */ = {
+			isa = PBXGroup;
+			children = (
+				C50F67E714F076DBE11F69F7E1F86553 /* Frameworks */,
+				D420C0625323EABF8B7CD6DE4B68D71E /* Support Files */,
+			);
+			name = NMapsMap;
+			path = NMapsMap;
+			sourceTree = "<group>";
+		};
+		C50F67E714F076DBE11F69F7E1F86553 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B58982A6753EB0DE41AA99DB73B4943 /* NMapsMap.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CED3050A8EC40780F08714B71D1D8730 /* Pods-jjbaksa */ = {
+			isa = PBXGroup;
+			children = (
+				48606F347EC993F12935638AAB3F9CCD /* Pods-jjbaksa.modulemap */,
+				B3AD33EB2CDBBC3934A4B139AD5DBDBE /* Pods-jjbaksa-acknowledgements.markdown */,
+				D5B6624D58FFB4FE2A393370B5DEECE8 /* Pods-jjbaksa-acknowledgements.plist */,
+				DF8371D6849DA1EBEA9F3A36BEBF96CB /* Pods-jjbaksa-dummy.m */,
+				CC0A54D193CAAEB4327C49B9E8745AEE /* Pods-jjbaksa-frameworks.sh */,
+				9683B2C1858ADF2ABBD64638CA86F160 /* Pods-jjbaksa-Info.plist */,
+				68420319D479AF2FD6FD5D0E36B299CD /* Pods-jjbaksa-umbrella.h */,
+				141F88EA2C7D9F03198A11BB983FED48 /* Pods-jjbaksa.debug.xcconfig */,
+				90409BCB8204159D741FE77FCDB0D343 /* Pods-jjbaksa.release.xcconfig */,
+			);
+			name = "Pods-jjbaksa";
+			path = "Target Support Files/Pods-jjbaksa";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -75,8 +130,9 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				7453819D9A6489588C2ABC2D5CB7E00F /* Pods */,
 				FF8E588635CEEAA3982EA3DBF5ED1AD4 /* Products */,
-				B5B3ABD471B838BA16A87273F4AD566E /* Targets Support Files */,
+				990B947B8C4DBD76D39D345BC517D69E /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +142,17 @@
 				578452D2E740E91742655AC8F1636D1F /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D420C0625323EABF8B7CD6DE4B68D71E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC36C9CBF5D2D40AF8D86DF9B96D6CA3 /* NMapsMap-xcframeworks.sh */,
+				20BEEEB7F2F5BFF3346E15906C53EA8D /* NMapsMap.debug.xcconfig */,
+				5F25BF3AF494B34C54F1E554B790C64B /* NMapsMap.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/NMapsMap";
 			sourceTree = "<group>";
 		};
 		FF8E588635CEEAA3982EA3DBF5ED1AD4 /* Products */ = {
@@ -99,11 +166,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6DF51B1582EDEF9CD10EC4CE803E2D70 /* Headers */ = {
+		487D41343643C6472731916D8E1BACA1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BFC95FD106ABAB8620F62400B51444F /* Pods-jjbaksa-umbrella.h in Headers */,
+				3647CD3A9B881FB1F1CF580420C98964 /* Pods-jjbaksa-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,16 +179,17 @@
 /* Begin PBXNativeTarget section */
 		FDA2C8EA97556C4BFE251D77DB48FA7F /* Pods-jjbaksa */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F110C860049F0443E2A29AA5FD9E4EDA /* Build configuration list for PBXNativeTarget "Pods-jjbaksa" */;
+			buildConfigurationList = FAE6B3D45B4104E3B404E20E0536253D /* Build configuration list for PBXNativeTarget "Pods-jjbaksa" */;
 			buildPhases = (
-				6DF51B1582EDEF9CD10EC4CE803E2D70 /* Headers */,
-				AB2A3BF48A21D7A5D15A94A1B12C1F97 /* Sources */,
-				2FCC2AF5BE4396EED8AE46C3DA2AA736 /* Frameworks */,
-				09EF0AB91902DCD5B9D4CA0BD2001EE9 /* Resources */,
+				487D41343643C6472731916D8E1BACA1 /* Headers */,
+				22A6B55CDCCB7D2E0AE13C019054B4D5 /* Sources */,
+				504B3F1010833B01BA4DB771B6EFA256 /* Frameworks */,
+				705BC9E6FD97A219B69F37A65802B7A3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C80D7769228E739A8F2F6BA270C42495 /* PBXTargetDependency */,
 			);
 			name = "Pods-jjbaksa";
 			productName = Pods_jjbaksa;
@@ -150,13 +218,14 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				8E049F5F4E3BDC647F924FEF22D49D90 /* NMapsMap */,
 				FDA2C8EA97556C4BFE251D77DB48FA7F /* Pods-jjbaksa */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		09EF0AB91902DCD5B9D4CA0BD2001EE9 /* Resources */ = {
+		705BC9E6FD97A219B69F37A65802B7A3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -165,21 +234,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ED4155E71C3B4448F7BAFEA64A58DBE8 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/NMapsMap/NMapsMap-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/NMapsMap/NMapsMap-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/NMapsMap/NMapsMap-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		AB2A3BF48A21D7A5D15A94A1B12C1F97 /* Sources */ = {
+		22A6B55CDCCB7D2E0AE13C019054B4D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49680214BBDDB2426291BFCE42F1C476 /* Pods-jjbaksa-dummy.m in Sources */,
+				548176CAFDFC0CB49D1256E1A67B88CE /* Pods-jjbaksa-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C80D7769228E739A8F2F6BA270C42495 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NMapsMap;
+			target = 8E049F5F4E3BDC647F924FEF22D49D90 /* NMapsMap */;
+			targetProxy = 3DAF8C6726A29C99F2C7D6A5B97E632A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		2A49466174E97A1886C80B921FC80F94 /* Release */ = {
+		11DC1BAB10647A8D6CDD9BB985CEC1DF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 737700DE25F26C5B862C39365F72B276 /* Pods-jjbaksa.release.xcconfig */;
+			baseConfigurationReference = 90409BCB8204159D741FE77FCDB0D343 /* Pods-jjbaksa.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -212,6 +310,23 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		23D40494AA4C44B2B496532B44F79289 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F25BF3AF494B34C54F1E554B790C64B /* NMapsMap.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -277,9 +392,25 @@
 			};
 			name = Release;
 		};
-		ECD9075D4423D0411563DCF2DD4AE304 /* Debug */ = {
+		8F9B1FBCC57DCB9D3488C59AE31399CE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71F03B2F830C3A828502BE5E32FFEE51 /* Pods-jjbaksa.debug.xcconfig */;
+			baseConfigurationReference = 20BEEEB7F2F5BFF3346E15906C53EA8D /* NMapsMap.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E56817BAA99E15F01EBE3BBD8A10CF1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 141F88EA2C7D9F03198A11BB983FED48 /* Pods-jjbaksa.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -392,11 +523,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F110C860049F0443E2A29AA5FD9E4EDA /* Build configuration list for PBXNativeTarget "Pods-jjbaksa" */ = {
+		A1B213981E68CAFF0A1F18AAD44F4839 /* Build configuration list for PBXAggregateTarget "NMapsMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ECD9075D4423D0411563DCF2DD4AE304 /* Debug */,
-				2A49466174E97A1886C80B921FC80F94 /* Release */,
+				8F9B1FBCC57DCB9D3488C59AE31399CE /* Debug */,
+				23D40494AA4C44B2B496532B44F79289 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAE6B3D45B4104E3B404E20E0536253D /* Build configuration list for PBXNativeTarget "Pods-jjbaksa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E56817BAA99E15F01EBE3BBD8A10CF1F /* Debug */,
+				11DC1BAB10647A8D6CDD9BB985CEC1DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
