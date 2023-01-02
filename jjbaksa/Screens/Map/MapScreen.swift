@@ -76,6 +76,7 @@ struct MapScreen: View {
                     }
                             .frame(maxWidth: .infinity, alignment: .trailing)
                             .padding(.trailing, 16)
+                            .padding(.bottom, 21)
                 }
             }
                     .zIndex(1)
