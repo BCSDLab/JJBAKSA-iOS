@@ -35,7 +35,6 @@ struct TabBarView: View {
     var body: some View {
         
         HStack (spacing: 0) {
-            Spacer()
             ZStack {
                 Button {
                     self.currentTab = 0
@@ -50,34 +49,43 @@ struct TabBarView: View {
                         
                     }
                 }
-                .frame(width:120, height: 100)
+                .frame(height: 100)
                 .foregroundColor(currentTab == 0 ? Color.textMain : Color.base)
                 
-                //TODO: 각 버튼의 비율을 GeometryReader를 사용하여 비율을 정해야 할 지?
                 if currentTab == 0 {
                     Capsule()
                         .fill(Color.textMain)
-                        .frame(width:120, height: 2)
+                        .frame(height: 2)
+                        .padding(.bottom, 112)
+                } else {
+                    Capsule()
+                        .fill(.clear)
+                        .frame(height: 2)
                         .padding(.bottom, 112)
                 }
             }
-            Spacer()
-            
             NavigationLink(destination: PostScreen() ) {
-                VStack {
-                    Image(systemName: "pencil")
-                        .padding(.bottom, 3)
-                    Text("글쓰기")
-                        .font(.system(size: 12))
-                        .padding(.bottom, 28)
-                   
+                ZStack {
+                    VStack {
+                        Image(systemName: "pencil")
+                            .padding(.bottom, 3)
+                        Text("글쓰기")
+                            .font(.system(size: 12))
+                            .padding(.bottom, 28)
+                       
+                    }
+                    Capsule()
+                        .fill(.clear)
+                        .frame(height: 2)
+                        .padding(.bottom, 112)
                 }
                 
+                
             }
-            .frame(width: 120, height: 100)
+            .frame(height: 100)
             .foregroundColor(Color.base)
             
-            Spacer()
+            
             
             ZStack {
                 Button {
@@ -94,23 +102,25 @@ struct TabBarView: View {
                     }
                     
                 }
-                .frame(width: 120, height: 100)
+                .frame(height: 100)
                 .foregroundColor(currentTab == 1 ? Color.textMain : Color.base)
                 if currentTab == 1 {
                     Capsule()
                         .fill(Color.textMain)
-                        .frame(width:120, height: 2)
+                        .frame(height: 2)
+                        .padding(.bottom, 112)
+                } else {
+                    Capsule()
+                        .fill(.clear)
+                        .frame(height: 2)
                         .padding(.bottom, 112)
                 }
             }
-            Spacer()
         }
         .frame(height: 0)
 
     }
 }
-
-//TODO: Item 선택 시 검은 선으로 Highlight
 
 
 
