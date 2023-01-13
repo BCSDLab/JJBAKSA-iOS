@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B5842D52971688F0014DAC7 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5842D42971688F0014DAC7 /* PostViewModel.swift */; };
 		1B97BD372961442F0089DA67 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B97BD362961442F0089DA67 /* MainScreen.swift */; };
 		1B97BD39296145AE0089DA67 /* PostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B97BD38296145AE0089DA67 /* PostScreen.swift */; };
 		1B97BD3B296145B90089DA67 /* MyPageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B97BD3A296145B90089DA67 /* MyPageScreen.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B5842D42971688F0014DAC7 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		1B97BD362961442F0089DA67 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		1B97BD38296145AE0089DA67 /* PostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostScreen.swift; sourceTree = "<group>"; };
 		1B97BD3A296145B90089DA67 /* MyPageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageScreen.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B5842D32971687B0014DAC7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1B5842D42971688F0014DAC7 /* PostViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		1BFAC8A6291881CC00188F82 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		1BFAC8CC292CFD9E00188F82 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				1B5842D32971687B0014DAC7 /* ViewModels */,
 				1B97BD362961442F0089DA67 /* MainScreen.swift */,
 				1BFAC8CD292CFDA800188F82 /* MapScreen.swift */,
 				1B97BD38296145AE0089DA67 /* PostScreen.swift */,
@@ -380,6 +391,7 @@
 				1BFAC8B2291B852D00188F82 /* SignUpTermsView.swift in Sources */,
 				E0343E3E28E31F3100221072 /* LogInScreen.swift in Sources */,
 				1BFAC8CE292CFDA800188F82 /* MapScreen.swift in Sources */,
+				1B5842D52971688F0014DAC7 /* PostViewModel.swift in Sources */,
 				1BFAC8B4291B855D00188F82 /* SignUpSuccessView.swift in Sources */,
 				E032D30628DDDF0400159F3D /* RootViewModel.swift in Sources */,
 				E032D30428DDDEEC00159F3D /* RootScreen.swift in Sources */,

@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-jjbaksa/Pods-jjbaksa-frameworks.sh
+${BUILT_PRODUCTS_DIR}/RichEditorView/RichEditorView.framework
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/NMapsMap/NMapsMap.framework/NMapsMap

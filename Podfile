@@ -8,4 +8,7 @@ target 'jjbaksa' do
   # Pods for jjbaksa
   pod 'NMapsMap'
 
+  pod "RichEditorView"
+  use_frameworks!
+
 end

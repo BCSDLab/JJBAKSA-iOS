@@ -1,16 +1,20 @@
 PODS:
   - NMapsMap (3.16.0)
+  - RichEditorView (5.0.0)
 
 DEPENDENCIES:
   - NMapsMap
+  - RichEditorView
 
 SPEC REPOS:
   trunk:
     - NMapsMap
+    - RichEditorView
 
 SPEC CHECKSUMS:
   NMapsMap: a2593320fca2bb09e521c05b4dffee4da42e96ed
+  RichEditorView: 1bbb07b87ca2d479ac29a6877014b38b8df233ef
 
-PODFILE CHECKSUM: 44b99d1d064b1364f504851bba9fe6cdec9fd734
+PODFILE CHECKSUM: 1d74e78a6ae9e78d0963aa384aedc3ae777878b6
 
 COCOAPODS: 1.11.3
