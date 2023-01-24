@@ -14,7 +14,8 @@ struct PostScreen: View {
     @State var editorController: RichEditorView = RichEditorView(frame: .zero)
     @State var isShowTextToolBar: Bool = false
     @State var isShowPhotoLibrary: Bool = false
-    @State var imgArr: [UIImage] = []
+    @State var imgArr: [imageArray] = []
+    //TODO: 변수명 변경 및 architecture 수정
     
     var body: some View {
         NavigationView {
@@ -29,10 +30,30 @@ struct PostScreen: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 0) {
                                     ForEach(0..<imgArr.count, id:\.self) { idx in
-                                        Image(uiImage:imgArr[idx])
-                                            .resizable()
-                                            .frame(width: 80, height: 80)
-                                            .padding(8)
+                                        ZStack {
+                                            Image(uiImage:imgArr[idx].image)
+                                                .resizable()
+                                                .frame(width: 80, height: 80)
+                                                .padding(8)
+                                            
+                                                .onTapGesture {
+                                                    imgArr[idx].isImagePick.toggle()
+                                                }
+                                            if imgArr[idx].isImagePick {
+                                                ZStack {
+                                                    Button(action: {imgArr.remove(at: idx)}) {
+                                                        Image(systemName: "trash.circle.fill")
+                                                            .font(.system(size: 31))
+                                                            .symbolRenderingMode(.palette)
+                                                            .foregroundStyle(Color.main, Color.textSub)
+                                                    }
+                                                    Rectangle()
+                                                        .frame(width: 80, height: 3)
+                                                        .padding(.top, 77)
+                                                        .foregroundColor(.main)
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -143,7 +164,7 @@ struct PostScreen: View {
                 Spacer()
             }
             .sheet(isPresented: $isShowPhotoLibrary) {
-                        ImagePicker(sourceType: .photoLibrary, imageArray: $imgArr)
+                        ImagePicker(sourceType: .photoLibrary, imgArray: $imgArr)
                     }
         }
                 .navigationBarBackButtonHidden(false)
@@ -189,7 +210,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     var sourceType: UIImagePickerController.SourceType = .photoLibrary
     
-    @Binding var imageArray: [UIImage]
+    @Binding var imgArray: [imageArray]
     @Environment(\.presentationMode) private var presentationMode
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
@@ -221,13 +242,19 @@ struct ImagePicker: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                var tmpArray = imageArray(image: image, isImagePick: false)
                 
-                parent.imageArray.append(image)
+                parent.imgArray.append(tmpArray)
             }
             
             parent.presentationMode.wrappedValue.dismiss()
         }
     }
+}
+
+struct imageArray {
+    var image: UIImage
+    var isImagePick: Bool
 }
 
 struct PostScreen_Previews: PreviewProvider {
