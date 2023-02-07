@@ -12,8 +12,17 @@ import KakaoSDKAuth
 @main
 struct jjbaksaApp: App {
     init() {
+        // 키 정보 불러오기
+        guard let keyInfo = Bundle.main.url(forResource: "KeyInfo", withExtension: "plist") else {
+            return
+        }
+        
+        guard let dictionary = NSDictionary(contentsOf: keyInfo) else {
+            return
+        }
+        
         // Kakao SDK 초기화
-        KakaoSDK.initSDK(appKey: "14ead7eb667ae2afb2e2ed8c3e38d288")
+        KakaoSDK.initSDK(appKey: dictionary["KAKAO_ NATIVE_APP_KEY"] as? String ?? "")
     }
     var body: some Scene {
         WindowGroup {
