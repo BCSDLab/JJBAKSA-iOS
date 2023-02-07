@@ -13,6 +13,7 @@
 		1BFAC8B2291B852D00188F82 /* SignUpTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8B1291B852D00188F82 /* SignUpTermsView.swift */; };
 		1BFAC8B4291B855D00188F82 /* SignUpSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8B3291B855D00188F82 /* SignUpSuccessView.swift */; };
 		1BFAC8B6291B856D00188F82 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8B5291B856D00188F82 /* SignUpScreen.swift */; };
+		4020DDEA4686346CB1921490 /* Pods_jjbaksa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB88C60566CCF3B54FD82205 /* Pods_jjbaksa.framework */; };
 		833731B288B9D7CB2FA5B103 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833738C07A622FB2BCE7EBCA /* String+Regex.swift */; };
 		83373428AF1B882F828AC7F8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83373872D04CFC435197FB05 /* Color.swift */; };
 		833735D2B06F200D00ACBEF8 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833734B0205E719D535AA03E /* TextStyle.swift */; };
@@ -27,6 +28,9 @@
 		E0343E4728E3237F00221072 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0343E4628E3237F00221072 /* Alamofire */; };
 		E0343E4A28E323D600221072 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0343E4928E323D600221072 /* Token.swift */; };
 		E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0343E4B28E3248100221072 /* LogInRequest.swift */; };
+		E0411AFD29927DCA007BDAC9 /* KeyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0411AFC29927DCA007BDAC9 /* KeyInfo.plist */; };
+		E0411AFF29928155007BDAC9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E0411AFE29928155007BDAC9 /* .gitignore */; };
+		E051C70A29927C2100D21C14 /* SocialLogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051C70929927C2100D21C14 /* SocialLogIn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,8 @@
 		1BFAC8B1291B852D00188F82 /* SignUpTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTermsView.swift; sourceTree = "<group>"; };
 		1BFAC8B3291B855D00188F82 /* SignUpSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSuccessView.swift; sourceTree = "<group>"; };
 		1BFAC8B5291B856D00188F82 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
+		2CD590FF73D0BC68D3441EE4 /* Pods-jjbaksa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjbaksa.release.xcconfig"; path = "Target Support Files/Pods-jjbaksa/Pods-jjbaksa.release.xcconfig"; sourceTree = "<group>"; };
+		3FBA37ED5EBD7CAA1EF656F3 /* Pods-jjbaksa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjbaksa.debug.xcconfig"; path = "Target Support Files/Pods-jjbaksa/Pods-jjbaksa.debug.xcconfig"; sourceTree = "<group>"; };
 		833734B0205E719D535AA03E /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		83373872D04CFC435197FB05 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		833738C07A622FB2BCE7EBCA /* String+Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
@@ -51,6 +57,9 @@
 		E0343E4328E322DB00221072 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		E0343E4928E323D600221072 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		E0343E4B28E3248100221072 /* LogInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRequest.swift; sourceTree = "<group>"; };
+		E0411AFC29927DCA007BDAC9 /* KeyInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyInfo.plist; sourceTree = "<group>"; };
+		E0411AFE29928155007BDAC9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E051C70929927C2100D21C14 /* SocialLogIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLogIn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0343E4728E3237F00221072 /* Alamofire in Frameworks */,
+				4020DDEA4686346CB1921490 /* Pods_jjbaksa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +104,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		2D6CE5190CCC333848A968B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3FBA37ED5EBD7CAA1EF656F3 /* Pods-jjbaksa.debug.xcconfig */,
+				2CD590FF73D0BC68D3441EE4 /* Pods-jjbaksa.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6D32A30ACCB39FB3E279E8AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,9 +124,11 @@
 		E032D2E128DDDE9900159F3D = {
 			isa = PBXGroup;
 			children = (
+				E0411AFE29928155007BDAC9 /* .gitignore */,
 				E032D2EC28DDDE9900159F3D /* jjbaksa */,
 				E032D2EB28DDDE9900159F3D /* Products */,
 				6D32A30ACCB39FB3E279E8AB /* Frameworks */,
+				2D6CE5190CCC333848A968B4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,9 +143,10 @@
 		E032D2EC28DDDE9900159F3D /* jjbaksa */ = {
 			isa = PBXGroup;
 			children = (
+				E0411AFB29927DB5007BDAC9 /* Resource */,
+				E032D2FD28DDDEB900159F3D /* Screens */,
 				E032D2FF28DDDEC500159F3D /* Widgets */,
 				E032D2FE28DDDEC000159F3D /* Utils */,
-				E032D2FD28DDDEB900159F3D /* Screens */,
 				E032D2FC28DDDEB000159F3D /* Repositories */,
 				E032D2FB28DDDEAA00159F3D /* Models */,
 				E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */,
@@ -160,6 +182,7 @@
 		E032D2FD28DDDEB900159F3D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E051C70829927C2100D21C14 /* SocialLogIn */,
 				1BFAC8A6291881CC00188F82 /* SignUp */,
 				E0343E3C28E31F0100221072 /* LogIn */,
 				E032D30028DDDED400159F3D /* Root */,
@@ -244,6 +267,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E0411AFB29927DB5007BDAC9 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E0411AFC29927DCA007BDAC9 /* KeyInfo.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		E051C70829927C2100D21C14 /* SocialLogIn */ = {
+			isa = PBXGroup;
+			children = (
+				E051C70929927C2100D21C14 /* SocialLogIn.swift */,
+			);
+			path = SocialLogIn;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,9 +290,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E032D2F828DDDE9A00159F3D /* Build configuration list for PBXNativeTarget "jjbaksa" */;
 			buildPhases = (
+				789FDD12555E733F9FA69151 /* [CP] Check Pods Manifest.lock */,
 				E032D2E628DDDE9900159F3D /* Sources */,
 				E032D2E728DDDE9900159F3D /* Frameworks */,
 				E032D2E828DDDE9900159F3D /* Resources */,
+				1EF4B3BE0E66247168A09D80 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -308,12 +349,56 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0411AFF29928155007BDAC9 /* .gitignore in Resources */,
 				E032D2F528DDDE9A00159F3D /* Preview Assets.xcassets in Resources */,
+				E0411AFD29927DCA007BDAC9 /* KeyInfo.plist in Resources */,
 				E032D2F228DDDE9A00159F3D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1EF4B3BE0E66247168A09D80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jjbaksa/Pods-jjbaksa-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jjbaksa/Pods-jjbaksa-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-jjbaksa/Pods-jjbaksa-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		789FDD12555E733F9FA69151 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-jjbaksa-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E032D2E628DDDE9900159F3D /* Sources */ = {
@@ -334,6 +419,7 @@
 				E032D30628DDDF0400159F3D /* RootViewModel.swift in Sources */,
 				E032D30428DDDEEC00159F3D /* RootScreen.swift in Sources */,
 				E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */,
+				E051C70A29927C2100D21C14 /* SocialLogIn.swift in Sources */,
 				833731B288B9D7CB2FA5B103 /* String+Regex.swift in Sources */,
 				83373428AF1B882F828AC7F8 /* Color.swift in Sources */,
 				833735D2B06F200D00ACBEF8 /* TextStyle.swift in Sources */,
@@ -459,6 +545,7 @@
 		};
 		E032D2F928DDDE9A00159F3D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FBA37ED5EBD7CAA1EF656F3 /* Pods-jjbaksa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -488,6 +575,7 @@
 		};
 		E032D2FA28DDDE9A00159F3D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CD590FF73D0BC68D3441EE4 /* Pods-jjbaksa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

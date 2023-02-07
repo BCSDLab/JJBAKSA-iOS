@@ -102,7 +102,7 @@ struct LogInScreen: View {
                                 .padding([.bottom], 7)
                     }
 
-                    Button(action: { () }) { //TODO: 소셜 로그인 페이지 이동
+                    NavigationLink(destination: SocialLogInScreen()) { //TODO: 소셜 로그인 페이지 이동
                         Text("소셜 로그인")      //button이 아닌 label에 frame을 줘서 버튼 클릭 범위를 늘림
                                 .frame(width: 227, height: 40)
                                 .size14Regular()
