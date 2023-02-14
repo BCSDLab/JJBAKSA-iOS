@@ -10,6 +10,7 @@ import SwiftUI
 import KakaoSDKAuth
 import KakaoSDKCommon
 import KakaoSDKUser
+import NaverThirdPartyLogin
 
 struct SocialLogInScreen: View {
     var body: some View {
@@ -60,7 +61,14 @@ struct SocialLogInScreen: View {
                 }
                 .padding(.bottom, 24)
                 
-                Button(action: {()}) {
+                Button(action: {if (NaverThirdPartyLoginConnection.getSharedInstance() != nil) {
+                    NaverThirdPartyLoginConnection
+                        .getSharedInstance()
+                        .requestThirdPartyLogin()
+                    print("Naver Access Tokken : \(NaverThirdPartyLoginConnection.getSharedInstance().accessToken ?? "error")")
+                    print("Naver Refresh Tokken : \(NaverThirdPartyLoginConnection.getSharedInstance().refreshToken ?? "error")")
+                }
+                }) {
                     HStack {
                         Image(systemName: "circle.fill") //임시 로고
                             .font(.system(size: 20))
