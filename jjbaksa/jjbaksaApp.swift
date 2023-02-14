@@ -36,21 +36,32 @@ struct jjbaksaApp: App {
         // 네이버 로그인 세로모드 고정
         NaverThirdPartyLoginConnection.getSharedInstance().setOnlyPortraitSupportInIphone(true)
         
-        // NaverThirdPartyConstantsForApp.h에 선언한 상수 등록
-        NaverThirdPartyLoginConnection.getSharedInstance().serviceUrlScheme = kServiceAppUrlScheme
-        NaverThirdPartyLoginConnection.getSharedInstance().consumerKey = kConsumerKey
-        NaverThirdPartyLoginConnection.getSharedInstance().consumerSecret = kConsumerSecret
-        NaverThirdPartyLoginConnection.getSharedInstance().appName = kServiceAppName
+        NaverThirdPartyLoginConnection.getSharedInstance().serviceUrlScheme = dictionary["NAVER_SERVICE_APP_URL_SCHEME"] as? String ?? ""
+        NaverThirdPartyLoginConnection.getSharedInstance().consumerKey = dictionary["NAVER_CONSUMER_KEY"] as? String ?? ""
+        NaverThirdPartyLoginConnection.getSharedInstance().consumerSecret = dictionary["NAVER_CONSUMER_SECRET"] as? String ?? ""
+        NaverThirdPartyLoginConnection.getSharedInstance().appName = dictionary["NAVER_SERVICE_APP_NAME"] as? String ?? ""
         
     }
+    
+    func isNaverLoginUrl(_ url:URL) -> Bool {
+        if url.absoluteString.hasPrefix("jjbaksanaverios://") {
+            return true
+        }
+        return false
+    }
+    
     var body: some Scene {
         WindowGroup {
-           LogInScreen()
+            RootScreen()
                 .onOpenURL { url in
+                    
                     if (AuthApi.isKakaoTalkLoginUrl(url)) {
                         _ = AuthController.handleOpenUrl(url: url)
+                    } else if(isNaverLoginUrl(url)) {
+                        NaverThirdPartyLoginConnection
+                                                    .getSharedInstance()
+                                                    .receiveAccessToken(url)
                     }
-                    //NaverThirdPartyLoginConnection.getSharedInstance()?.receiveAccessToken(url)
                 }
         }
     }

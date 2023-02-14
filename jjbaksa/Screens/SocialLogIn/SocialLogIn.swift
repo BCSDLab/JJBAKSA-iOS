@@ -7,12 +7,12 @@
 
 
 import SwiftUI
-import KakaoSDKAuth
-import KakaoSDKCommon
-import KakaoSDKUser
+
 import NaverThirdPartyLogin
 
 struct SocialLogInScreen: View {
+    @EnvironmentObject var viewModel: LogInViewModel
+    
     var body: some View {
         VStack (spacing: 0){
             Spacer()
@@ -61,14 +61,7 @@ struct SocialLogInScreen: View {
                 }
                 .padding(.bottom, 24)
                 
-                Button(action: {if (NaverThirdPartyLoginConnection.getSharedInstance() != nil) {
-                    NaverThirdPartyLoginConnection
-                        .getSharedInstance()
-                        .requestThirdPartyLogin()
-                    print("Naver Access Tokken : \(NaverThirdPartyLoginConnection.getSharedInstance().accessToken ?? "error")")
-                    print("Naver Refresh Tokken : \(NaverThirdPartyLoginConnection.getSharedInstance().refreshToken ?? "error")")
-                }
-                }) {
+                Button(action: viewModel.logInByNaver) {
                     HStack {
                         Image(systemName: "circle.fill") //임시 로고
                             .font(.system(size: 20))
@@ -86,17 +79,7 @@ struct SocialLogInScreen: View {
                 .padding(.bottom, 24)
                 
                 //Kakao Login
-                Button(action: { if (UserApi.isKakaoTalkLoginAvailable()) {
-                    UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
-                        print(oauthToken)
-                        print(error)
-                    }
-                } else {
-                    UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-                        print(oauthToken)
-                        print(error)
-                    }
-                }}) {
+                Button(action: viewModel.logInByKakao) {
                     HStack {
                         Image(systemName: "circle.fill") //임시 로고
                             .font(.system(size: 20))
