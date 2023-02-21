@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
 import KakaoSDKCommon
 import KakaoSDKAuth
 import NaverThirdPartyLogin
@@ -22,6 +24,9 @@ struct jjbaksaApp: App {
             return
         }
         
+        // Google SDK 초기화 //TODO: GIDClientID를 무조건 Info.plist에 넣어야하는 것인지
+        //GIDConfiguration.init(clientID: dictionary["GOOGLE_CLIENT_ID"] as? String ?? "")
+
         // Kakao SDK 초기화
         KakaoSDK.initSDK(appKey: dictionary["KAKAO_NATIVE_APP_KEY"] as? String ?? "")
         
@@ -42,6 +47,14 @@ struct jjbaksaApp: App {
         NaverThirdPartyLoginConnection.getSharedInstance().appName = dictionary["NAVER_SERVICE_APP_NAME"] as? String ?? ""
         
     }
+    //TODO: 구글 로그인도 마찬가지로 해야하는지?
+    func isGoogleLoginUrl(_ url:URL) -> Bool {
+        if url.absoluteString.hasPrefix("") {
+            return true
+        }
+        return false
+    }
+    
     
     func isNaverLoginUrl(_ url:URL) -> Bool {
         if url.absoluteString.hasPrefix("jjbaksanaverios://") {
@@ -54,7 +67,10 @@ struct jjbaksaApp: App {
         WindowGroup {
             RootScreen()
                 .onOpenURL { url in
-                    
+                    GIDSignIn.sharedInstance.handle(url)
+                    //if (isGoogleLoginUrl(url)) {
+                    //    GIDSignIn.sharedInstance.handle(url)
+                    //}
                     if (AuthApi.isKakaoTalkLoginUrl(url)) {
                         _ = AuthController.handleOpenUrl(url: url)
                     } else if(isNaverLoginUrl(url)) {

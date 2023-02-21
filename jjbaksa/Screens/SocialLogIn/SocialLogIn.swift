@@ -23,7 +23,7 @@ struct SocialLogInScreen: View {
             //TODO: 로고 삽입, 색 지정
             Group{
                 
-                Button(action: {()}) {
+                Button(action: {viewModel.logInByApple()}) {
                     HStack {
                         Image(systemName: "circle.fill") //임시 로고
                             .font(.system(size: 20))
@@ -44,7 +44,7 @@ struct SocialLogInScreen: View {
                 }
                 .padding(.bottom, 24)
                 
-                Button(action: {()}) {
+                Button(action: {viewModel.logInByGoogle()}) {
                     HStack {
                         Image(systemName: "circle.fill") //임시 로고
                             .font(.system(size: 20))

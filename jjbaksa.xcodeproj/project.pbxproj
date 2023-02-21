@@ -36,6 +36,7 @@
 /* Begin PBXFileReference section */
 		1B0559BE299286DC0049870F /* KeyInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyInfo.plist; sourceTree = "<group>"; };
 		1B0559C1299287610049870F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		1BDB6C2329A3BD8000820733 /* jjbaksa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jjbaksa.entitlements; sourceTree = "<group>"; };
 		1BFAC8A72918820500188F82 /* SignUpInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfoView.swift; sourceTree = "<group>"; };
 		1BFAC8AA291896BE00188F82 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		1BFAC8AD291B292800188F82 /* SignUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpError.swift; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 		E032D2EC28DDDE9900159F3D /* jjbaksa */ = {
 			isa = PBXGroup;
 			children = (
+				1BDB6C2329A3BD8000820733 /* jjbaksa.entitlements */,
 				1B0559C1299287610049870F /* Info.plist */,
 				E0411AFB29927DB5007BDAC9 /* Resource */,
 				E032D2FD28DDDEB900159F3D /* Screens */,
@@ -559,6 +561,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = jjbaksa/jjbaksa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"jjbaksa/Preview Content\"";
@@ -590,6 +593,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = jjbaksa/jjbaksa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"jjbaksa/Preview Content\"";

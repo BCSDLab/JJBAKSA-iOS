@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import AuthenticationServices
+import GoogleSignIn
 import NaverThirdPartyLogin
 import KakaoSDKAuth
 import KakaoSDKCommon
 import KakaoSDKUser
+
 
 class LogInViewModel: NSObject, ObservableObject {
     @Published var account: String = ""
@@ -41,6 +44,30 @@ class LogInViewModel: NSObject, ObservableObject {
         } else {
             // TODO: 모두 입력되지 않을 경우 에러 표시
         }
+    }
+    
+    func logInByApple() {
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.performRequests()
+    }
+    
+    func logInByGoogle() {
+        guard let presentingViewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else {return}
+        GIDSignIn.sharedInstance.signIn(withPresenting: presentingViewController) { signInResult, error in
+                guard let result = signInResult else {
+                    print("Google Login Error")
+                    // Inspect error
+                    return
+                }
+            print("Google Access token : \(result.user.accessToken)")
+            print("Google Refresh token : \(result.user.refreshToken)")
+            print("Google ID token : \(result.user.idToken)")
+            
+                // If sign in succeeded, display the app's main content View.
+            }
     }
     
     func logInByKakao() {
