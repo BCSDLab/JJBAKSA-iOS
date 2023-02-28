@@ -13,6 +13,15 @@
 		1B97BD3B296145B90089DA67 /* MyPageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B97BD3A296145B90089DA67 /* MyPageScreen.swift */; };
 		1BCF0B54299239F600E659DC /* MyPostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B53299239F600E659DC /* MyPostScreen.swift */; };
 		1BCF0B5629923A1900E659DC /* BookmarkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */; };
+		1BDB6C2629AC8A2200820733 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB6C2529AC8A2200820733 /* MyPageViewModel.swift */; };
+		1BDB6C2829AC8CAD00820733 /* UserEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB6C2729AC8CAD00820733 /* UserEditScreen.swift */; };
+		1BEBF00E29BEB726001369F0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF00D29BEB726001369F0 /* User.swift */; };
+		1BEBF01B29C7DACB001369F0 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF01A29C7DACB001369F0 /* TextStyle.swift */; };
+		1BEBF01E29C7DBE4001369F0 /* SettingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF01D29C7DBE4001369F0 /* SettingScreen.swift */; };
+		1BEBF02129C7ECDA001369F0 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF02029C7ECDA001369F0 /* SettingViewModel.swift */; };
+		1BEBF02329C7F592001369F0 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF02229C7F592001369F0 /* UserRequest.swift */; };
+		1BEBF02529C7FDD6001369F0 /* ChangeAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF02429C7FDD6001369F0 /* ChangeAccountScreen.swift */; };
+		1BEBF02729C805A6001369F0 /* ChangPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF02629C805A6001369F0 /* ChangPasswordScreen.swift */; };
 		1BFAC8A82918820500188F82 /* SignUpInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8A72918820500188F82 /* SignUpInfoView.swift */; };
 		1BFAC8AB291896BE00188F82 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8AA291896BE00188F82 /* SignUpViewModel.swift */; };
 		1BFAC8AE291B292800188F82 /* SignUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8AD291B292800188F82 /* SignUpError.swift */; };
@@ -33,7 +42,6 @@
 		E0343E4728E3237F00221072 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0343E4628E3237F00221072 /* Alamofire */; };
 		E0343E4A28E323D600221072 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0343E4928E323D600221072 /* Token.swift */; };
 		E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0343E4B28E3248100221072 /* LogInRequest.swift */; };
-		FDD148FD0FE92E9D78E78658 /* Pods_jjbaksa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB88C60566CCF3B54FD82205 /* Pods_jjbaksa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +51,15 @@
 		1B97BD3A296145B90089DA67 /* MyPageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageScreen.swift; sourceTree = "<group>"; };
 		1BCF0B53299239F600E659DC /* MyPostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostScreen.swift; sourceTree = "<group>"; };
 		1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkScreen.swift; sourceTree = "<group>"; };
+		1BDB6C2529AC8A2200820733 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
+		1BDB6C2729AC8CAD00820733 /* UserEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditScreen.swift; sourceTree = "<group>"; };
+		1BEBF00D29BEB726001369F0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1BEBF01A29C7DACB001369F0 /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		1BEBF01D29C7DBE4001369F0 /* SettingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScreen.swift; sourceTree = "<group>"; };
+		1BEBF02029C7ECDA001369F0 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		1BEBF02229C7F592001369F0 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		1BEBF02429C7FDD6001369F0 /* ChangeAccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAccountScreen.swift; sourceTree = "<group>"; };
+		1BEBF02629C805A6001369F0 /* ChangPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangPasswordScreen.swift; sourceTree = "<group>"; };
 		1BFAC8A72918820500188F82 /* SignUpInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfoView.swift; sourceTree = "<group>"; };
 		1BFAC8AA291896BE00188F82 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		1BFAC8AD291B292800188F82 /* SignUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpError.swift; sourceTree = "<group>"; };
@@ -53,8 +70,6 @@
 		1BFAC8C42924B42500188F82 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1BFAC8CB292CF8BE00188F82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1BFAC8CD292CFDA800188F82 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
-		84EBDF67A1A0420EC17296E5 /* Pods-jjbaksa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjbaksa.debug.xcconfig"; path = "Target Support Files/Pods-jjbaksa/Pods-jjbaksa.debug.xcconfig"; sourceTree = "<group>"; };
-		DB88C60566CCF3B54FD82205 /* Pods_jjbaksa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jjbaksa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2EA28DDDE9900159F3D /* jjbaksa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjbaksa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jjbaksaApp.swift; sourceTree = "<group>"; };
 		E032D2F128DDDE9A00159F3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,7 +81,6 @@
 		E0343E4328E322DB00221072 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		E0343E4928E323D600221072 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		E0343E4B28E3248100221072 /* LogInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRequest.swift; sourceTree = "<group>"; };
-		E6EDB8282D0B65F99029B9F0 /* Pods-jjbaksa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjbaksa.release.xcconfig"; path = "Target Support Files/Pods-jjbaksa/Pods-jjbaksa.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +89,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0343E4728E3237F00221072 /* Alamofire in Frameworks */,
-				FDD148FD0FE92E9D78E78658 /* Pods_jjbaksa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,11 +106,49 @@
 		1BCF0B522992336900E659DC /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				1BDB6C2429AC8A0D00820733 /* ViewModels */,
 				1B97BD3A296145B90089DA67 /* MyPageScreen.swift */,
 				1BCF0B53299239F600E659DC /* MyPostScreen.swift */,
 				1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */,
+				1BDB6C2729AC8CAD00820733 /* UserEditScreen.swift */,
 			);
 			path = MyPage;
+			sourceTree = "<group>";
+		};
+		1BDB6C2429AC8A0D00820733 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1BDB6C2529AC8A2200820733 /* MyPageViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1BEBF00C29BEB71D001369F0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1BEBF00D29BEB726001369F0 /* User.swift */,
+				1BEBF02229C7F592001369F0 /* UserRequest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1BEBF01C29C7DBD4001369F0 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				1BEBF01F29C7ECCE001369F0 /* ViewModels */,
+				1BEBF01D29C7DBE4001369F0 /* SettingScreen.swift */,
+				1BEBF02429C7FDD6001369F0 /* ChangeAccountScreen.swift */,
+				1BEBF02629C805A6001369F0 /* ChangPasswordScreen.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		1BEBF01F29C7ECCE001369F0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1BEBF02029C7ECDA001369F0 /* SettingViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		1BFAC8A6291881CC00188F82 /* SignUp */ = {
@@ -134,6 +185,7 @@
 			children = (
 				1BFAC8C22924B3E400188F82 /* String+Regex.swift */,
 				1BFAC8C42924B42500188F82 /* Color.swift */,
+				1BEBF01A29C7DACB001369F0 /* TextStyle.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -149,20 +201,11 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
-		6D32A30ACCB39FB3E279E8AB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DB88C60566CCF3B54FD82205 /* Pods_jjbaksa.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		E032D2E128DDDE9900159F3D = {
 			isa = PBXGroup;
 			children = (
 				E032D2EC28DDDE9900159F3D /* jjbaksa */,
 				E032D2EB28DDDE9900159F3D /* Products */,
-				6D32A30ACCB39FB3E279E8AB /* Frameworks */,
 				FECEA610FF1026AEA79FB8D9 /* Pods */,
 			);
 			sourceTree = "<group>";
@@ -208,6 +251,7 @@
 		E032D2FD28DDDEB900159F3D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1BEBF01C29C7DBD4001369F0 /* Setting */,
 				1BCF0B522992336900E659DC /* MyPage */,
 				1BFAC8CC292CFD9E00188F82 /* Map */,
 				1BFAC8A6291881CC00188F82 /* SignUp */,
@@ -220,6 +264,7 @@
 		E032D30028DDDED400159F3D /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				1BEBF00C29BEB71D001369F0 /* Models */,
 				E032D30128DDDED800159F3D /* ViewModels */,
 				E032D30328DDDEEC00159F3D /* RootScreen.swift */,
 			);
@@ -264,8 +309,6 @@
 		FECEA610FF1026AEA79FB8D9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				84EBDF67A1A0420EC17296E5 /* Pods-jjbaksa.debug.xcconfig */,
-				E6EDB8282D0B65F99029B9F0 /* Pods-jjbaksa.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -277,11 +320,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E032D2F828DDDE9A00159F3D /* Build configuration list for PBXNativeTarget "jjbaksa" */;
 			buildPhases = (
-				5790192346B7CB389C29733A /* [CP] Check Pods Manifest.lock */,
 				E032D2E628DDDE9900159F3D /* Sources */,
 				E032D2E728DDDE9900159F3D /* Frameworks */,
 				E032D2E828DDDE9900159F3D /* Resources */,
-				F86D38266FD157B2B04FD903 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -320,7 +361,7 @@
 			);
 			mainGroup = E032D2E128DDDE9900159F3D;
 			packageReferences = (
-				E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
 			);
 			productRefGroup = E032D2EB28DDDE9900159F3D /* Products */;
 			projectDirPath = "";
@@ -343,67 +384,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5790192346B7CB389C29733A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-jjbaksa-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F86D38266FD157B2B04FD903 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-jjbaksa/Pods-jjbaksa-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-jjbaksa/Pods-jjbaksa-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-jjbaksa/Pods-jjbaksa-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		E032D2E628DDDE9900159F3D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BEBF01B29C7DACB001369F0 /* TextStyle.swift in Sources */,
+				1BEBF00E29BEB726001369F0 /* User.swift in Sources */,
 				E0343E4A28E323D600221072 /* Token.swift in Sources */,
 				E032D2EE28DDDE9900159F3D /* jjbaksaApp.swift in Sources */,
 				1BFAC8C32924B3E400188F82 /* String+Regex.swift in Sources */,
 				1BFAC8AE291B292800188F82 /* SignUpError.swift in Sources */,
 				1BFAC8AB291896BE00188F82 /* SignUpViewModel.swift in Sources */,
 				1BFAC8A82918820500188F82 /* SignUpInfoView.swift in Sources */,
+				1BEBF02729C805A6001369F0 /* ChangPasswordScreen.swift in Sources */,
+				1BEBF02329C7F592001369F0 /* UserRequest.swift in Sources */,
 				1B97BD372961442F0089DA67 /* MainScreen.swift in Sources */,
 				1BFAC8B6291B856D00188F82 /* SignUpScreen.swift in Sources */,
 				1B97BD3B296145B90089DA67 /* MyPageScreen.swift in Sources */,
 				E0343E4228E31F5000221072 /* LogInViewModel.swift in Sources */,
+				1BEBF02129C7ECDA001369F0 /* SettingViewModel.swift in Sources */,
 				E0343E4428E322DB00221072 /* UserRepository.swift in Sources */,
 				1BFAC8C52924B42500188F82 /* Color.swift in Sources */,
+				1BEBF02529C7FDD6001369F0 /* ChangeAccountScreen.swift in Sources */,
 				1BFAC8B2291B852D00188F82 /* SignUpTermsView.swift in Sources */,
 				E0343E3E28E31F3100221072 /* LogInScreen.swift in Sources */,
+				1BDB6C2829AC8CAD00820733 /* UserEditScreen.swift in Sources */,
 				1BCF0B5629923A1900E659DC /* BookmarkScreen.swift in Sources */,
 				1BFAC8CE292CFDA800188F82 /* MapScreen.swift in Sources */,
 				1B5842D52971688F0014DAC7 /* PostViewModel.swift in Sources */,
@@ -411,8 +417,10 @@
 				1BCF0B54299239F600E659DC /* MyPostScreen.swift in Sources */,
 				E032D30628DDDF0400159F3D /* RootViewModel.swift in Sources */,
 				E032D30428DDDEEC00159F3D /* RootScreen.swift in Sources */,
+				1BEBF01E29C7DBE4001369F0 /* SettingScreen.swift in Sources */,
 				E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */,
 				1B97BD39296145AE0089DA67 /* PostScreen.swift in Sources */,
+				1BDB6C2629AC8A2200820733 /* MyPageViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,7 +543,6 @@
 		};
 		E032D2F928DDDE9A00159F3D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84EBDF67A1A0420EC17296E5 /* Pods-jjbaksa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -567,7 +574,6 @@
 		};
 		E032D2FA28DDDE9A00159F3D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6EDB8282D0B65F99029B9F0 /* Pods-jjbaksa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -621,7 +627,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -634,7 +640,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		E0343E4628E3237F00221072 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -1,6 +1,0 @@
-framework module Pods_jjbaksa {
-  umbrella header "Pods-jjbaksa-umbrella.h"
-
-  export *
-  module * { export * }
-}

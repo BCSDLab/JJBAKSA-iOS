@@ -8,64 +8,56 @@
 import SwiftUI
 
 struct MyPageScreen: View {
-    @State var index: Int = 0
+    @EnvironmentObject var viewModel: MyPageViewModel
+    @EnvironmentObject var rootViewModel: RootViewModel
     
     var body: some View {
-        VStack(spacing: 0) {
-            HStack(spacing: 0) {
-                Image(systemName: "person.circle")
-                    .font(.system(size: 60))
-                VStack(alignment: .leading, spacing: 0) {
-                    HStack(spacing: 0) {
-                        Text("닉네임")
-                            .padding(.bottom, 10)
-                            .padding(.trailing, 12)
-                            .font(.system(size: 18))
-                        Button(action: {()}) {
-                            Image(systemName: "pencil")
-                        }
-                        .font(.system(size: 11))
-                        .foregroundColor(.base)
-                        .padding(.bottom, 5)
+        ZStack {
+            VStack(spacing: 0) {
+                HStack(spacing: 0) {
+                    ZStack {
+                        Circle()
+                            .frame(width: 46, height: 46)
+                            .foregroundColor(.base)
                     }
-                    Text("testID")
-                        .font(.system(size: 12))
+                    VStack(alignment: .leading, spacing: 0) {
+                        HStack(spacing: 0) {
+                            Text(rootViewModel.user?.nickname ?? "nil")
+                                .padding(.bottom, 2)
+                                .size16Bold()
+                            Circle()
+                                .frame(width: 2, height: 2)
+                                .font(.system(size: 14))
+                                .padding(.horizontal, 5)
+                            Text("팔로워 \(rootViewModel.user?.userCountResponse?.friendCount ?? 0)")
+                        }
+                        Text("@\(rootViewModel.user?.account ?? "nil")")
+                            .size14Regular()
+                    }
+                    .padding(.leading, 13)
+                    Spacer()
+                    NavigationLink(destination: {SettingScreen()}) {
+                        Image(systemName: "gearshape")
+                    }
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(.base)
                 }
-                .padding(.leading, 25)
+                .padding(.leading, 16)
+                .padding(.top, 36)
+                .padding(.trailing, 30)
+                .padding(.bottom, 25)
+                
+                MyPageTabBarView(currentTab: $viewModel.index)
+                Divider()
+                TabView(selection:$viewModel.index) {
+                    MyPostScreen()
+                        .tag(0)
+                    BookmarkScreen()
+                        .tag(1)
+                }
                 Spacer()
             }
-            .padding(.leading, 37)
-            .padding(.top, 60)
-            .padding(.bottom, 33)
-            HStack(spacing: 0) {
-                Spacer()
-                VStack(spacing: 0) {
-                    Text("0")
-                        .font(.system(size: 16))
-                        .padding(.bottom, 8)
-                    Text("게시글")
-                        .font(.system(size: 12))
-                }
-                .padding(.trailing, 100)
-                VStack(spacing: 0) {
-                    Text("0")
-                        .font(.system(size: 16))
-                        .padding(.bottom, 8)
-                    Text("친구")
-                        .font(.system(size: 12))
-                }
-                Spacer()
-            }
-            .padding(.bottom, 36)
-            MyPageTabBarView(currentTab: $index)
-            Divider()
-            TabView(selection:$index) {
-                MyPostScreen()
-                    .tag(0)
-                BookmarkScreen()
-                    .tag(1)
-            }
-            Spacer()
+            //UserEditScreen(viewModel: viewModel)
         }
     }
 }
@@ -78,8 +70,8 @@ struct MyPageTabBarView: View {
             ZStack {
                 Button ( action: { self.currentTab = 0 }) {
                     VStack {
-                        Text("내가 쓴 글")
-                            .font(.system(size: 14))
+                        Text("리뷰")
+                            .size14Regular()
                             .foregroundColor(.textMain)
                     }
                 }
@@ -104,7 +96,7 @@ struct MyPageTabBarView: View {
                 } label: {
                     VStack {
                         Text("북마크")
-                            .font(.system(size: 14))
+                            .size14Regular()
                             .foregroundColor(.textMain)
                     }
                 }
