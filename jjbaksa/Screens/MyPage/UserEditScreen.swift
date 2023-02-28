@@ -1,0 +1,114 @@
+//
+//  UserEditScreen.swift
+//  jjbaksa
+//
+//  Created by 정영준 on 2023/02/27.
+//
+
+import SwiftUI
+
+struct UserEditScreen: View {
+    @ObservedObject var viewModel: MyPageViewModel
+    @State var nickname: String = "임시 닉네임"
+    @State var newNickname: String = ""
+    var editScreenHeight = UIScreen.main.bounds.size.height * 0.5
+    
+    var body: some View {
+        ZStack {
+            GeometryReader { _ in
+                EmptyView()
+            }
+            .background(.black.opacity(0.6))
+            .opacity(viewModel.isEditShow ? 1 : 0)
+            .animation(.easeInOut.delay(0.2), value: viewModel.isEditShow)
+            .onTapGesture {
+                viewModel.toggleIsEditShow()
+            }
+            content
+                //.cornerRadius(20)
+            
+        }
+        .edgesIgnoringSafeArea(.all)
+    }
+    
+    var content: some View {
+        ZStack(alignment: .top) {
+            Color.white
+            VStack(spacing: 0) {
+                Text("\(nickname)님,\n프로필을 변경하시겠어요?")
+                    .font(.system(size: 18))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.vertical, 30)
+                    .padding(.leading, 24)
+                ZStack {
+                    Circle()
+                        .frame(width: 110, height: 110)
+                        .foregroundColor(.base)
+                    Button(action: {()}) {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.system(size: 25))
+                            .foregroundStyle(.black, Color.base)
+                            .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                    }
+                    .foregroundColor(.base)
+                    .padding(.leading, 85)
+                    .padding(.top, 85)
+                }
+                .padding(.bottom, 25)
+                HStack(spacing: 0) {
+                    TextField(nickname, text: $newNickname)
+                        .padding(.leading, 112)
+                        .padding(.trailing, 47)
+                        .font(.system(size: 14))
+                    if newNickname.isEmpty {
+                        Text("\(nickname.count)/10")
+                            .padding(.trailing, 110)
+                            .font(.system(size: 10))
+                            .foregroundColor(.base)
+                    } else {
+                        Text("\(newNickname.count)/10")
+                            .padding(.trailing, 110)
+                            .font(.system(size: 10))
+                            .foregroundColor(.base)
+                    }
+                }
+                .padding(.bottom, 2)
+                
+                Divider()
+                    .padding(.horizontal, 100)
+                    
+                    .frame(width: 200, height: 1)
+                    .background(Color.base)
+                
+                HStack(spacing: 0) {
+                    Button(action: {()}) {
+                        Text("취소")
+                            .frame(width: 141, height: 40)
+                            .font(Font.system(size: 14))
+                            .foregroundColor(.textSub)
+                            .background(Capsule().fill(Color.base))
+                    }
+                    .padding(.trailing, 41)
+                    Button(action: {()}) {
+                        Text("완료")
+                            .frame(width: 141, height: 40)
+                            .font(Font.system(size: 14))
+                            .foregroundColor(.textSub)
+                            .background(Capsule().fill(Color.main))
+                    }
+                }
+                .padding(.top, 50)
+            }
+        }
+        .frame(height: editScreenHeight)
+        .offset(y: viewModel.isEditShow ? 0.5 * editScreenHeight : 2 * editScreenHeight)
+        .animation(.default, value: viewModel.isEditShow)
+    }
+}
+
+
+struct UserEditScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        UserEditScreen(viewModel: MyPageViewModel())
+    }
+}

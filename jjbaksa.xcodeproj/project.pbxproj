@@ -13,6 +13,8 @@
 		1B97BD3B296145B90089DA67 /* MyPageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B97BD3A296145B90089DA67 /* MyPageScreen.swift */; };
 		1BCF0B54299239F600E659DC /* MyPostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B53299239F600E659DC /* MyPostScreen.swift */; };
 		1BCF0B5629923A1900E659DC /* BookmarkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */; };
+		1BDB6C2629AC8A2200820733 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB6C2529AC8A2200820733 /* MyPageViewModel.swift */; };
+		1BDB6C2829AC8CAD00820733 /* UserEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB6C2729AC8CAD00820733 /* UserEditScreen.swift */; };
 		1BFAC8A82918820500188F82 /* SignUpInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8A72918820500188F82 /* SignUpInfoView.swift */; };
 		1BFAC8AB291896BE00188F82 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8AA291896BE00188F82 /* SignUpViewModel.swift */; };
 		1BFAC8AE291B292800188F82 /* SignUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8AD291B292800188F82 /* SignUpError.swift */; };
@@ -43,6 +45,8 @@
 		1B97BD3A296145B90089DA67 /* MyPageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageScreen.swift; sourceTree = "<group>"; };
 		1BCF0B53299239F600E659DC /* MyPostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostScreen.swift; sourceTree = "<group>"; };
 		1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkScreen.swift; sourceTree = "<group>"; };
+		1BDB6C2529AC8A2200820733 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
+		1BDB6C2729AC8CAD00820733 /* UserEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditScreen.swift; sourceTree = "<group>"; };
 		1BFAC8A72918820500188F82 /* SignUpInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfoView.swift; sourceTree = "<group>"; };
 		1BFAC8AA291896BE00188F82 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		1BFAC8AD291B292800188F82 /* SignUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpError.swift; sourceTree = "<group>"; };
@@ -93,11 +97,21 @@
 		1BCF0B522992336900E659DC /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				1BDB6C2429AC8A0D00820733 /* ViewModels */,
 				1B97BD3A296145B90089DA67 /* MyPageScreen.swift */,
 				1BCF0B53299239F600E659DC /* MyPostScreen.swift */,
 				1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */,
+				1BDB6C2729AC8CAD00820733 /* UserEditScreen.swift */,
 			);
 			path = MyPage;
+			sourceTree = "<group>";
+		};
+		1BDB6C2429AC8A0D00820733 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1BDB6C2529AC8A2200820733 /* MyPageViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		1BFAC8A6291881CC00188F82 /* SignUp */ = {
@@ -404,6 +418,7 @@
 				1BFAC8C52924B42500188F82 /* Color.swift in Sources */,
 				1BFAC8B2291B852D00188F82 /* SignUpTermsView.swift in Sources */,
 				E0343E3E28E31F3100221072 /* LogInScreen.swift in Sources */,
+				1BDB6C2829AC8CAD00820733 /* UserEditScreen.swift in Sources */,
 				1BCF0B5629923A1900E659DC /* BookmarkScreen.swift in Sources */,
 				1BFAC8CE292CFDA800188F82 /* MapScreen.swift in Sources */,
 				1B5842D52971688F0014DAC7 /* PostViewModel.swift in Sources */,
@@ -413,6 +428,7 @@
 				E032D30428DDDEEC00159F3D /* RootScreen.swift in Sources */,
 				E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */,
 				1B97BD39296145AE0089DA67 /* PostScreen.swift in Sources */,
+				1BDB6C2629AC8A2200820733 /* MyPageViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

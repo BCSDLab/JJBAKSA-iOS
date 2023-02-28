@@ -9,20 +9,24 @@ import SwiftUI
 
 struct MainScreen: View {
     @State var index = 0
-    
+    @ObservedObject var myPageViewModel = MyPageViewModel()
     var body: some View {
         NavigationView {
-            VStack{
-                TabView(selection:$index) {
-                    MapScreen()
-                        .tag(0)
-                    MyPageScreen()
-                        .tag(1)
+            ZStack {
+                VStack{
+                    TabView(selection:$index) {
+                        MapScreen()
+                            .tag(0)
+                        MyPageScreen()
+                            .environmentObject(myPageViewModel)
+                            .tag(1)
+                    }
+                    .onAppear {
+                        UITabBar.appearance().backgroundColor = .white
+                    }
+                    TabBarView(currentTab: $index)
                 }
-                .onAppear {
-                    UITabBar.appearance().backgroundColor = .white
-                }
-                TabBarView(currentTab: $index)
+                UserEditScreen(viewModel: myPageViewModel)
             }
         }
     }
