@@ -15,6 +15,7 @@ struct SignUpTermsView: View {
     @State var showJjbaksaTerm: Bool = false
     @Environment(\.presentationMode) var presentation
     
+    //TODO: Term 수정
     var body: some View {
         VStack(spacing: 0) {
             Button(action : {
@@ -60,7 +61,11 @@ struct SignUpTermsView: View {
                     Text("개인정보 이용약관(필수)")
                         .font(.system(size: 14))
                         .padding(.trailing, 49)
-                    Button(action: {showPersonalTerm.toggle()} ) {
+                    Button(action: {showPersonalTerm.toggle()
+                        if showJjbaksaTerm {
+                            showJjbaksaTerm.toggle()
+                        }
+                    } ) {
                         if showPersonalTerm {
                             Image(systemName: "chevron.up")
                                 .font(.system(size: 14))
@@ -105,7 +110,11 @@ struct SignUpTermsView: View {
                     Text("쩝쩝박사 이용약관(필수)")
                         .font(.system(size: 14))
                         .padding(.trailing, 49)
-                    Button(action: {showJjbaksaTerm.toggle()} ) {
+                    Button(action: {showJjbaksaTerm.toggle()
+                        if showPersonalTerm {
+                            showPersonalTerm.toggle()
+                        }
+                    } ) {
                         if showJjbaksaTerm {
                             Image(systemName: "chevron.up")
                                 .font(.system(size: 14))

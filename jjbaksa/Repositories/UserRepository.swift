@@ -37,4 +37,18 @@ class UserRepository {
             }
     }
     
+    static func signUp(account: String, password: String, email: String, nickname: String, completion: @escaping (Result<User, AFError>) -> Void) {
+        AF.request("https://api.stage.jjbaksa.com:443/user", method: .post, parameters: SignUpRequest(account: account, password: password, email: email, nickname: nickname), encoder: .json())
+                .responseDecodable(of: User.self) { response in
+                    switch (response.result) {
+                    case .success(let value):
+                        completion(.success(value))
+                        break
+                    case .failure(let error):
+                        completion(.failure(error))
+                        break
+                    }
+                }
+    }
+    
 }
