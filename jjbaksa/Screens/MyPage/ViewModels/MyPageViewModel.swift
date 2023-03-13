@@ -25,6 +25,6 @@ class MyPageViewModel: ObservableObject {
     }
     
     func deleteNewNickname() {
-        newNickname = ""
+        self.newNickname = ""
     }
 }

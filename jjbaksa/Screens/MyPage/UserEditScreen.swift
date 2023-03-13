@@ -84,8 +84,9 @@ struct UserEditScreen: View {
                     .background(Color.base)
                 
                 HStack(spacing: 0) {
-                    Button(action: { viewModel.deleteNewNickname()
-                        viewModel.toggleIsEditShow()}) {
+                    Button(action: {
+                        viewModel.toggleIsEditShow()
+                        viewModel.deleteNewNickname()}) {
                         Text("취소")
                             .frame(width: 141, height: 40)
                             .font(Font.system(size: 14))
