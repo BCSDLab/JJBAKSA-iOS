@@ -9,11 +9,7 @@ import SwiftUI
 
 struct MyPageScreen: View {
     @EnvironmentObject var viewModel: MyPageViewModel
-    @State var index: Int = 0
-    //TODO: 임시 변수. viewmodel로 옮겨야함.
-    var nickname: String = "임시 닉네임"
-    var follwers: Int = 120
-    var userID: String = "tempID"
+    @EnvironmentObject var rootViewModel: RootViewModel
     
     var body: some View {
         ZStack {
@@ -26,16 +22,16 @@ struct MyPageScreen: View {
                     }
                     VStack(alignment: .leading, spacing: 0) {
                         HStack(spacing: 0) {
-                            Text(nickname)
+                            Text(rootViewModel.user?.nickname ?? "nil")
                                 .padding(.bottom, 2)
                                 .font(.system(size: 16, weight: .bold))
                             Circle()
                                 .frame(width: 2, height: 2)
                                 .font(.system(size: 14))
                                 .padding(.horizontal, 5)
-                            Text("팔로워 \(follwers)")
+                            Text("팔로워 \(rootViewModel.user?.userCountResponse?.friendCount ?? 0)")
                         }
-                        Text("@\(userID)")
+                        Text("@\(rootViewModel.user?.account ?? "nil")")
                             .font(.system(size: 14))
                     }
                     .padding(.leading, 13)
@@ -51,9 +47,9 @@ struct MyPageScreen: View {
                 .padding(.trailing, 30)
                 .padding(.bottom, 25)
                 
-                MyPageTabBarView(currentTab: $index)
+                MyPageTabBarView(currentTab: $viewModel.index)
                 Divider()
-                TabView(selection:$index) {
+                TabView(selection:$viewModel.index) {
                     MyPostScreen()
                         .tag(0)
                     BookmarkScreen()

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct UserEditScreen: View {
     @ObservedObject var viewModel: MyPageViewModel
-    @State var nickname: String = "임시 닉네임"
-    @State var newNickname: String = ""
+    @EnvironmentObject var rootViewModel: RootViewModel
+    
     var editScreenHeight = UIScreen.main.bounds.size.height * 0.5
     
     var body: some View {
@@ -35,7 +35,7 @@ struct UserEditScreen: View {
         ZStack(alignment: .top) {
             Color.white
             VStack(spacing: 0) {
-                Text("\(nickname)님,\n프로필을 변경하시겠어요?")
+                Text("\(rootViewModel.user?.nickname ?? "")님,\n프로필을 변경하시겠어요?")
                     .font(.system(size: 18))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 30)
@@ -56,17 +56,20 @@ struct UserEditScreen: View {
                 }
                 .padding(.bottom, 25)
                 HStack(spacing: 0) {
-                    TextField(nickname, text: $newNickname)
+                    TextField(rootViewModel.user?.nickname ?? "", text: $viewModel.newNickname)
+                        .keyboardType(.asciiCapable)
+                        .autocorrectionDisabled(true)
+                        .autocapitalization(.none)
                         .padding(.leading, 112)
                         .padding(.trailing, 47)
                         .font(.system(size: 14))
-                    if newNickname.isEmpty {
-                        Text("\(nickname.count)/10")
+                    if viewModel.newNickname.isEmpty {
+                        Text("\(rootViewModel.user?.nickname?.count ?? 0)/\(viewModel.limit)")
                             .padding(.trailing, 110)
                             .font(.system(size: 10))
                             .foregroundColor(.base)
                     } else {
-                        Text("\(newNickname.count)/10")
+                        Text("\(viewModel.newNickname.count)/\(viewModel.limit)")
                             .padding(.trailing, 110)
                             .font(.system(size: 10))
                             .foregroundColor(.base)
@@ -81,7 +84,8 @@ struct UserEditScreen: View {
                     .background(Color.base)
                 
                 HStack(spacing: 0) {
-                    Button(action: {()}) {
+                    Button(action: { viewModel.deleteNewNickname()
+                        viewModel.toggleIsEditShow()}) {
                         Text("취소")
                             .frame(width: 141, height: 40)
                             .font(Font.system(size: 14))
@@ -89,7 +93,9 @@ struct UserEditScreen: View {
                             .background(Capsule().fill(Color.base))
                     }
                     .padding(.trailing, 41)
-                    Button(action: {()}) {
+                    Button(action: { rootViewModel.changeNickname(nickname: viewModel.newNickname)
+                        viewModel.toggleIsEditShow()
+                    }) {
                         Text("완료")
                             .frame(width: 141, height: 40)
                             .font(Font.system(size: 14))

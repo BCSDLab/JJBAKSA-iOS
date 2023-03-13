@@ -9,8 +9,22 @@ import Foundation
 
 class MyPageViewModel: ObservableObject {
     @Published var isEditShow: Bool = false
-
+    @Published var index: Int = 0
+    @Published var newNickname: String = "" {
+        didSet {
+            if newNickname.count > limit {
+                newNickname = String(newNickname.prefix(limit))
+            }
+        }
+    }
+    
+    let limit = 10
+    
     func toggleIsEditShow() {
         isEditShow = !isEditShow
+    }
+    
+    func deleteNewNickname() {
+        newNickname = ""
     }
 }

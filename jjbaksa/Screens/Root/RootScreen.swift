@@ -16,14 +16,8 @@ struct RootScreen: View {
     
     var body: some View {
         if(viewModel.token != nil) {
-            // TODO: 메인 화면 제작
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-                Text("Hello, world!")
-            }
-            .padding()
+            MainScreen()
+                .environmentObject(viewModel)
         } else {
             LogInScreen()
                 .environmentObject(viewModel)

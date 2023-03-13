@@ -37,4 +37,32 @@ class UserRepository {
             }
     }
     
+    static func getUserInfo(token: HTTPHeaders, completion: @escaping (Result<User, AFError>) -> Void) {
+        AF.request("https://api.stage.jjbaksa.com:443/user/me", method: .get, headers: token)
+            .responseDecodable(of: User.self) { response in
+                switch (response.result) {
+                case .success(let result):
+                    completion(.success(result))
+                    break
+                case .failure(let error):
+                    completion(.failure(error))
+                    break
+                }
+            }
+    }
+    
+    //TODO: patch를 param으로 안보내고 url을 직접 지정해도 괜찮은지?
+    static func changeNickname(token: HTTPHeaders, nickname: String, completion: @escaping (Result<User, AFError>) -> Void) {
+        AF.request("https://api.stage.jjbaksa.com:443/user/nickname?nickname=\(nickname)", method: .patch, headers: token)
+            .responseDecodable(of: User.self) { response in
+                switch (response.result) {
+                case .success(let result):
+                    completion(.success(result))
+                    break
+                case .failure(let error):
+                    completion(.failure(error))
+                    break
+                }
+            }
+    }
 }
