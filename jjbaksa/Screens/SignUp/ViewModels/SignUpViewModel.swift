@@ -27,7 +27,7 @@ class SignUpViewModel: ObservableObject {
         }
     }
     
-    let limit = 10
+    let nicknameLengthLimit = 10
     @Published var account: String = ""
     @Published var eMail: String = ""
     @Published var password: String = "" {
@@ -52,8 +52,8 @@ class SignUpViewModel: ObservableObject {
     }
     @Published var nickname: String = "" {
         didSet {
-            if nickname.count > limit {
-                nickname = String(nickname.prefix(limit))
+            if nickname.count > nicknameLengthLimit {
+                nickname = String(nickname.prefix(nicknameLengthLimit))
             }
         }
     }
