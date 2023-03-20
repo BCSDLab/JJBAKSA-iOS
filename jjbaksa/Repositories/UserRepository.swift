@@ -65,4 +65,20 @@ class UserRepository {
                 }
             }
     }
+    
+    //TODO: account를 바꾸는 api가 없는듯..?
+    static func changeUserInfo(token: HTTPHeaders, account: String?, email: String?, password: String?, nickname: String?, completion: @escaping (Result<User, AFError>) -> Void) {
+        AF.request("https://api.stage.jjbaksa.com:443/user/me", method: .patch, parameters: UserRequest(account: account, email: email, password: password, nickname: nickname), encoder: .json(), headers: token)
+            .responseDecodable(of: User.self) { response in
+                switch (response.result) {
+                case .success(let result):
+                    completion(.success(result))
+                    break
+                case .failure(let error):
+                    completion(.failure(error))
+                    break
+                }
+            }
+    }
+    
 }

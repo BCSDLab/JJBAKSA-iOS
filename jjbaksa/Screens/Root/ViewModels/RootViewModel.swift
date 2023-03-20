@@ -72,6 +72,23 @@ class RootViewModel: ObservableObject {
         }
     }
     
+    func changeUserInfo(account: String?, email: String?, password: String?, nickname: String?) {
+        let header: HTTPHeaders = ["Authorization" : "Bearer \(token?.accessToken ?? "")"]
+        UserRepository.changeUserInfo(token: header, account: account ?? nil, email: email ?? nil, password: password ?? nil, nickname: nickname ?? nil) { result in
+            switch(result) {
+            case .success(let value):
+                self.user?.account = value.account
+                self.user?.email = value.email
+                self.user?.nickname = value.nickname
+                print(value)
+                break
+            case .failure(let error):
+                print(error)
+                break
+            }
+        }
+    }
+    
     func logOut() {
         self.token = nil
     }

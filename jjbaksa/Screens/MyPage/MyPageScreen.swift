@@ -36,7 +36,7 @@ struct MyPageScreen: View {
                     }
                     .padding(.leading, 13)
                     Spacer()
-                    Button(action: {viewModel.toggleIsEditShow()}) {
+                    NavigationLink(destination: {SettingScreen()}) {
                         Image(systemName: "gearshape")
                     }
                     .frame(width: 20, height: 20)

@@ -95,6 +95,8 @@ struct UserEditScreen: View {
                     }
                     .padding(.trailing, 41)
                     Button(action: { rootViewModel.changeNickname(nickname: viewModel.newNickname)
+                        //위 아래 코드 모두 사용 가능
+                        //rootViewModel.changeUserInfo(account: nil, email: nil, password: nil, nickname: viewModel.newNickname)
                         viewModel.toggleIsEditShow()
                     }) {
                         Text("완료")

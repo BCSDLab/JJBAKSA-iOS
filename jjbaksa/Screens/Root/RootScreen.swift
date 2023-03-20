@@ -15,7 +15,7 @@ struct RootScreen: View {
     }
     
     var body: some View {
-        if(viewModel.token != nil) {
+        if(viewModel.token != nil && viewModel.user?.id != nil) {
             MainScreen()
                 .environmentObject(viewModel)
         } else {
