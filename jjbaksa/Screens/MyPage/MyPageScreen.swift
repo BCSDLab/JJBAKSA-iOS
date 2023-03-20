@@ -24,7 +24,7 @@ struct MyPageScreen: View {
                         HStack(spacing: 0) {
                             Text(rootViewModel.user?.nickname ?? "nil")
                                 .padding(.bottom, 2)
-                                .font(.system(size: 16, weight: .bold))
+                                .size16Bold()
                             Circle()
                                 .frame(width: 2, height: 2)
                                 .font(.system(size: 14))
@@ -32,7 +32,7 @@ struct MyPageScreen: View {
                             Text("팔로워 \(rootViewModel.user?.userCountResponse?.friendCount ?? 0)")
                         }
                         Text("@\(rootViewModel.user?.account ?? "nil")")
-                            .font(.system(size: 14))
+                            .size14Regular()
                     }
                     .padding(.leading, 13)
                     Spacer()
@@ -71,7 +71,7 @@ struct MyPageTabBarView: View {
                 Button ( action: { self.currentTab = 0 }) {
                     VStack {
                         Text("리뷰")
-                            .font(.system(size: 14))
+                            .size14Regular()
                             .foregroundColor(.textMain)
                     }
                 }
@@ -96,7 +96,7 @@ struct MyPageTabBarView: View {
                 } label: {
                     VStack {
                         Text("북마크")
-                            .font(.system(size: 14))
+                            .size14Regular()
                             .foregroundColor(.textMain)
                     }
                 }

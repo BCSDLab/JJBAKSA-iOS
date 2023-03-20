@@ -36,7 +36,7 @@ struct UserEditScreen: View {
             Color.white
             VStack(spacing: 0) {
                 Text("\(rootViewModel.user?.nickname ?? "")님,\n프로필을 변경하시겠어요?")
-                    .font(.system(size: 18))
+                    .size18Regular()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 30)
                     .padding(.leading, 24)
@@ -62,16 +62,16 @@ struct UserEditScreen: View {
                         .autocapitalization(.none)
                         .padding(.leading, 112)
                         .padding(.trailing, 47)
-                        .font(.system(size: 14))
+                        .size14Regular()
                     if viewModel.newNickname.isEmpty {
                         Text("\(rootViewModel.user?.nickname?.count ?? 0)/\(viewModel.limit)")
                             .padding(.trailing, 110)
-                            .font(.system(size: 10))
+                            .size10Regular()
                             .foregroundColor(.base)
                     } else {
                         Text("\(viewModel.newNickname.count)/\(viewModel.limit)")
                             .padding(.trailing, 110)
-                            .font(.system(size: 10))
+                            .size10Regular()
                             .foregroundColor(.base)
                     }
                 }
@@ -89,7 +89,7 @@ struct UserEditScreen: View {
                         viewModel.deleteNewNickname()}) {
                         Text("취소")
                             .frame(width: 141, height: 40)
-                            .font(Font.system(size: 14))
+                            .size14Regular()
                             .foregroundColor(.textSub)
                             .background(Capsule().fill(Color.base))
                     }
@@ -99,7 +99,7 @@ struct UserEditScreen: View {
                     }) {
                         Text("완료")
                             .frame(width: 141, height: 40)
-                            .font(Font.system(size: 14))
+                            .size14Regular()
                             .foregroundColor(.textSub)
                             .background(Capsule().fill(Color.main))
                     }
