@@ -42,7 +42,6 @@
 		E0343E4728E3237F00221072 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0343E4628E3237F00221072 /* Alamofire */; };
 		E0343E4A28E323D600221072 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0343E4928E323D600221072 /* Token.swift */; };
 		E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0343E4B28E3248100221072 /* LogInRequest.swift */; };
-		FDD148FD0FE92E9D78E78658 /* Pods_jjbaksa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB88C60566CCF3B54FD82205 /* Pods_jjbaksa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,8 +70,6 @@
 		1BFAC8C42924B42500188F82 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1BFAC8CB292CF8BE00188F82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1BFAC8CD292CFDA800188F82 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
-		84EBDF67A1A0420EC17296E5 /* Pods-jjbaksa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjbaksa.debug.xcconfig"; path = "Target Support Files/Pods-jjbaksa/Pods-jjbaksa.debug.xcconfig"; sourceTree = "<group>"; };
-		DB88C60566CCF3B54FD82205 /* Pods_jjbaksa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jjbaksa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2EA28DDDE9900159F3D /* jjbaksa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjbaksa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jjbaksaApp.swift; sourceTree = "<group>"; };
 		E032D2F128DDDE9A00159F3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,7 +81,6 @@
 		E0343E4328E322DB00221072 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		E0343E4928E323D600221072 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		E0343E4B28E3248100221072 /* LogInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRequest.swift; sourceTree = "<group>"; };
-		E6EDB8282D0B65F99029B9F0 /* Pods-jjbaksa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjbaksa.release.xcconfig"; path = "Target Support Files/Pods-jjbaksa/Pods-jjbaksa.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +89,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0343E4728E3237F00221072 /* Alamofire in Frameworks */,
-				FDD148FD0FE92E9D78E78658 /* Pods_jjbaksa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,20 +201,11 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
-		6D32A30ACCB39FB3E279E8AB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DB88C60566CCF3B54FD82205 /* Pods_jjbaksa.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		E032D2E128DDDE9900159F3D = {
 			isa = PBXGroup;
 			children = (
 				E032D2EC28DDDE9900159F3D /* jjbaksa */,
 				E032D2EB28DDDE9900159F3D /* Products */,
-				6D32A30ACCB39FB3E279E8AB /* Frameworks */,
 				FECEA610FF1026AEA79FB8D9 /* Pods */,
 			);
 			sourceTree = "<group>";
@@ -323,8 +309,6 @@
 		FECEA610FF1026AEA79FB8D9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				84EBDF67A1A0420EC17296E5 /* Pods-jjbaksa.debug.xcconfig */,
-				E6EDB8282D0B65F99029B9F0 /* Pods-jjbaksa.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -336,11 +320,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E032D2F828DDDE9A00159F3D /* Build configuration list for PBXNativeTarget "jjbaksa" */;
 			buildPhases = (
-				5790192346B7CB389C29733A /* [CP] Check Pods Manifest.lock */,
 				E032D2E628DDDE9900159F3D /* Sources */,
 				E032D2E728DDDE9900159F3D /* Frameworks */,
 				E032D2E828DDDE9900159F3D /* Resources */,
-				F86D38266FD157B2B04FD903 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -379,7 +361,7 @@
 			);
 			mainGroup = E032D2E128DDDE9900159F3D;
 			packageReferences = (
-				E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
 			);
 			productRefGroup = E032D2EB28DDDE9900159F3D /* Products */;
 			projectDirPath = "";
@@ -401,48 +383,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5790192346B7CB389C29733A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-jjbaksa-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F86D38266FD157B2B04FD903 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-jjbaksa/Pods-jjbaksa-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-jjbaksa/Pods-jjbaksa-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-jjbaksa/Pods-jjbaksa-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E032D2E628DDDE9900159F3D /* Sources */ = {
@@ -603,7 +543,6 @@
 		};
 		E032D2F928DDDE9A00159F3D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84EBDF67A1A0420EC17296E5 /* Pods-jjbaksa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -635,7 +574,6 @@
 		};
 		E032D2FA28DDDE9A00159F3D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6EDB8282D0B65F99029B9F0 /* Pods-jjbaksa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -689,7 +627,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -702,7 +640,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		E0343E4628E3237F00221072 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = E0343E4528E3237F00221072 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
