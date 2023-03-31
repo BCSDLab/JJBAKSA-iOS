@@ -11,8 +11,8 @@ import Combine
 import Alamofire
 
 class RootViewModel: ObservableObject {
-    @Published var user: User?         // 유저 정보
-    @Published var token: Token? = nil           // 토큰
+    @Published var user: User?              // 유저 정보
+    @Published var token: Token? = nil      // 토큰
     
     init() {
         loadToken()
@@ -42,8 +42,7 @@ class RootViewModel: ObservableObject {
     
     // 유저 정보 불러오기
     func loadUser() {
-        let header: HTTPHeaders = ["Authorization" : "Bearer \(token?.accessToken ?? "")"]
-        UserRepository.getUserInfo(token: header) { result in
+        UserRepository.getUserInfo() { result in
             switch(result) {
             case .success(let value):
                 self.user = value
@@ -58,8 +57,7 @@ class RootViewModel: ObservableObject {
     
     // 닉네임 바꾸기
     func changeNickname(nickname: String) {
-        let header: HTTPHeaders = ["Authorization" : "Bearer \(token?.accessToken ?? "")"]
-        UserRepository.changeNickname(token: header, nickname: nickname) { result in
+        UserRepository.changeNickname(nickname: nickname) { result in
             switch(result) {
             case .success(let value):
                 self.user?.nickname = value.nickname
@@ -73,8 +71,8 @@ class RootViewModel: ObservableObject {
     }
     
     func changeUserInfo(account: String?, email: String?, password: String?, nickname: String?) {
-        let header: HTTPHeaders = ["Authorization" : "Bearer \(token?.accessToken ?? "")"]
-        UserRepository.changeUserInfo(token: header, account: account ?? nil, email: email ?? nil, password: password ?? nil, nickname: nickname ?? nil) { result in
+        let userRequest: UserRequest = UserRequest(account: account, email: email, password: password, nickname: nickname)
+        UserRepository.changeUserInfo(userRequest: userRequest) { result in
             switch(result) {
             case .success(let value):
                 self.user?.account = value.account
@@ -91,6 +89,9 @@ class RootViewModel: ObservableObject {
     
     func logOut() {
         self.token = nil
+        self.user = nil
+        UserDefaults.standard.removeObject(forKey: "access_token")
+        UserDefaults.standard.removeObject(forKey: "refresh_token")
     }
 }
 

@@ -21,10 +21,11 @@ class MyPageViewModel: ObservableObject {
     let limit = 10
     
     func toggleIsEditShow() {
-        isEditShow = !isEditShow
+        isEditShow.toggle()
     }
     
     func deleteNewNickname() {
         self.newNickname = ""
     }
+
 }

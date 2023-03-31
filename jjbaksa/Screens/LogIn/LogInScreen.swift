@@ -10,9 +10,9 @@ import SwiftUI
 struct LogInScreen: View {
     @ObservedObject var viewModel: LogInViewModel = LogInViewModel()
     @EnvironmentObject var rootViewModel: RootViewModel
-
+    
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Spacer()
                 HStack {
@@ -116,12 +116,35 @@ struct LogInScreen: View {
                             .font(.system(size: 12))
                             .underline()
                     }
-                            .padding([.top], 32)
+                    .padding([.top], 32)
+                
+                    HStack(spacing: 0) {
+                        NavigationLink(destination: FindUserInfoScreen(targetInfo: "아이디")) {
+                            Text("아이디 찾기")
+                                .foregroundColor(.main)
+                                .font(.system(size: 12))
+                                .underline()
+                        }
+                        
+                        Text(" / ")
+                            .foregroundColor(.main)
+                            .font(.system(size: 12))
+                        
+                        NavigationLink(destination: FindUserInfoScreen(targetInfo: "비밀번호")) {
+                            Text("비밀번호 찾기")
+                                .foregroundColor(.main)
+                                .font(.system(size: 12))
+                                .underline()
+                        }
+                        
+                    }
+                    .padding(.top, 6)
                 }
 
                 Spacer()
             }
         }
+        .toolbar(.hidden, for: .navigationBar)
     }
 }
 

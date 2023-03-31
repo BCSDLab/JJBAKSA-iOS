@@ -13,7 +13,7 @@ struct MainScreen: View {
     var body: some View {
         NavigationView {
             ZStack {
-                VStack{
+                VStack(spacing: 0) {
                     TabView(selection:$index) {
                         MapScreen()
                             .tag(0)
@@ -26,8 +26,18 @@ struct MainScreen: View {
                     }
                     TabBarView(currentTab: $index)
                 }
-                UserEditScreen(viewModel: myPageViewModel)
             }
+        }
+        .popup(isPresented: $myPageViewModel.isEditShow) {
+            UserEditScreen()
+                .environmentObject(myPageViewModel)
+        } customize: {
+            $0
+                .type(.floater(verticalPadding: 0, useSafeAreaInset: false))
+                .position(.bottom)
+                .animation(.spring())
+                .closeOnTapOutside(false)
+                .backgroundColor(.black.opacity(0.35))
         }
     }
 }

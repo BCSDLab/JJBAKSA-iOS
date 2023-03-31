@@ -16,5 +16,6 @@ target 'jjbaksa' do
   pod 'naveridlogin-sdk-ios' # 네이버 로그인
   pod 'GoogleSignIn' # 구글 로그인
   pod 'GoogleSignInSwiftSupport' # 'Google 계정으로 로그인' 버튼의 포드 확장 프로그램
+  pod 'ExytePopupView' # Pop Up 라이브러리
 
 end

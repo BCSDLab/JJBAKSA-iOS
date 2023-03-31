@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
-import NMapsMap
+//import NMapsMap
 
 struct MapScreen: View {
     @State var coord: (Double, Double) = (127.96723316031301, 35.70068507556328)
     @State var zoom: Double = 6.0
     @State var searchText: String = ""
     var body: some View {
+        EmptyView()
+        /*
         VStack(spacing: 0) {
             ZStack {
                 UIMapView(coord, zoom)
@@ -81,9 +83,10 @@ struct MapScreen: View {
             }
                     .zIndex(1)
         }
+         */
     }
 }
-
+/*
 
 struct UIMapView: UIViewRepresentable {
     var coord: (Double, Double)
@@ -154,3 +157,4 @@ struct MapScreen_Previews: PreviewProvider {
         MapScreen()
     }
 }
+*/
