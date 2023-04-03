@@ -109,36 +109,39 @@ struct LogInScreen: View {
                             .foregroundColor(.main)
                             .background(Capsule().stroke(Color.main))
                     }
-
-                    NavigationLink(destination: SignUpScreen()) { //TODO: 회원가입 페이지 이동
-                        Text("회원가입")
-                            .foregroundColor(.main)
-                            .font(.system(size: 12))
-                            .underline()
-                    }
-                    .padding([.top], 32)
-                
+                    .padding(.bottom, 32)
                     HStack(spacing: 0) {
-                        NavigationLink(destination: FindUserInfoScreen(targetInfo: "아이디")) {
-                            Text("아이디 찾기")
+                        NavigationLink(destination: SignUpScreen()) { //TODO: 회원가입 페이지 이동
+                            Text("회원가입")
                                 .foregroundColor(.main)
-                                .font(.system(size: 12))
+                                .size12Regular()
                                 .underline()
                         }
                         
-                        Text(" / ")
+                        Text("|")
                             .foregroundColor(.main)
-                            .font(.system(size: 12))
+                            .sizeCustom(9)
+                            .padding(.vertical, 8)
+                        
+                        NavigationLink(destination: FindUserInfoScreen(targetInfo: "아이디")) {
+                            Text("아이디 찾기")
+                                .foregroundColor(.base)
+                                .size12Regular()
+                                .underline()
+                        }
+                        
+                        Text("|")
+                            .foregroundColor(.main)
+                            .sizeCustom(9)
+                            .padding(.vertical, 8)
                         
                         NavigationLink(destination: FindUserInfoScreen(targetInfo: "비밀번호")) {
                             Text("비밀번호 찾기")
-                                .foregroundColor(.main)
-                                .font(.system(size: 12))
+                                .foregroundColor(.base)
+                                .size12Regular()
                                 .underline()
                         }
-                        
                     }
-                    .padding(.top, 6)
                 }
 
                 Spacer()

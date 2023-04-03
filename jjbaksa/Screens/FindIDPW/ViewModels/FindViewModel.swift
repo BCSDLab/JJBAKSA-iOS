@@ -8,9 +8,10 @@
 import Foundation
 
 class FindViewModel: ObservableObject {
+    //TODO: 하나의 ViewModel에 치중된건 아닌지..?
     @Published var eMail: String = ""
     @Published var code: String = ""
-    @Published var account: String = "iosTest"
+    @Published var account: String = ""
     @Published var password: String = ""
     @Published var checkPassword: String = ""
     @Published var emailErrorCode: FindError = .emailValidError
