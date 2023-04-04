@@ -39,6 +39,7 @@
 		1BFAC8C52924B42500188F82 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8C42924B42500188F82 /* Color.swift */; };
 		1BFAC8CE292CFDA800188F82 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAC8CD292CFDA800188F82 /* MapScreen.swift */; };
 		731B328A645706638D9DDE76 /* Pods_jjbaksa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309FE21742C4F7E6148D935A /* Pods_jjbaksa.framework */; };
+		83373CA5D01868BB06AD0D28 /* ApiFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8337348336CB98D34B141144 /* ApiFactory.swift */; };
 		E032D2EE28DDDE9900159F3D /* jjbaksaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */; };
 		E032D2F228DDDE9A00159F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E032D2F128DDDE9A00159F3D /* Assets.xcassets */; };
 		E032D2F528DDDE9A00159F3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E032D2F428DDDE9A00159F3D /* Preview Assets.xcassets */; };
@@ -87,6 +88,7 @@
 		1BFAC8CD292CFDA800188F82 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		309FE21742C4F7E6148D935A /* Pods_jjbaksa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jjbaksa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE153D6F25C73C28D9E98A2 /* Pods-jjbaksa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjbaksa.debug.xcconfig"; path = "Target Support Files/Pods-jjbaksa/Pods-jjbaksa.debug.xcconfig"; sourceTree = "<group>"; };
+		8337348336CB98D34B141144 /* ApiFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiFactory.swift; sourceTree = "<group>"; };
 		E032D2EA28DDDE9900159F3D /* jjbaksa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjbaksa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E032D2ED28DDDE9900159F3D /* jjbaksaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jjbaksaApp.swift; sourceTree = "<group>"; };
 		E032D2F128DDDE9A00159F3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				E0343E4328E322DB00221072 /* UserRepository.swift */,
+				8337348336CB98D34B141144 /* ApiFactory.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */,
 				1B97BD39296145AE0089DA67 /* PostScreen.swift in Sources */,
 				1BDB6C2629AC8A2200820733 /* MyPageViewModel.swift in Sources */,
+				83373CA5D01868BB06AD0D28 /* ApiFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

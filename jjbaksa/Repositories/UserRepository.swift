@@ -14,7 +14,8 @@ class UserRepository {
     static let tokenHeader: HTTPHeaders = ["Authorization" : "Bearer \(token)"]
     
     static func logIn(account: String, password: String, completion: @escaping (Result<Token, AFError>) -> Void) {
-        AF.request("\(self.url)/user/login", method: .post, parameters: LogInRequest(account: account, password: password), encoder: .json())
+//        AF.request("\(self.url)/user/login", method: .post, parameters: LogInRequest(account: account, password: password), encoder: .json())
+        ApiFactory.getApi(type: .post, url: "user/login", parameters: LogInRequest(account: account, password: password))
                 .responseDecodable(of: Token.self) { response in
                     switch (response.result) {
                     case .success(let value):
