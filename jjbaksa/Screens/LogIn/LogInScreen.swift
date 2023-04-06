@@ -63,29 +63,29 @@ struct LogInScreen: View {
                     ZStack {
                         Capsule()
                             .frame(width:24,height:12)
-                            .foregroundColor(Color(viewModel.isAutoLogIn ? UIColor(.main) : UIColor(.base)))
+                            .foregroundColor(Color(rootViewModel.isTokenSave ? UIColor(.main) : UIColor(.base)))
                         ZStack{
                             Circle()
-                                    .frame(width: 10, height: 10)
-                                    .foregroundColor(.white)
+                                .frame(width: 10, height: 10)
+                                .foregroundColor(.white)
                         }
-                                .offset(x: viewModel.isAutoLogIn ? 6 : -6)
-                                .animation(.spring())
+                        .offset(x: rootViewModel.isTokenSave ? 6 : -6)
+                        .animation(.spring())
                     }
-                            .onTapGesture {
-                                self.viewModel.isAutoLogIn.toggle()
-                            }
-
+                    .onTapGesture {
+                        rootViewModel.isTokenSave.toggle()
+                    }
+                    
                     Text("자동 로그인")
                         .font(.system(size: 11))
-                        .foregroundColor(Color(viewModel.isAutoLogIn ? UIColor(.main) : UIColor(.textMain)))
+                        .foregroundColor(Color(rootViewModel.isTokenSave ? UIColor(.main) : UIColor(.textMain)))
                     
                 }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(EdgeInsets(top: 7, leading: 85, bottom: 51, trailing: 0))
-                        .onChange(of: self.viewModel.token) { token in
+                        .onChange(of: viewModel.token) { token in
                             if (token != nil) {
-                                self.rootViewModel.setToken(token: token!, isSave: viewModel.isAutoLogIn)
+                                rootViewModel.setToken(token: token!)
                             }
                         }
 

@@ -73,7 +73,8 @@ class FindViewModel: ObservableObject {
     }
     
     func sendCertCode() {
-        UserRepository.sendCertCode(eMail: self.eMail) { result in
+        let parameters: QueryString = ["email": eMail]
+        UserRepository.sendCertCode(parameters: parameters) { result in
             switch (result) {
             case .success(let value):
                 if value == "OK" {
@@ -95,7 +96,8 @@ class FindViewModel: ObservableObject {
     }
     
     func verifyAccountCertCode() {
-        UserRepository.findAccount(eMail: self.eMail, code: self.code) { result in
+        let parameters: QueryString = ["email": eMail, "code": code]
+        UserRepository.findAccount(parameters: parameters) { result in
             switch (result) {
             case .success(let value):
                 if value.account != nil {
@@ -133,7 +135,8 @@ class FindViewModel: ObservableObject {
     }
     
     func resetPassword() {
-        UserRepository.changePassword(password: self.password, token: self.token) { result in
+        let parameters: QueryString = ["passwrod": password]
+        UserRepository.changePassword(parameters: parameters) { result in
             switch (result) {
             case .success(let value):
                 if value.account != nil {

@@ -12,17 +12,33 @@ import Alamofire
 class ApiFactory {
     static let host: String = "https://api.stage.jjbaksa.com:443/"
 
-    static func getApi<T: Encodable>(type: HTTPMethod, url: String, parameters: T) -> DataRequest {
+    static func getApi<T: Encodable>(type: HTTPMethod, url: String, parameters: T = EmptyParameter()) -> DataRequest {
 
         var header: HTTPHeaders = []
 
         let token: String? = UserDefaults.standard.string(forKey: "access_token")
 
         if(token != nil) {
-            header.add(name: "Authorization", value: "Bearer \(token)")
+            header.add(name: "Authorization", value: "Bearer \(token!)")
         }
+        if parameters is EmptyParameter {
+            return AF.request("\(host)\(url)", method: type, headers: header)
+        } else {
+            return AF.request("\(host)\(url)", method: type, parameters: parameters, encoder: JSONParameterEncoder.default, headers: header)
+        }
+    }
+    
+    static func getApiQueryType(type: HTTPMethod, url: String, parameters: QueryString) -> DataRequest {
 
-        return AF.request("\(host)\(url)", method: type, parameters: parameters, encoder: JSONParameterEncoder.default, headers: header)
+        var header: HTTPHeaders = []
+
+        let token: String? = UserDefaults.standard.string(forKey: "access_token")
+
+        if(token != nil) {
+            header.add(name: "Authorization", value: "Bearer \(token!)")
+        }
+        
+        return AF.request("\(host)\(url)", method: type, parameters: parameters, encoding: URLEncoding.queryString, headers: header)
     }
 
 }

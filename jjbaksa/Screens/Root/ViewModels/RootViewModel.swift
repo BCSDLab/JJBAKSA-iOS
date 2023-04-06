@@ -13,18 +13,19 @@ import Alamofire
 class RootViewModel: ObservableObject {
     @Published var user: User?              // 유저 정보
     @Published var token: Token? = nil      // 토큰
+    @Published var isTokenSave: Bool = true
     
     init() {
         loadToken()
     }
     
     // 토큰 받아오기
-    func setToken(token: Token, isSave: Bool) {
+    func setToken(token: Token) {
         self.token = token
-        if(isSave) {
+        
             UserDefaults.standard.set(token.accessToken, forKey: "access_token")
             UserDefaults.standard.set(token.refreshToken, forKey: "refresh_token")
-        }
+        
         loadUser()
     }
     
@@ -57,7 +58,8 @@ class RootViewModel: ObservableObject {
     
     // 닉네임 바꾸기
     func changeNickname(nickname: String) {
-        UserRepository.changeNickname(nickname: nickname) { result in
+        let parameters: QueryString = ["nickname": nickname]
+        UserRepository.changeNickname(parameters: parameters) { result in
             switch(result) {
             case .success(let value):
                 self.user?.nickname = value.nickname
@@ -92,6 +94,16 @@ class RootViewModel: ObservableObject {
         self.user = nil
         UserDefaults.standard.removeObject(forKey: "access_token")
         UserDefaults.standard.removeObject(forKey: "refresh_token")
+    }
+    
+    func shutDown() {
+        print("shut down")
+        if isTokenSave == false {
+            self.token = nil
+            self.user = nil
+            UserDefaults.standard.removeObject(forKey: "access_token")
+            UserDefaults.standard.removeObject(forKey: "refresh_token")
+        }
     }
 }
 
