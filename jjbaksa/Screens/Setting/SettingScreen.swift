@@ -79,7 +79,7 @@ struct SettingScreen: View {
                 .padding(.bottom, 4)
             
             Group {
-                Button(action: {()}) {
+                NavigationLink(destination: NoticeScreen()) {
                     HStack(spacing: 0) {
                         Text("공지사항")
                             .size16Regular()
