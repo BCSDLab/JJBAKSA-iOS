@@ -12,6 +12,8 @@
 		1B97BD39296145AE0089DA67 /* PostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B97BD38296145AE0089DA67 /* PostScreen.swift */; };
 		1B97BD3B296145B90089DA67 /* MyPageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B97BD3A296145B90089DA67 /* MyPageScreen.swift */; };
 		1BA8505429DED74E00A80737 /* EmptyParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8505329DED74E00A80737 /* EmptyParameter.swift */; };
+		1BA8505629E3B0D200A80737 /* ImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8505529E3B0D200A80737 /* ImageStyle.swift */; };
+		1BA8505829E3BC2C00A80737 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8505729E3BC2C00A80737 /* MapViewModel.swift */; };
 		1BCF0B54299239F600E659DC /* MyPostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B53299239F600E659DC /* MyPostScreen.swift */; };
 		1BCF0B5629923A1900E659DC /* BookmarkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */; };
 		1BDB6C2629AC8A2200820733 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB6C2529AC8A2200820733 /* MyPageViewModel.swift */; };
@@ -60,6 +62,8 @@
 		1B97BD38296145AE0089DA67 /* PostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostScreen.swift; sourceTree = "<group>"; };
 		1B97BD3A296145B90089DA67 /* MyPageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageScreen.swift; sourceTree = "<group>"; };
 		1BA8505329DED74E00A80737 /* EmptyParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyParameter.swift; sourceTree = "<group>"; };
+		1BA8505529E3B0D200A80737 /* ImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStyle.swift; sourceTree = "<group>"; };
+		1BA8505729E3BC2C00A80737 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		1BCF0B53299239F600E659DC /* MyPostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostScreen.swift; sourceTree = "<group>"; };
 		1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkScreen.swift; sourceTree = "<group>"; };
 		1BDB6C2529AC8A2200820733 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				1B5842D42971688F0014DAC7 /* PostViewModel.swift */,
+				1BA8505729E3BC2C00A80737 /* MapViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				1BFAC8C22924B3E400188F82 /* String+Regex.swift */,
 				1BFAC8C42924B42500188F82 /* Color.swift */,
 				1BEBF01A29C7DACB001369F0 /* TextStyle.swift */,
+				1BA8505529E3B0D200A80737 /* ImageStyle.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -545,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BA8505829E3BC2C00A80737 /* MapViewModel.swift in Sources */,
 				1BEBF01B29C7DACB001369F0 /* TextStyle.swift in Sources */,
 				1BEBF00E29BEB726001369F0 /* User.swift in Sources */,
 				1BEBF0DA29D2AA52001369F0 /* FindUserInfoScreen.swift in Sources */,
@@ -559,6 +566,7 @@
 				1BEBF02729C805A6001369F0 /* ChangPasswordScreen.swift in Sources */,
 				1BEBF32129D3DB82001369F0 /* BackButton.swift in Sources */,
 				1BEBF02329C7F592001369F0 /* UserRequest.swift in Sources */,
+				1BA8505629E3B0D200A80737 /* ImageStyle.swift in Sources */,
 				1B97BD372961442F0089DA67 /* MainScreen.swift in Sources */,
 				1BFAC8B6291B856D00188F82 /* SignUpScreen.swift in Sources */,
 				1BA8505429DED74E00A80737 /* EmptyParameter.swift in Sources */,
@@ -720,6 +728,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = jjbaksa/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"현재 위치 사용을 허용하시겠습니까?\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -752,6 +761,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = jjbaksa/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"현재 위치 사용을 허용하시겠습니까?\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

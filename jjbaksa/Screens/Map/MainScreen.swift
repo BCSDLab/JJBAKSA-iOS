@@ -64,11 +64,11 @@ struct TabBarView: View {
                     }
                 }
                 .frame(height: 100)
-                .foregroundColor(currentTab == 0 ? Color.textMain : Color.base)
+                .foregroundColor(currentTab == 0 ? Color.munan : Color.base)
                 
                 if currentTab == 0 {
                     Capsule()
-                        .fill(Color.textMain)
+                        .fill(Color.munan)
                         .frame(height: 2)
                         .padding(.bottom, 112)
                 } else {
@@ -117,10 +117,10 @@ struct TabBarView: View {
                     
                 }
                 .frame(height: 100)
-                .foregroundColor(currentTab == 1 ? Color.textMain : Color.base)
+                .foregroundColor(currentTab == 1 ? Color.munan : Color.base)
                 if currentTab == 1 {
                     Capsule()
-                        .fill(Color.textMain)
+                        .fill(Color.munan)
                         .frame(height: 2)
                         .padding(.bottom, 112)
                 } else {
@@ -131,7 +131,7 @@ struct TabBarView: View {
                 }
             }
         }
-        .frame(height: 0)
+        .frame(height: 16)
 
     }
 }
