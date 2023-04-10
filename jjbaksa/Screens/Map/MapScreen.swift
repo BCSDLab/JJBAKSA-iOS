@@ -11,11 +11,12 @@ import NMapsMap
 struct MapScreen: View {
     @StateObject var viewModel: MapViewModel = MapViewModel()
     @State var zoom: Double = 6.0
+    @State var gotoLocation: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
-                UIMapView((viewModel.userLocation?.longitude ?? 0, viewModel.userLocation?.latitude ?? 0), zoom)
+                UIMapView((viewModel.userLocation?.longitude ?? 0, viewModel.userLocation?.latitude ?? 0), zoom, gotoLocation)
                     .edgesIgnoringSafeArea(.vertical)
                 VStack(spacing: 0) {
                     NavigationLink(destination: {EmptyView()}) {
@@ -153,7 +154,12 @@ struct MapScreen: View {
                         }
                         .padding(.bottom, 8)
                         
-                        Button(action: { () }) {
+                        Button(action: {
+                            gotoLocation.toggle()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                            self.gotoLocation.toggle()
+                                        }
+                        }) {
                             ZStack {
                                 Image(systemName: "circle.fill")
                                     .resizable()
@@ -186,10 +192,13 @@ struct MapScreen: View {
 struct UIMapView: UIViewRepresentable {
     var coord: (Double, Double)
     var zoom: Double
+    var gotoLocation: Bool
+    let cameraPosition = NMFCameraPosition()
 
-    init(_ coord: (Double, Double), _ zoom: Double) {
+    init(_ coord: (Double, Double), _ zoom: Double, _ gotoLocation: Bool) {
         self.coord = coord
         self.zoom = zoom
+        self.gotoLocation = gotoLocation
     }
 
     func makeUIView(context: Context) -> NMFNaverMapView {
@@ -208,25 +217,37 @@ struct UIMapView: UIViewRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(coord, zoom) //TODO: 지도 현재 가운데 위경도로 변경
+        Coordinator(coord, zoom, gotoLocation)
     }
 
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
-        let coord = NMGLatLng(lat: coord.1, lng: coord.0)
-        let cameraUpdate = NMFCameraUpdate(scrollTo: coord, zoomTo: zoom)
-        cameraUpdate.animation = .fly
-        cameraUpdate.animationDuration = 1
-        uiView.mapView.moveCamera(cameraUpdate)
+        let target = cameraPosition.target
+        
+        if gotoLocation {
+            let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: coord.1, lng: coord.0), zoomTo: zoom)
+            cameraUpdate.animation = .fly
+            cameraUpdate.animationDuration = 1
+            uiView.mapView.moveCamera(cameraUpdate)
+            
+        } else {
+            let cameraUpdate = NMFCameraUpdate(scrollTo: target, zoomTo: zoom)
+            cameraUpdate.animation = .fly
+            cameraUpdate.animationDuration = 1
+            uiView.mapView.moveCamera(cameraUpdate)
+        }
     }
+    
 
 
     class Coordinator: NSObject, NMFMapViewCameraDelegate, NMFMapViewOptionDelegate {
         var coord: (Double, Double)
         var zoom: Double
+        var gotoLocation: Bool
 
-        init(_ coord: (Double, Double), _ zoom: Double) {
+        init(_ coord: (Double, Double), _ zoom: Double, _ gotoLocation: Bool) {
             self.coord = coord
             self.zoom = zoom
+            self.gotoLocation = gotoLocation
         }
 
         func mapView(_ mapView: NMFMapView, cameraWillChangeByReason reason: Int, animated: Bool) {
