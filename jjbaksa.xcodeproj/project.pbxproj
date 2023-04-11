@@ -49,6 +49,8 @@
 		E0343E4728E3237F00221072 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0343E4628E3237F00221072 /* Alamofire */; };
 		E0343E4A28E323D600221072 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0343E4928E323D600221072 /* Token.swift */; };
 		E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0343E4B28E3248100221072 /* LogInRequest.swift */; };
+		E03CD76529E58B2100110681 /* PaginationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CD76429E58B2100110681 /* PaginationProtocol.swift */; };
+		E03CD76929E58DCE00110681 /* PaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CD76829E58DCE00110681 /* PaginationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +98,8 @@
 		E0343E4328E322DB00221072 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		E0343E4928E323D600221072 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		E0343E4B28E3248100221072 /* LogInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRequest.swift; sourceTree = "<group>"; };
+		E03CD76429E58B2100110681 /* PaginationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationProtocol.swift; sourceTree = "<group>"; };
+		E03CD76829E58DCE00110681 /* PaginationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationView.swift; sourceTree = "<group>"; };
 		EBE4FD5604366EDCB344A5AF /* Pods_jjbaksa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jjbaksa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -292,6 +296,7 @@
 		E032D2EC28DDDE9900159F3D /* jjbaksa */ = {
 			isa = PBXGroup;
 			children = (
+				E03CD76629E58DAD00110681 /* Core */,
 				1BFAC8C12924B3D800188F82 /* Utils */,
 				E032D2FD28DDDEB900159F3D /* Screens */,
 				E032D2FC28DDDEB000159F3D /* Repositories */,
@@ -377,6 +382,31 @@
 				E0343E4B28E3248100221072 /* LogInRequest.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E03CD76329E58AF600110681 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E03CD76429E58B2100110681 /* PaginationProtocol.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E03CD76629E58DAD00110681 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E03CD76729E58DB800110681 /* Widgets */,
+				E03CD76329E58AF600110681 /* ViewModels */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E03CD76729E58DB800110681 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				E03CD76829E58DCE00110681 /* PaginationView.swift */,
+			);
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,11 +594,13 @@
 				1BDB6C2829AC8CAD00820733 /* UserEditScreen.swift in Sources */,
 				1BCF0B5629923A1900E659DC /* BookmarkScreen.swift in Sources */,
 				1BFAC8CE292CFDA800188F82 /* MapScreen.swift in Sources */,
+				E03CD76929E58DCE00110681 /* PaginationView.swift in Sources */,
 				1B5842D52971688F0014DAC7 /* PostViewModel.swift in Sources */,
 				1BFAC8B4291B855D00188F82 /* SignUpSuccessView.swift in Sources */,
 				1BCF0B54299239F600E659DC /* MyPostScreen.swift in Sources */,
 				E032D30628DDDF0400159F3D /* RootViewModel.swift in Sources */,
 				E032D30428DDDEEC00159F3D /* RootScreen.swift in Sources */,
+				E03CD76529E58B2100110681 /* PaginationProtocol.swift in Sources */,
 				1BEBF01E29C7DBE4001369F0 /* SettingScreen.swift in Sources */,
 				E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */,
 				1B97BD39296145AE0089DA67 /* PostScreen.swift in Sources */,

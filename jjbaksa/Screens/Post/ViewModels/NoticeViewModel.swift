@@ -7,16 +7,21 @@
 
 import Foundation
 
-class NoticeViewModel: ObservableObject {
-    @Published var notice: PostResponse?
+class NoticeViewModel: PaginationProtocol {
+    typealias itemType = Post
+    @Published var list: Array<itemType>?
     @Published var status: Bool?
     @Published var currentPage: Int = 0
-    func getNotice() {
+    @Published var totalPage: Int = 0
+    
+    func getList() {
         //let request = PostRequest(boardType: "NOTICE", page: 0, size: 10, sort: "")
         PostRepository.getPost(boardType: "NOTICE", page: currentPage) { result in
             switch(result) {
             case .success(let value):
-                self.notice = value
+                self.list = value.content
+                self.currentPage = value.pageable.pageNumber
+                self.totalPage = value.totalPages
                 self.status = true
                 print(value)
                 break
@@ -36,17 +41,18 @@ class NoticeViewModel: ObservableObject {
     
     var hasMore: Bool {
         get {
-            !(notice?.content.isEmpty ?? true) && notice?.content.count ?? 0 < notice?.totalElements ?? 0
+            !(list?.isEmpty ?? true) && currentPage < totalPage
         }
     }
     
-    func getNewNotice() {
-        currentPage += 1
+    func getNextList() {
         //let request = PostRequest(boardType: "NOTICE", page: currentPage, size: 10, sort: "")
         PostRepository.getPost(boardType: "NOTICE", page: currentPage) { result in
             switch(result) {
             case .success(let value):
-                self.notice?.content.append(contentsOf: value.content)
+                self.list?.append(contentsOf: value.content)
+                self.currentPage = value.pageable.pageNumber
+                self.totalPage = value.totalElements
                 self.status = true
                 break
             case .failure(let error):
