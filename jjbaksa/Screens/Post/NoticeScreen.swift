@@ -12,20 +12,15 @@ struct NoticeScreen: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            if(viewModel.notice?.content == nil){
-                if(viewModel.status == nil) {
-                    ProgressView(label: {
-                        VStack(spacing : 0) {
-                            Text("로딩 중..")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
+            if(viewModel.isLoading){
+                ProgressView(label: {
+                    VStack(spacing : 0) {
+                        Text("로딩 중..")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                     }
-                    ).progressViewStyle(CircularProgressViewStyle())
-                } else if viewModel.status == false { //로딩 실패 시 실패 메세지 출력.
-                    Spacer()
-                    Text("Loading Failed.")
                 }
+                ).progressViewStyle(CircularProgressViewStyle())
             } else {
                 Divider()
                     .padding(.horizontal, 16)
@@ -35,12 +30,8 @@ struct NoticeScreen: View {
                     ForEach(viewModel.notice!.content, id: \.self) { post in
                         NoticeRow(post: post)
                             .padding(.leading, 16)
-                        
-                        Divider()
-                            .padding(.horizontal, 16)
-                        
                     }
-                    if(!(viewModel.notice?.content.isEmpty ?? true) && viewModel.notice?.content.count ?? 0 < viewModel.notice?.totalElements ?? 0){
+                    if(viewModel.hasMore){
                         ProgressView()
                             .onAppear() {
                                 viewModel.getNewNotice()

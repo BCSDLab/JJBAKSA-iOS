@@ -11,15 +11,19 @@ struct NoticeRow: View {
     var post: Post
 
     var body: some View {
-        if post.boardType == "POWER_NOTICE" {
-            powerNoticeView(post: post)
-                .padding(.leading, 16)
-                .padding(.trailing, 24)
-        } else {
-            normalNoticeView(post: post)
-                .padding(.leading, 8)
-                .padding(.trailing, 24)
+        VStack(spacing: 0) {
+            if post.boardType == "POWER_NOTICE" {
+                powerNoticeView(post: post)
+                    .padding(.leading, 16)
+                    .padding(.trailing, 24)
+            } else {
+                normalNoticeView(post: post)
+                    .padding(.leading, 8)
+                    .padding(.trailing, 24)
 
+            }
+            Divider()
+                .padding(.horizontal, 16)
         }
     }
 }

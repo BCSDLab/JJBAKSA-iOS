@@ -28,6 +28,18 @@ class NoticeViewModel: ObservableObject {
         }
     }
     
+    var isLoading: Bool {
+        get {
+            status == nil
+        }
+    }
+    
+    var hasMore: Bool {
+        get {
+            !(notice?.content.isEmpty ?? true) && notice?.content.count ?? 0 < notice?.totalElements ?? 0
+        }
+    }
+    
     func getNewNotice() {
         currentPage += 1
         //let request = PostRequest(boardType: "NOTICE", page: currentPage, size: 10, sort: "")
