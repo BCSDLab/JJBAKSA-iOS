@@ -95,8 +95,8 @@ struct LogInScreen: View {
                         viewModel.logIn()
                     }) {
                         Text("로그인")          //button이 아닌 label에 frame을 줘서 버튼 클릭 범위를 늘림
-                            .frame(width: 227, height: 40)
-                            .font(.system(size: 14))
+                            .frame(width: 226, height: 40)
+                            .size16Medium()
                             .foregroundColor(.textSub)
                             .background(Capsule().fill(Color(viewModel.isInfoNotEmpty ? UIColor(.main) : UIColor(.base))))
                             .padding([.bottom], 7)
@@ -104,12 +104,13 @@ struct LogInScreen: View {
 
                     Button(action: { () }) { //TODO: 소셜 로그인 페이지 이동
                         Text("소셜 로그인")      //button이 아닌 label에 frame을 줘서 버튼 클릭 범위를 늘림
-                            .frame(width: 227, height: 40)
-                            .font(.system(size: 14))
+                            .frame(width: 226, height: 40)
+                            .size16Medium()
                             .foregroundColor(.main)
                             .background(Capsule().stroke(Color.main))
                     }
-                    .padding(.bottom, 32)
+                    .padding(.bottom, 22)
+                    
                     HStack(spacing: 0) {
                         NavigationLink(destination: SignUpScreen()) { //TODO: 회원가입 페이지 이동
                             Text("회원가입")
@@ -119,25 +120,25 @@ struct LogInScreen: View {
                         }
                         
                         Text("|")
-                            .foregroundColor(.main)
+                            .foregroundColor(.base)
                             .sizeCustom(9)
-                            .padding(.vertical, 8)
+                            .padding(.horizontal, 8)
                         
                         NavigationLink(destination: FindUserInfoScreen(targetInfo: "아이디")) {
                             Text("아이디 찾기")
-                                .foregroundColor(.base)
+                                .foregroundColor(.munan)
                                 .size12Regular()
                                 .underline()
                         }
                         
                         Text("|")
-                            .foregroundColor(.main)
+                            .foregroundColor(.base)
                             .sizeCustom(9)
-                            .padding(.vertical, 8)
+                            .padding(.horizontal, 8)
                         
                         NavigationLink(destination: FindUserInfoScreen(targetInfo: "비밀번호")) {
                             Text("비밀번호 찾기")
-                                .foregroundColor(.base)
+                                .foregroundColor(.munan)
                                 .size12Regular()
                                 .underline()
                         }

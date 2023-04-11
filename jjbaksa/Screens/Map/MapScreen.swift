@@ -10,14 +10,22 @@ import NMapsMap
 
 struct MapScreen: View {
     @StateObject var viewModel: MapViewModel = MapViewModel()
-    @State var zoom: Double = 6.0
-    @State var gotoLocation: Bool = false
+    @State var zoom: Double = 15.0
+    @State var gotoLocation: Bool = true
     
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
                 UIMapView((viewModel.userLocation?.longitude ?? 0, viewModel.userLocation?.latitude ?? 0), zoom, gotoLocation)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { _ in
+                                if gotoLocation {
+                                    gotoLocation.toggle()
+                                }
+                            })
                     .edgesIgnoringSafeArea(.vertical)
+                
                 VStack(spacing: 0) {
                     NavigationLink(destination: {EmptyView()}) {
                         ZStack {
@@ -155,10 +163,9 @@ struct MapScreen: View {
                         .padding(.bottom, 8)
                         
                         Button(action: {
-                            gotoLocation.toggle()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                            self.gotoLocation.toggle()
-                                        }
+                            if !gotoLocation {
+                                gotoLocation.toggle()
+                            }
                         }) {
                             ZStack {
                                 Image(systemName: "circle.fill")
@@ -172,7 +179,7 @@ struct MapScreen: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 23, height: 23)
-                                    .foregroundColor(.main)
+                                    .foregroundColor(gotoLocation ? .base : .main)
                             }
                             .frame(width: 48, height: 48)
                         }
@@ -203,6 +210,14 @@ struct UIMapView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> NMFNaverMapView {
         let view = NMFNaverMapView()
+        
+        let locationOverlay = view.mapView.locationOverlay
+        locationOverlay.location = NMGLatLng(lat: coord.1, lng: coord.0)
+        locationOverlay.icon = NMFOverlayImage(name: "location_overlay_icon")
+        locationOverlay.hidden = false
+        locationOverlay.iconWidth = 20
+        locationOverlay.iconHeight = 20
+        print("location : \(coord)")
         view.showZoomControls = false
         view.showScaleBar = false
         view.mapView.positionMode = .direction

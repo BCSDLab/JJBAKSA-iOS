@@ -31,7 +31,7 @@ extension MapViewModel: CLLocationManagerDelegate {
         guard let location = locations.last else { return }
         DispatchQueue.main.async {
             self.userLocation = location.coordinate
-            print("location : \(self.userLocation)")
+            
         }
     }
     
