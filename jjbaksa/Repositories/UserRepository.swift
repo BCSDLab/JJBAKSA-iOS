@@ -9,11 +9,7 @@ import Foundation
 import Alamofire
 
 class UserRepository {
-    static let url: String = "https://api.stage.jjbaksa.com:443"
-    static let token: String = UserDefaults.standard.object(forKey: "access_token") as? String ?? "" //TODO: 로그인 시 토큰 다시 불러오기
-    static let tokenHeader: HTTPHeaders = ["Authorization" : "Bearer \(token)"]
-    
-    static func logIn(logInRequest: LogInRequest, completion: @escaping (Result<Token, AFError>) -> Void) {
+    func logIn(logInRequest: LogInRequest, completion: @escaping (Result<Token, AFError>) -> Void) {
         ApiFactory.getApi(type: .post, url: "user/login", parameters: logInRequest)
                 .responseDecodable(of: Token.self) { response in
                     switch (response.result) {
@@ -28,7 +24,7 @@ class UserRepository {
     }
 
     static func isOverlap(account: String, completion: @escaping (Result<String, AFError>) -> Void) {
-        let parameters = QueryString(parameter: ["account"], value: [account])
+        let parameters = QueryString(query: ["account" : account])
         ApiFactory.getApi(type: .get, url: "user/exists", parameters: parameters)
             .responseString { response in
                 switch (response.result) {
@@ -57,7 +53,7 @@ class UserRepository {
     }
     
     static func changeNickname(nickname: String, completion: @escaping (Result<User, AFError>) -> Void) {
-        let parameters = QueryString(parameter: ["nickname"], value: [nickname])
+        let parameters = QueryString(query: ["nickname" : nickname])
         ApiFactory.getApi(type: .patch, url: "user/nickname", parameters: parameters)
             .responseDecodable(of: User.self) { response in
                 switch (response.result) {
@@ -87,7 +83,7 @@ class UserRepository {
     }
     
     static func sendCertCode(eMail: String, completion: @escaping (Result<String, AFError>) -> Void) {
-        let parameters = QueryString(parameter: ["email"], value: [eMail])
+        let parameters = QueryString(query: ["email" : eMail])
         ApiFactory.getApi(type: .post, url: "user/email", parameters: parameters)
                 .responseString { response in
                     switch (response.result) {
@@ -102,7 +98,7 @@ class UserRepository {
     }
     
     static func findAccount(eMail: String, code: String, completion: @escaping (Result<User, AFError>) -> Void) {
-        let parameters = QueryString(parameter: ["email", "code"], value: [eMail, code])
+        let parameters = QueryString(query: ["email" : eMail, "code" : code])
         ApiFactory.getApi(type: .get, url: "user/account", parameters: parameters)
                 .responseDecodable(of: User.self) { response in
                     switch (response.result) {
@@ -131,7 +127,7 @@ class UserRepository {
     }
     
     static func changePassword(password: String, completion: @escaping (Result<User, AFError>) -> Void) {
-        let parameters = QueryString(parameter: ["password"], value: [password])
+        let parameters = QueryString(query: ["password" : password])
         ApiFactory.getApi(type: .patch, url: "user/password", parameters: parameters)
                 .responseDecodable(of: User.self) { response in
                     switch (response.result) {

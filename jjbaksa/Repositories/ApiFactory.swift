@@ -26,15 +26,14 @@ class ApiFactory {
             return AF.request("\(host)\(url)", method: type, headers: header)
         } else if let params = parameters as? QueryString {
             var query = ""
-                for i in 0..<params.parameter.count {
-                    let param = params.parameter[i]
-                    let value = params.value[i]
-                    query += "\(param)=\(value)"
-                    if i < params.parameter.count - 1 {
-                        query += "&"
-                    }
+            for (param, value) in params.query {
+                    query += "\(param)=\(value)&"
+                }
+            if !query.isEmpty {
+                    query.removeLast()
                 }
             return AF.request("\(host)\(url)?\(query)", method: type, headers: header)
+            
         } else {
             return AF.request("\(host)\(url)", method: type, parameters: parameters, encoder: JSONParameterEncoder.default, headers: header)
         }
