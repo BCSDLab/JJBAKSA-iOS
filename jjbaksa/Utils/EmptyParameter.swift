@@ -7,7 +7,12 @@
 
 import Foundation
 
-public typealias QueryString = [String: Any]
+//public typealias QueryString: Codable = [String: Encodable]
+
+struct QueryString: Codable {
+    var parameter: [String]
+    var value: [String]
+}
 
 struct EmptyParameter: Codable {
     

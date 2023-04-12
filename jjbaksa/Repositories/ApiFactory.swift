@@ -21,24 +21,22 @@ class ApiFactory {
         if(token != nil) {
             header.add(name: "Authorization", value: "Bearer \(token!)")
         }
+        
         if parameters is EmptyParameter {
             return AF.request("\(host)\(url)", method: type, headers: header)
+        } else if let params = parameters as? QueryString {
+            var query = ""
+                for i in 0..<params.parameter.count {
+                    let param = params.parameter[i]
+                    let value = params.value[i]
+                    query += "\(param)=\(value)"
+                    if i < params.parameter.count - 1 {
+                        query += "&"
+                    }
+                }
+            return AF.request("\(host)\(url)?\(query)", method: type, headers: header)
         } else {
             return AF.request("\(host)\(url)", method: type, parameters: parameters, encoder: JSONParameterEncoder.default, headers: header)
         }
     }
-    
-    static func getApiQueryType(type: HTTPMethod, url: String, parameters: QueryString) -> DataRequest {
-
-        var header: HTTPHeaders = []
-
-        let token: String? = UserDefaults.standard.string(forKey: "access_token")
-
-        if(token != nil) {
-            header.add(name: "Authorization", value: "Bearer \(token!)")
-        }
-        
-        return AF.request("\(host)\(url)", method: type, parameters: parameters, encoding: URLEncoding.queryString, headers: header)
-    }
-
 }

@@ -27,8 +27,9 @@ class UserRepository {
                 }
     }
 
-    static func isOverlap(parameters: QueryString, completion: @escaping (Result<String, AFError>) -> Void) {
-        ApiFactory.getApiQueryType(type: .get, url: "user/exists", parameters: parameters)
+    static func isOverlap(account: String, completion: @escaping (Result<String, AFError>) -> Void) {
+        let parameters = QueryString(parameter: ["account"], value: [account])
+        ApiFactory.getApi(type: .get, url: "user/exists", parameters: parameters)
             .responseString { response in
                 switch (response.result) {
                 case .success(let result):
@@ -55,8 +56,9 @@ class UserRepository {
             }
     }
     
-    static func changeNickname(parameters: QueryString, completion: @escaping (Result<User, AFError>) -> Void) {
-        ApiFactory.getApiQueryType(type: .patch, url: "user/nickname", parameters: parameters)
+    static func changeNickname(nickname: String, completion: @escaping (Result<User, AFError>) -> Void) {
+        let parameters = QueryString(parameter: ["nickname"], value: [nickname])
+        ApiFactory.getApi(type: .patch, url: "user/nickname", parameters: parameters)
             .responseDecodable(of: User.self) { response in
                 switch (response.result) {
                 case .success(let result):
@@ -84,8 +86,9 @@ class UserRepository {
             }
     }
     
-    static func sendCertCode(parameters: QueryString, completion: @escaping (Result<String, AFError>) -> Void) {
-        ApiFactory.getApiQueryType(type: .post, url: "user/email", parameters: parameters)
+    static func sendCertCode(eMail: String, completion: @escaping (Result<String, AFError>) -> Void) {
+        let parameters = QueryString(parameter: ["email"], value: [eMail])
+        ApiFactory.getApi(type: .post, url: "user/email", parameters: parameters)
                 .responseString { response in
                     switch (response.result) {
                     case .success(let value):
@@ -98,8 +101,9 @@ class UserRepository {
                 }
     }
     
-    static func findAccount(parameters: QueryString, completion: @escaping (Result<User, AFError>) -> Void) {
-        ApiFactory.getApiQueryType(type: .get, url: "user/account", parameters: parameters)
+    static func findAccount(eMail: String, code: String, completion: @escaping (Result<User, AFError>) -> Void) {
+        let parameters = QueryString(parameter: ["email", "code"], value: [eMail, code])
+        ApiFactory.getApi(type: .get, url: "user/account", parameters: parameters)
                 .responseDecodable(of: User.self) { response in
                     switch (response.result) {
                     case .success(let value):
@@ -126,8 +130,9 @@ class UserRepository {
                 }
     }
     
-    static func changePassword(parameters: QueryString, completion: @escaping (Result<User, AFError>) -> Void) {
-        ApiFactory.getApiQueryType(type: .patch, url: "user/password", parameters: parameters)
+    static func changePassword(password: String, completion: @escaping (Result<User, AFError>) -> Void) {
+        let parameters = QueryString(parameter: ["password"], value: [password])
+        ApiFactory.getApi(type: .patch, url: "user/password", parameters: parameters)
                 .responseDecodable(of: User.self) { response in
                     switch (response.result) {
                     case .success(let value):

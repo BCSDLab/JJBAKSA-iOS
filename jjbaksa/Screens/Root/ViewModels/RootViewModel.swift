@@ -58,8 +58,7 @@ class RootViewModel: ObservableObject {
     
     // 닉네임 바꾸기
     func changeNickname(nickname: String) {
-        let parameters: QueryString = ["nickname": nickname]
-        UserRepository.changeNickname(parameters: parameters) { result in
+        UserRepository.changeNickname(nickname: nickname) { result in
             switch(result) {
             case .success(let value):
                 self.user?.nickname = value.nickname
