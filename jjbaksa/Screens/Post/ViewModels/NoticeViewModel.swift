@@ -13,15 +13,26 @@ class NoticeViewModel: PaginationProtocol {
     @Published var status: Bool?
     @Published var currentPage: Int = 0
     @Published var totalPage: Int = 0
+    var isLoading: Bool {
+        get {
+            status == nil
+        }
+    }
+    
+    var hasMore: Bool {
+        get {
+            !(list?.isEmpty ?? true) && currentPage < (totalPage)
+        }
+    }
     
     func getList() {
-        //let request = PostRequest(boardType: "NOTICE", page: 0, size: 10, sort: "")
+        currentPage = 0
         PostRepository.getPost(boardType: "NOTICE", page: currentPage) { result in
             switch(result) {
             case .success(let value):
                 self.list = value.content
-                self.currentPage = value.pageable.pageNumber
                 self.totalPage = value.totalPages
+                self.currentPage += 1
                 self.status = true
                 print(value)
                 break
@@ -33,26 +44,15 @@ class NoticeViewModel: PaginationProtocol {
         }
     }
     
-    var isLoading: Bool {
-        get {
-            status == nil
-        }
-    }
-    
-    var hasMore: Bool {
-        get {
-            !(list?.isEmpty ?? true) && currentPage < totalPage
-        }
-    }
+
     
     func getNextList() {
-        //let request = PostRequest(boardType: "NOTICE", page: currentPage, size: 10, sort: "")
         PostRepository.getPost(boardType: "NOTICE", page: currentPage) { result in
             switch(result) {
             case .success(let value):
                 self.list?.append(contentsOf: value.content)
-                self.currentPage = value.pageable.pageNumber
-                self.totalPage = value.totalElements
+                self.currentPage += 1
+                self.totalPage = value.totalPages
                 self.status = true
                 break
             case .failure(let error):

@@ -28,18 +28,3 @@ struct Post: Codable, Hashable {
     var createdAt: String
 }
 
-struct Pageable: Codable {
-    let offset: Int
-    let pageNumber: Int
-    let pageSize: Int
-    let paged: Bool
-    let unpaged: Bool
-    let sort: Sort
-}
-
-
-struct Sort: Codable {
-    let empty: Bool
-    let sorted: Bool
-    let unsorted: Bool
-}

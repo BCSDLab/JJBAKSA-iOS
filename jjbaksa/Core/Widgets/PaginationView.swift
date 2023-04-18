@@ -36,7 +36,7 @@ struct PaginationView<T: PaginationProtocol, Content: View>: View {
                     ForEach(viewModel.list!, id: \.self) { i in
                         item(i)
                     }
-                    if(viewModel.hasMore){
+                    if(viewModel.hasMore) {
                         ProgressView()
                             .onAppear() {
                                 viewModel.getNextList()

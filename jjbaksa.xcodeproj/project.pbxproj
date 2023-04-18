@@ -11,7 +11,12 @@
 		1B97BD372961442F0089DA67 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B97BD362961442F0089DA67 /* MainScreen.swift */; };
 		1B97BD39296145AE0089DA67 /* PostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B97BD38296145AE0089DA67 /* PostScreen.swift */; };
 		1B97BD3B296145B90089DA67 /* MyPageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B97BD3A296145B90089DA67 /* MyPageScreen.swift */; };
-		1BCF0B54299239F600E659DC /* MyPostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B53299239F600E659DC /* MyPostScreen.swift */; };
+		1BA8506729ECC42B00A80737 /* MyReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8506629ECC42B00A80737 /* MyReviewViewModel.swift */; };
+		1BA8506929ECC4A800A80737 /* ReviewRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8506829ECC4A800A80737 /* ReviewRepository.swift */; };
+		1BA8506E29ECC6EA00A80737 /* ReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8506D29ECC6EA00A80737 /* ReviewResponse.swift */; };
+		1BA8507129ECCA3700A80737 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8507029ECCA3700A80737 /* Pagination.swift */; };
+		1BA8507429ECCD8200A80737 /* MyReviewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8507329ECCD8200A80737 /* MyReviewRow.swift */; };
+		1BCF0B54299239F600E659DC /* MyReviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B53299239F600E659DC /* MyReviewScreen.swift */; };
 		1BCF0B5629923A1900E659DC /* BookmarkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */; };
 		1BD81C5D29DA7A8F00F8AFD4 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD81C5C29DA7A8F00F8AFD4 /* PostRepository.swift */; };
 		1BD81C6029DA7ABD00F8AFD4 /* NoticeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD81C5F29DA7ABD00F8AFD4 /* NoticeScreen.swift */; };
@@ -60,7 +65,12 @@
 		1B97BD362961442F0089DA67 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		1B97BD38296145AE0089DA67 /* PostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostScreen.swift; sourceTree = "<group>"; };
 		1B97BD3A296145B90089DA67 /* MyPageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageScreen.swift; sourceTree = "<group>"; };
-		1BCF0B53299239F600E659DC /* MyPostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostScreen.swift; sourceTree = "<group>"; };
+		1BA8506629ECC42B00A80737 /* MyReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewViewModel.swift; sourceTree = "<group>"; };
+		1BA8506829ECC4A800A80737 /* ReviewRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRepository.swift; sourceTree = "<group>"; };
+		1BA8506D29ECC6EA00A80737 /* ReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewResponse.swift; sourceTree = "<group>"; };
+		1BA8507029ECCA3700A80737 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
+		1BA8507329ECCD8200A80737 /* MyReviewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewRow.swift; sourceTree = "<group>"; };
+		1BCF0B53299239F600E659DC /* MyReviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewScreen.swift; sourceTree = "<group>"; };
 		1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkScreen.swift; sourceTree = "<group>"; };
 		1BD81C5C29DA7A8F00F8AFD4 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
 		1BD81C5F29DA7ABD00F8AFD4 /* NoticeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeScreen.swift; sourceTree = "<group>"; };
@@ -124,12 +134,54 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		1BA8506A29ECC64100A80737 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				1BA8506C29ECC66300A80737 /* Models */,
+				1BA8506B29ECC65300A80737 /* ViewModels */,
+				1BA8507229ECCD6900A80737 /* Widgets */,
+				1BCF0B53299239F600E659DC /* MyReviewScreen.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		1BA8506B29ECC65300A80737 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1BA8506629ECC42B00A80737 /* MyReviewViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1BA8506C29ECC66300A80737 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1BA8506D29ECC6EA00A80737 /* ReviewResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1BA8506F29ECCA2D00A80737 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1BA8507029ECCA3700A80737 /* Pagination.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1BA8507229ECCD6900A80737 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				1BA8507329ECCD8200A80737 /* MyReviewRow.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
 		1BCF0B522992336900E659DC /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
 				1BDB6C2429AC8A0D00820733 /* ViewModels */,
 				1B97BD3A296145B90089DA67 /* MyPageScreen.swift */,
-				1BCF0B53299239F600E659DC /* MyPostScreen.swift */,
 				1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */,
 				1BDB6C2729AC8CAD00820733 /* UserEditScreen.swift */,
 			);
@@ -321,6 +373,7 @@
 			children = (
 				E0343E4328E322DB00221072 /* UserRepository.swift */,
 				1BD81C5C29DA7A8F00F8AFD4 /* PostRepository.swift */,
+				1BA8506829ECC4A800A80737 /* ReviewRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -328,6 +381,7 @@
 		E032D2FD28DDDEB900159F3D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1BA8506A29ECC64100A80737 /* Review */,
 				1BD81C5E29DA7AAF00F8AFD4 /* Post */,
 				1BEBF01C29C7DBD4001369F0 /* Setting */,
 				1BCF0B522992336900E659DC /* MyPage */,
@@ -395,6 +449,7 @@
 		E03CD76629E58DAD00110681 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1BA8506F29ECCA2D00A80737 /* Models */,
 				E03CD76729E58DB800110681 /* Widgets */,
 				E03CD76329E58AF600110681 /* ViewModels */,
 			);
@@ -572,15 +627,18 @@
 				1BEBF00E29BEB726001369F0 /* User.swift in Sources */,
 				E0343E4A28E323D600221072 /* Token.swift in Sources */,
 				E032D2EE28DDDE9900159F3D /* jjbaksaApp.swift in Sources */,
+				1BA8507429ECCD8200A80737 /* MyReviewRow.swift in Sources */,
 				1BFAC8C32924B3E400188F82 /* String+Regex.swift in Sources */,
 				1BFAC8AE291B292800188F82 /* SignUpError.swift in Sources */,
 				1BFAC8AB291896BE00188F82 /* SignUpViewModel.swift in Sources */,
+				1BA8506929ECC4A800A80737 /* ReviewRepository.swift in Sources */,
 				1BFAC8A82918820500188F82 /* SignUpInfoView.swift in Sources */,
 				1BEBF02729C805A6001369F0 /* ChangPasswordScreen.swift in Sources */,
 				1BEBF02329C7F592001369F0 /* UserRequest.swift in Sources */,
 				1B97BD372961442F0089DA67 /* MainScreen.swift in Sources */,
 				1BFAC8B6291B856D00188F82 /* SignUpScreen.swift in Sources */,
 				1B97BD3B296145B90089DA67 /* MyPageScreen.swift in Sources */,
+				1BA8506729ECC42B00A80737 /* MyReviewViewModel.swift in Sources */,
 				E0343E4228E31F5000221072 /* LogInViewModel.swift in Sources */,
 				1BD81C6A29DA802700F8AFD4 /* NoticeViewModel.swift in Sources */,
 				1BEBF02129C7ECDA001369F0 /* SettingViewModel.swift in Sources */,
@@ -589,15 +647,17 @@
 				1BEBF02529C7FDD6001369F0 /* ChangeAccountScreen.swift in Sources */,
 				1BFAC8B2291B852D00188F82 /* SignUpTermsView.swift in Sources */,
 				1BD81C6029DA7ABD00F8AFD4 /* NoticeScreen.swift in Sources */,
+				1BA8506E29ECC6EA00A80737 /* ReviewResponse.swift in Sources */,
 				E0343E3E28E31F3100221072 /* LogInScreen.swift in Sources */,
 				1BD81C6629DA7B5B00F8AFD4 /* PostRequest.swift in Sources */,
 				1BDB6C2829AC8CAD00820733 /* UserEditScreen.swift in Sources */,
+				1BA8507129ECCA3700A80737 /* Pagination.swift in Sources */,
 				1BCF0B5629923A1900E659DC /* BookmarkScreen.swift in Sources */,
 				1BFAC8CE292CFDA800188F82 /* MapScreen.swift in Sources */,
 				E03CD76929E58DCE00110681 /* PaginationView.swift in Sources */,
 				1B5842D52971688F0014DAC7 /* PostViewModel.swift in Sources */,
 				1BFAC8B4291B855D00188F82 /* SignUpSuccessView.swift in Sources */,
-				1BCF0B54299239F600E659DC /* MyPostScreen.swift in Sources */,
+				1BCF0B54299239F600E659DC /* MyReviewScreen.swift in Sources */,
 				E032D30628DDDF0400159F3D /* RootViewModel.swift in Sources */,
 				E032D30428DDDEEC00159F3D /* RootScreen.swift in Sources */,
 				E03CD76529E58B2100110681 /* PaginationProtocol.swift in Sources */,

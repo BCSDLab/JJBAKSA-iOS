@@ -16,16 +16,16 @@ class PostRepository {
     static func getPost(boardType: String, page: Int , completion: @escaping (Result<PostResponse, AFError>) -> Void) {
         let parameters: Parameters = ["boardType": boardType, "page": page]
         AF.request("\(self.url)/post", method: .get, parameters: parameters, encoding: URLEncoding.queryString)
-                .responseDecodable(of: PostResponse.self) { response in
-                    switch (response.result) {
-                    case .success(let value):
-                        completion(.success(value))
-                        break
-                    case .failure(let error):
-                        completion(.failure(error))
-                        break
-                    }
+            .responseDecodable(of: PostResponse.self) { response in
+                switch (response.result) {
+                case .success(let value):
+                    completion(.success(value))
+                    break
+                case .failure(let error):
+                    completion(.failure(error))
+                    break
                 }
+            }
     }
 /*
     static func isOverlap(account: String, completion: @escaping (Result<String, AFError>) -> Void) {
