@@ -43,7 +43,6 @@ struct PaginationView<T: PaginationProtocol, Content: View>: View {
                             }
                     }
                 }
-                .scrollIndicators(.hidden)
              
             }
         }

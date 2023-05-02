@@ -18,7 +18,7 @@ struct UserEditScreen: View {
             GeometryReader { _ in
                 EmptyView()
             }
-            .background(.black.opacity(0.6))
+            .overlay(Color.black.opacity(0.6))
             .opacity(viewModel.isEditShow ? 1 : 0)
             .animation(.easeInOut.delay(0.2), value: viewModel.isEditShow)
             .onTapGesture {
@@ -47,7 +47,7 @@ struct UserEditScreen: View {
                     Button(action: {()}) {
                         Image(systemName: "plus.circle.fill")
                             .font(.system(size: 25))
-                            .foregroundStyle(.black, Color.base)
+                            .foregroundColor(.black)
                             .overlay(Circle().stroke(Color.white, lineWidth: 4))
                     }
                     .foregroundColor(.base)
