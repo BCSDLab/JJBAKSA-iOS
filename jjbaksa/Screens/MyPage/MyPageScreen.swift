@@ -50,7 +50,7 @@ struct MyPageScreen: View {
                 MyPageTabBarView(currentTab: $viewModel.index)
                 Divider()
                 TabView(selection:$viewModel.index) {
-                    MyPostScreen()
+                    MyReviewScreen()
                         .tag(0)
                     BookmarkScreen()
                         .tag(1)
@@ -72,7 +72,7 @@ struct MyPageTabBarView: View {
                     VStack {
                         Text("리뷰")
                             .size14Regular()
-                            .foregroundColor(.textMain)
+                            .foregroundColor(currentTab == 0 ? .main : .textMain)
                     }
                 }
            
@@ -97,7 +97,7 @@ struct MyPageTabBarView: View {
                     VStack {
                         Text("북마크")
                             .size14Regular()
-                            .foregroundColor(.textMain)
+                            .foregroundColor(currentTab == 1 ? .main : .textMain)
                     }
                 }
                 

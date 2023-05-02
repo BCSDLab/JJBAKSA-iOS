@@ -25,6 +25,7 @@ class RootViewModel: ObservableObject {
             UserDefaults.standard.set(token.accessToken, forKey: "access_token")
             UserDefaults.standard.set(token.refreshToken, forKey: "refresh_token")
         }
+        print(token)
         loadUser()
     }
     
@@ -36,6 +37,7 @@ class RootViewModel: ObservableObject {
         if(accessToken != nil && refreshToken != nil) {
             self.token = Token(accessToken: accessToken!, refreshToken: refreshToken!)
         }
+        print(token)
         loadUser()
     }
 
