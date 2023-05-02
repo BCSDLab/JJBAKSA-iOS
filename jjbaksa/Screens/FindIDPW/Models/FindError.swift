@@ -8,6 +8,8 @@
 import Foundation
 
 enum FindError {
+    case initial
+    case accountExistError
     case emailValidError
     case emailExistError
     case codeValidError

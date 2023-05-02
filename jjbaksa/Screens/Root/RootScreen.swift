@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RootScreen: View {
     @StateObject var viewModel: RootViewModel = RootViewModel()
-    
+    @StateObject var router: Router = Router()
     
     var body: some View {
         if(viewModel.token != nil && viewModel.user?.id != nil) {
@@ -21,6 +21,7 @@ struct RootScreen: View {
         } else {
             LogInScreen()
                 .environmentObject(viewModel)
+                //.environmentObject(router)
         }
         
         

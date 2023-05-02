@@ -2,26 +2,30 @@
 //  FindAccountScreen.swift
 //  jjbaksa
 //
-//  Created by 정영준 on 2023/03/28.
+//  Created by 정영준 on 2023/04/18.
 //
 
 import SwiftUI
 
-struct FindUserInfoScreen: View {
-    @ObservedObject var viewModel: FindViewModel = FindViewModel()
-    @Environment(\.presentationMode) var presentation
-    var targetInfo: String
+struct FindAccountScreen: View {
+    @ObservedObject var viewModel: FindAccountViewModel
+    @EnvironmentObject var router: Router
+    @Binding var path: NavigationPath
+    
+    init(path: Binding<NavigationPath>) {
+        self.viewModel = FindAccountViewModel()
+        self._path = path
+    }
     
     var body: some View {
-        
             VStack(spacing: 0) {
-                Text("\(targetInfo)를 찾을 때\n사용할 이메일을 입력해주세요.")
+                Text("아이디를 찾을 때\n사용할 이메일을 입력해주세요.")
                     .frame(width: 222, height: 46)
                     .size18Regular()
-                    .padding(.top, 110)
+                    .padding(.top, 70)
                     .padding(.bottom, 37)
                 
-                switch viewModel.emailErrorCode {
+                switch viewModel.errorCode {
                 case .emailExistError:
                     HStack(spacing: 0) {
                         Image(systemName: "exclamationmark.triangle")
@@ -58,7 +62,7 @@ struct FindUserInfoScreen: View {
                         .font(.system(size: 12))
                         .padding(.leading, 10)
                         .background(Capsule().fill(Color.line))
-                    if viewModel.emailErrorCode == .emailExistError {
+                    if viewModel.errorCode == .emailExistError {
                         Capsule()
                             .strokeBorder(Color.main)
                             .frame(width: 240, height: 30)
@@ -66,9 +70,10 @@ struct FindUserInfoScreen: View {
                 }
                 Spacer()
                 
-                if viewModel.emailErrorCode == .hold {
+                if viewModel.errorCode == .hold {
                     Button(action: {
-                        viewModel.sendCertCode()
+                        viewModel.requestVerifyCode()
+                    
                     }) {
                         Text("인증번호 보내기")
                             .frame(width: 227, height: 40)
@@ -88,16 +93,14 @@ struct FindUserInfoScreen: View {
                 }
             }
             .onAppear() {
-                viewModel.setTargetInfo(target: targetInfo)
+                print(path)
             }
-            .navigationDestination(isPresented: $viewModel.isInsertCodeScreenShow) {
-                InsertCodeScreen()
-                    .environmentObject(viewModel)
-            
-        }
-        .toolbar{ BackButton(presentation: presentation) }
-        .navigationBarBackButtonHidden()
-        
+            .navigationDestination(isPresented: $viewModel.isVerifyCodeSent) {
+                InsertCodeScreen(viewModel: viewModel, path: $path)
+                    
+            }
+            .toolbar{ NewBackButton(path: $path) }
+            .navigationBarBackButtonHidden()
     }
 }
 

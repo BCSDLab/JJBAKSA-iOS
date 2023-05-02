@@ -8,18 +8,25 @@
 import SwiftUI
 
 struct ResetPasswordScreen: View {
-    @EnvironmentObject var viewModel: FindViewModel
+    @ObservedObject var viewModel: ResetPasswordViewModel
     @Environment(\.presentationMode) var presentation
+    @Binding var path: NavigationPath
+    
+    init(token: String, path: Binding<NavigationPath>) {
+        self.viewModel = ResetPasswordViewModel(token: token)
+        self._path = path
+    }
+
     
     var body: some View {
         VStack(spacing: 0) {
             Text("새 비밀번호를 설정해 주세요.")
                 .frame(width: 222, height: 46)
                 .size18Regular()
-                .padding(.top, 110)
+                .padding(.top, 70)
                 .padding(.bottom, 44)
             
-            switch viewModel.passwordErrorCode {
+            switch viewModel.errorCode {
             case .passwordValidError:
                 HStack
                 {
@@ -57,16 +64,14 @@ struct ResetPasswordScreen: View {
             
             if viewModel.isPasswordShow {
                 ZStack{
-                    if viewModel.passwordErrorCode == .passwordValidError {
+                    if viewModel.errorCode == .passwordValidError {
                         Capsule()
                             .strokeBorder(Color.main)
                             .frame(width: 240, height: 30)
                     }
                     TextField("비밀번호를 입력하세요.", text: $viewModel.password)
-                        .onChange(of: viewModel.password) { password in
-                            if viewModel.passwordErrorCode == .passwordEqualityError {
-                                viewModel.isPasswordEqual()
-                            }
+                        .onChange(of: viewModel.password) { _ in
+                            viewModel.onChangePassword()
                         }
                         .keyboardType(.asciiCapable)
                         .autocorrectionDisabled(true)
@@ -85,16 +90,14 @@ struct ResetPasswordScreen: View {
                 .background(Capsule().fill(Color.line))
             } else {
                 ZStack{
-                    if viewModel.passwordErrorCode == .passwordValidError {
+                    if viewModel.errorCode == .passwordValidError {
                         Capsule()
                             .strokeBorder(Color.main)
                             .frame(width: 240, height: 30)
                     }
                     SecureField("비밀번호를 입력하세요.", text: $viewModel.password)
-                        .onChange(of: viewModel.password) { password in
-                            if viewModel.passwordErrorCode == .passwordEqualityError {
-                                viewModel.isPasswordEqual()
-                            }
+                        .onChange(of: viewModel.password) { _ in
+                            viewModel.onChangePassword()
                         }
                         .keyboardType(.asciiCapable)
                         .textContentType(.newPassword)
@@ -122,16 +125,14 @@ struct ResetPasswordScreen: View {
             
             if viewModel.isPasswordShow {
                 ZStack{
-                    if viewModel.passwordErrorCode == .passwordEqualityError {
+                    if viewModel.errorCode == .passwordEqualityError {
                         Capsule()
                             .strokeBorder(Color.main)
                             .frame(width: 240, height: 30)
                     }
                     TextField("비밀번호를 입력하세요.", text: $viewModel.checkPassword)
-                        .onChange(of: viewModel.checkPassword) { password in
-                            if viewModel.passwordErrorCode == .passwordEqualityError {
-                                viewModel.isPasswordEqual()
-                            }
+                        .onChange(of: viewModel.checkPassword) { _ in
+                            viewModel.onChangePassword()
                         }
                         .keyboardType(.asciiCapable)
                         .autocorrectionDisabled(true)
@@ -150,16 +151,14 @@ struct ResetPasswordScreen: View {
                 .background(Capsule().fill(Color.line))
             } else {
                 ZStack{
-                    if viewModel.passwordErrorCode == .passwordEqualityError {
+                    if viewModel.errorCode == .passwordEqualityError {
                         Capsule()
                             .strokeBorder(Color.main)
                             .frame(width: 240, height: 30)
                     }
                     SecureField("비밀번호를 입력하세요.", text: $viewModel.checkPassword)
-                        .onChange(of: viewModel.checkPassword) { password in
-                            if viewModel.passwordErrorCode == .passwordEqualityError {
-                                viewModel.isPasswordEqual()
-                            }
+                        .onChange(of: viewModel.checkPassword) { _ in
+                            viewModel.onChangePassword()
                         }
                         .keyboardType(.asciiCapable)
                         .textContentType(.newPassword)
@@ -180,11 +179,11 @@ struct ResetPasswordScreen: View {
             
             Spacer()
             
-            if viewModel.passwordErrorCode == .hold {
+            if viewModel.errorCode == .hold {
                 Button(action: {
                     viewModel.isPasswordValid()
-                    if viewModel.passwordErrorCode == .none {
-                        () //TODO: 비밀번호 변경
+                    if viewModel.errorCode == .none {
+                        viewModel.resetPassword()
                     }
                 }) {
                     Text("완료")
@@ -203,9 +202,8 @@ struct ResetPasswordScreen: View {
                     .padding(.bottom, 140)
             }
         }
-        .popup(isPresented: $viewModel.isPopUpShow) {
-            PasswordPopUpView()
-                .environmentObject(viewModel)
+        .popup(isPresented: $viewModel.isPasswordReset) {
+            PasswordPopUpView(path: $path)
         } customize: {
             $0
                 .type(.default)
@@ -222,7 +220,7 @@ struct ResetPasswordScreen: View {
 
 
 struct PasswordPopUpView: View {
-    @EnvironmentObject var viewModel: FindViewModel
+    @Binding var path: NavigationPath
     
     var body: some View {
         VStack(spacing: 0) {
@@ -237,7 +235,7 @@ struct PasswordPopUpView: View {
                 .foregroundColor(.textMain)
                 .padding(.bottom, 31)
             
-            Button(action: {()}) { //TODO: 로그인화면으로 돌아가기
+            Button(action: { path = .init() }) { //TODO: 로그인화면으로 돌아가기
                 Text("완료")
                     .frame(width: 227, height: 40)
                     .font(.system(size: 14))

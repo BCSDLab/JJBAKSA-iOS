@@ -14,6 +14,15 @@
 		1BA8505429DED74E00A80737 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8505329DED74E00A80737 /* Parameter.swift */; };
 		1BA8505629E3B0D200A80737 /* ImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8505529E3B0D200A80737 /* ImageStyle.swift */; };
 		1BA8505829E3BC2C00A80737 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8505729E3BC2C00A80737 /* MapViewModel.swift */; };
+		1BA8507629EE8E7D00A80737 /* FindProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8507529EE8E7D00A80737 /* FindProtocol.swift */; };
+		1BA8507829EE931B00A80737 /* FindAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8507729EE931B00A80737 /* FindAccountViewModel.swift */; };
+		1BA8507A29EE99ED00A80737 /* FindAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8507929EE99ED00A80737 /* FindAccountScreen.swift */; };
+		1BA8507C29EF68B000A80737 /* FindPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8507B29EF68B000A80737 /* FindPasswordScreen.swift */; };
+		1BA8507E29EF68D800A80737 /* FindPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8507D29EF68D800A80737 /* FindPasswordViewModel.swift */; };
+		1BA8508029EF902500A80737 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8507F29EF902500A80737 /* ResetPasswordViewModel.swift */; };
+		1BA8508229F6033A00A80737 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8508129F6033A00A80737 /* ErrorResponse.swift */; };
+		1BA8508429F797E300A80737 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8508329F797E300A80737 /* Router.swift */; };
+		1BA8508629FA4FA600A80737 /* NewBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8508529FA4FA600A80737 /* NewBackButton.swift */; };
 		1BCF0B54299239F600E659DC /* MyPostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B53299239F600E659DC /* MyPostScreen.swift */; };
 		1BCF0B5629923A1900E659DC /* BookmarkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */; };
 		1BDB6C2629AC8A2200820733 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB6C2529AC8A2200820733 /* MyPageViewModel.swift */; };
@@ -25,9 +34,7 @@
 		1BEBF02329C7F592001369F0 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF02229C7F592001369F0 /* UserRequest.swift */; };
 		1BEBF02529C7FDD6001369F0 /* ChangeAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF02429C7FDD6001369F0 /* ChangeAccountScreen.swift */; };
 		1BEBF02729C805A6001369F0 /* ChangPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF02629C805A6001369F0 /* ChangPasswordScreen.swift */; };
-		1BEBF0DA29D2AA52001369F0 /* FindUserInfoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF0D929D2AA52001369F0 /* FindUserInfoScreen.swift */; };
 		1BEBF0DC29D2AA61001369F0 /* ResetPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF0DB29D2AA61001369F0 /* ResetPasswordScreen.swift */; };
-		1BEBF0DF29D2AA75001369F0 /* FindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF0DE29D2AA75001369F0 /* FindViewModel.swift */; };
 		1BEBF0E229D2D6D4001369F0 /* FindError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF0E129D2D6D4001369F0 /* FindError.swift */; };
 		1BEBF0E629D301B9001369F0 /* InsertCodeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF0E529D301B9001369F0 /* InsertCodeScreen.swift */; };
 		1BEBF32129D3DB82001369F0 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEBF32029D3DB82001369F0 /* BackButton.swift */; };
@@ -64,6 +71,15 @@
 		1BA8505329DED74E00A80737 /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
 		1BA8505529E3B0D200A80737 /* ImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStyle.swift; sourceTree = "<group>"; };
 		1BA8505729E3BC2C00A80737 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		1BA8507529EE8E7D00A80737 /* FindProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindProtocol.swift; sourceTree = "<group>"; };
+		1BA8507729EE931B00A80737 /* FindAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountViewModel.swift; sourceTree = "<group>"; };
+		1BA8507929EE99ED00A80737 /* FindAccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountScreen.swift; sourceTree = "<group>"; };
+		1BA8507B29EF68B000A80737 /* FindPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordScreen.swift; sourceTree = "<group>"; };
+		1BA8507D29EF68D800A80737 /* FindPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordViewModel.swift; sourceTree = "<group>"; };
+		1BA8507F29EF902500A80737 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		1BA8508129F6033A00A80737 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		1BA8508329F797E300A80737 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		1BA8508529FA4FA600A80737 /* NewBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBackButton.swift; sourceTree = "<group>"; };
 		1BCF0B53299239F600E659DC /* MyPostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostScreen.swift; sourceTree = "<group>"; };
 		1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkScreen.swift; sourceTree = "<group>"; };
 		1BDB6C2529AC8A2200820733 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
@@ -75,9 +91,7 @@
 		1BEBF02229C7F592001369F0 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		1BEBF02429C7FDD6001369F0 /* ChangeAccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAccountScreen.swift; sourceTree = "<group>"; };
 		1BEBF02629C805A6001369F0 /* ChangPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangPasswordScreen.swift; sourceTree = "<group>"; };
-		1BEBF0D929D2AA52001369F0 /* FindUserInfoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindUserInfoScreen.swift; sourceTree = "<group>"; };
 		1BEBF0DB29D2AA61001369F0 /* ResetPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordScreen.swift; sourceTree = "<group>"; };
-		1BEBF0DE29D2AA75001369F0 /* FindViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewModel.swift; sourceTree = "<group>"; };
 		1BEBF0E129D2D6D4001369F0 /* FindError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindError.swift; sourceTree = "<group>"; };
 		1BEBF0E529D301B9001369F0 /* InsertCodeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertCodeScreen.swift; sourceTree = "<group>"; };
 		1BEBF32029D3DB82001369F0 /* BackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
@@ -184,9 +198,10 @@
 			children = (
 				1BEBF0E029D2D6C0001369F0 /* Models */,
 				1BEBF0DD29D2AA68001369F0 /* ViewModels */,
-				1BEBF0D929D2AA52001369F0 /* FindUserInfoScreen.swift */,
 				1BEBF0E529D301B9001369F0 /* InsertCodeScreen.swift */,
 				1BEBF0DB29D2AA61001369F0 /* ResetPasswordScreen.swift */,
+				1BA8507929EE99ED00A80737 /* FindAccountScreen.swift */,
+				1BA8507B29EF68B000A80737 /* FindPasswordScreen.swift */,
 			);
 			path = FindIDPW;
 			sourceTree = "<group>";
@@ -194,7 +209,10 @@
 		1BEBF0DD29D2AA68001369F0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				1BEBF0DE29D2AA75001369F0 /* FindViewModel.swift */,
+				1BA8507529EE8E7D00A80737 /* FindProtocol.swift */,
+				1BA8507729EE931B00A80737 /* FindAccountViewModel.swift */,
+				1BA8507D29EF68D800A80737 /* FindPasswordViewModel.swift */,
+				1BA8507F29EF902500A80737 /* ResetPasswordViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -204,6 +222,7 @@
 			children = (
 				1BEBF0E129D2D6D4001369F0 /* FindError.swift */,
 				1BEBF32229D5A8BD001369F0 /* FindPasswordRequest.swift */,
+				1BA8508129F6033A00A80737 /* ErrorResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				1BEBF32029D3DB82001369F0 /* BackButton.swift */,
+				1BA8508529FA4FA600A80737 /* NewBackButton.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -253,6 +273,7 @@
 				1BFAC8C42924B42500188F82 /* Color.swift */,
 				1BEBF01A29C7DACB001369F0 /* TextStyle.swift */,
 				1BA8505529E3B0D200A80737 /* ImageStyle.swift */,
+				1BA8508329F797E300A80737 /* Router.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -554,12 +575,13 @@
 				1BA8505829E3BC2C00A80737 /* MapViewModel.swift in Sources */,
 				1BEBF01B29C7DACB001369F0 /* TextStyle.swift in Sources */,
 				1BEBF00E29BEB726001369F0 /* User.swift in Sources */,
-				1BEBF0DA29D2AA52001369F0 /* FindUserInfoScreen.swift in Sources */,
 				E0343E4A28E323D600221072 /* Token.swift in Sources */,
+				1BA8508229F6033A00A80737 /* ErrorResponse.swift in Sources */,
 				E032D2EE28DDDE9900159F3D /* jjbaksaApp.swift in Sources */,
 				1BEBF0E229D2D6D4001369F0 /* FindError.swift in Sources */,
 				1BFAC8C32924B3E400188F82 /* String+Regex.swift in Sources */,
 				1BFAC8AE291B292800188F82 /* SignUpError.swift in Sources */,
+				1BA8508629FA4FA600A80737 /* NewBackButton.swift in Sources */,
 				1BFAC8AB291896BE00188F82 /* SignUpViewModel.swift in Sources */,
 				1BEBF32329D5A8BD001369F0 /* FindPasswordRequest.swift in Sources */,
 				1BFAC8A82918820500188F82 /* SignUpInfoView.swift in Sources */,
@@ -567,10 +589,13 @@
 				1BEBF32129D3DB82001369F0 /* BackButton.swift in Sources */,
 				1BEBF02329C7F592001369F0 /* UserRequest.swift in Sources */,
 				1BA8505629E3B0D200A80737 /* ImageStyle.swift in Sources */,
+				1BA8507A29EE99ED00A80737 /* FindAccountScreen.swift in Sources */,
+				1BA8507629EE8E7D00A80737 /* FindProtocol.swift in Sources */,
 				1B97BD372961442F0089DA67 /* MainScreen.swift in Sources */,
 				1BFAC8B6291B856D00188F82 /* SignUpScreen.swift in Sources */,
 				1BA8505429DED74E00A80737 /* Parameter.swift in Sources */,
 				1B97BD3B296145B90089DA67 /* MyPageScreen.swift in Sources */,
+				1BA8507C29EF68B000A80737 /* FindPasswordScreen.swift in Sources */,
 				E0343E4228E31F5000221072 /* LogInViewModel.swift in Sources */,
 				1BEBF02129C7ECDA001369F0 /* SettingViewModel.swift in Sources */,
 				E0343E4428E322DB00221072 /* UserRepository.swift in Sources */,
@@ -581,19 +606,22 @@
 				E0343E3E28E31F3100221072 /* LogInScreen.swift in Sources */,
 				1BDB6C2829AC8CAD00820733 /* UserEditScreen.swift in Sources */,
 				1BCF0B5629923A1900E659DC /* BookmarkScreen.swift in Sources */,
-				1BEBF0DF29D2AA75001369F0 /* FindViewModel.swift in Sources */,
 				1BFAC8CE292CFDA800188F82 /* MapScreen.swift in Sources */,
 				1B5842D52971688F0014DAC7 /* PostViewModel.swift in Sources */,
 				1BFAC8B4291B855D00188F82 /* SignUpSuccessView.swift in Sources */,
 				1BCF0B54299239F600E659DC /* MyPostScreen.swift in Sources */,
+				1BA8507E29EF68D800A80737 /* FindPasswordViewModel.swift in Sources */,
+				1BA8508429F797E300A80737 /* Router.swift in Sources */,
 				1BEBF0DC29D2AA61001369F0 /* ResetPasswordScreen.swift in Sources */,
 				E032D30628DDDF0400159F3D /* RootViewModel.swift in Sources */,
 				E032D30428DDDEEC00159F3D /* RootScreen.swift in Sources */,
 				1BEBF01E29C7DBE4001369F0 /* SettingScreen.swift in Sources */,
+				1BA8507829EE931B00A80737 /* FindAccountViewModel.swift in Sources */,
 				E0343E4C28E3248100221072 /* LogInRequest.swift in Sources */,
 				1B97BD39296145AE0089DA67 /* PostScreen.swift in Sources */,
 				1BDB6C2629AC8A2200820733 /* MyPageViewModel.swift in Sources */,
 				83373CA5D01868BB06AD0D28 /* ApiFactory.swift in Sources */,
+				1BA8508029EF902500A80737 /* ResetPasswordViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

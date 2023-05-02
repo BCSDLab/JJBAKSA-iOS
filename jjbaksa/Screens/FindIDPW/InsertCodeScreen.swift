@@ -8,19 +8,28 @@
 import SwiftUI
 import ExytePopupView
 
-struct InsertCodeScreen: View {
-    @EnvironmentObject var viewModel: FindViewModel
+struct InsertCodeScreen<T: FindProtocol>: View {
+    @ObservedObject var viewModel: T
+    @FocusState private var focusField: Int?
     @Environment(\.presentationMode) var presentation
+    @Binding var path: NavigationPath
+    
+    init(viewModel: T, path: Binding<NavigationPath>) {
+        self.viewModel = viewModel
+        self._path = path
+        self.focusField = 0
+        
+    }
     
     var body: some View {
         VStack(spacing: 0) {
             Text("이메일로 발송된\n인증번호를 입력해 주세요.")
                 .frame(width: 222, height: 46)
                 .size18Regular()
-                .padding(.top, 110)
+                .padding(.top, 70)
                 .padding(.bottom, 41)
             
-            switch viewModel.codeErrorCode {
+            switch viewModel.errorCode {
             case .codeVerifyError:
                 HStack(spacing: 0) {
                     Image(systemName: "exclamationmark.triangle")
@@ -40,24 +49,27 @@ struct InsertCodeScreen: View {
             }
             
             HStack(spacing: 0) {
-                ForEach(0..<4) { index in   //TODO: 입력 시 자동으로 focus 변경
-                    let digit = index < viewModel.code.count ? String(viewModel.code[viewModel.code.index(viewModel.code.startIndex, offsetBy: index)]) : ""
+                ForEach(0..<4) { index in
+                    let digit = index < viewModel.verifyCode.count ? String(viewModel.verifyCode[viewModel.verifyCode.index(viewModel.verifyCode.startIndex, offsetBy: index)]) : ""
                     TextField("", text: Binding(
                         get: { digit },
                         set: { newValue in
                             if newValue.count <= 1 {
-                                if index < viewModel.code.count {
-                                    let start = viewModel.code.index(viewModel.code.startIndex, offsetBy: index)
-                                    let end = viewModel.code.index(after: start)
-                                    viewModel.code.replaceSubrange(start..<end, with: newValue)
+                                if index < viewModel.verifyCode.count {
+                                    let start = viewModel.verifyCode.index(viewModel.verifyCode.startIndex, offsetBy: index)
+                                    let end = viewModel.verifyCode.index(after: start)
+                                    viewModel.verifyCode.replaceSubrange(start..<end, with: newValue)
                                 } else if newValue.count == 1 {
-                                    viewModel.code.append(newValue)
+                                    viewModel.verifyCode.append(newValue)
+                                    focusField! += 1
                                 }
                             }
+                            
                         }
                     ))
-                    .onChange(of: viewModel.code) { code in
-                        viewModel.isCodeValid()
+                    .focused($focusField, equals: index)
+                    .onChange(of: viewModel.verifyCode) { verifyCode in
+                        viewModel.isVerifyCodeValid()
                     }
                     .keyboardType(.numberPad)
                     .frame(width: 50, height: 58)
@@ -70,7 +82,7 @@ struct InsertCodeScreen: View {
                 }
             }
             
-            Button(action: { viewModel.sendCertCode() }) {
+            Button(action: { viewModel.requestVerifyCode() }) {
                 Text("인증번호 재발송")
                     .foregroundColor(.main)
                     .size12Regular()
@@ -78,14 +90,8 @@ struct InsertCodeScreen: View {
             
             Spacer()
             
-            if viewModel.codeErrorCode == .hold {
-                Button(action: {
-                    if viewModel.targetInfo == "아이디" {
-                        viewModel.verifyAccountCertCode() }
-                    else if viewModel.targetInfo == "비밀번호" {
-                        viewModel.verifyPasswordCertCode()
-                    }
-                }) {
+            if viewModel.errorCode == .hold {
+                Button(action: { viewModel.sendVerifyCode() }) {
                     Text("완료")
                         .frame(width: 227, height: 40)
                         .font(.system(size: 14))
@@ -102,14 +108,13 @@ struct InsertCodeScreen: View {
                     .padding(.bottom, 140)
             }
         }
-        .navigationDestination(isPresented: $viewModel.isResetPasswordScreenShow) {
-            ResetPasswordScreen()
-                .environmentObject(viewModel)
-        
+        .navigationDestination(isPresented: $viewModel.isVerifyCodeCheckedForPassword) {
+            ResetPasswordScreen(token: viewModel.token, path: $path)
+                //.environmentObject(router)
         }
-        .popup(isPresented: $viewModel.isPopUpShow) {
-            AccountPopUpView()
-                .environmentObject(viewModel)
+        .popup(isPresented: $viewModel.isVerifyCodeCheckedForAccount) {
+            AccountPopUpView(eMail: viewModel.eMail, account: viewModel.account, path: $path)
+                //.environmentObject(router)
         } customize: {
             $0
                 .type(.default)
@@ -118,7 +123,6 @@ struct InsertCodeScreen: View {
                 .closeOnTapOutside(false)
                 .backgroundColor(.black.opacity(0.35))
         }
-        
         .toolbar{ BackButton(presentation: presentation) }
         .navigationBarBackButtonHidden()
     }
@@ -126,7 +130,9 @@ struct InsertCodeScreen: View {
 
 
 struct AccountPopUpView: View {
-    @EnvironmentObject var viewModel: FindViewModel
+    var eMail: String = ""
+    var account: String = ""
+    @Binding var path: NavigationPath
     
     var body: some View {
         VStack(spacing: 0) {
@@ -136,12 +142,12 @@ struct AccountPopUpView: View {
                 .padding(.top, 32)
                 .padding(.bottom, 19)
             
-            Text("\(viewModel.eMail)으로\n가입된 아이디는 \(viewModel.user?.account ?? "")입니다.")
+            Text("\(eMail)으로\n가입된 아이디는 \(account)입니다.")
                 .size12Regular()
                 .foregroundColor(.textMain)
                 .padding(.bottom, 28)
             
-            Button(action: {()}) { //TODO: 로그인화면으로 돌아가기
+            Button(action: {path = .init()}) {
                 Text("확인")
                     .frame(width: 227, height: 40)
                     .font(.system(size: 14))

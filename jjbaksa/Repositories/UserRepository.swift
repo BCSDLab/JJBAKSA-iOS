@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class UserRepository {
-    func logIn(logInRequest: LogInRequest, completion: @escaping (Result<Token, AFError>) -> Void) {
+    static func logIn(logInRequest: LogInRequest, completion: @escaping (Result<Token, AFError>) -> Void) {
         ApiFactory.getApi(type: .post, url: "user/login", parameters: logInRequest)
                 .responseDecodable(of: Token.self) { response in
                     switch (response.result) {
@@ -23,7 +23,7 @@ class UserRepository {
                 }
     }
 
-    static func isOverlap(account: String, completion: @escaping (Result<String, AFError>) -> Void) {
+    static func checkAccountOverlap(account: String, completion: @escaping (Result<String, AFError>) -> Void) {
         let parameters = QueryString(query: ["account" : account])
         ApiFactory.getApi(type: .get, url: "user/exists", parameters: parameters)
             .responseString { response in
@@ -82,9 +82,9 @@ class UserRepository {
             }
     }
     
-    static func sendCertCode(eMail: String, completion: @escaping (Result<String, AFError>) -> Void) {
+    static func requestVerifyCodeForAccountFinding(eMail: String, completion: @escaping (Result<String, AFError>) -> Void) {
         let parameters = QueryString(query: ["email" : eMail])
-        ApiFactory.getApi(type: .post, url: "user/email", parameters: parameters)
+        ApiFactory.getApi(type: .post, url: "user/email/account", parameters: parameters)
                 .responseString { response in
                     switch (response.result) {
                     case .success(let value):
@@ -97,7 +97,22 @@ class UserRepository {
                 }
     }
     
-    static func findAccount(eMail: String, code: String, completion: @escaping (Result<User, AFError>) -> Void) {
+    static func requestVerifyCodeForPasswordFinding(account: String, eMail: String, completion: @escaping (Result<String, AFError>) -> Void) {
+        let parameters = QueryString(query: ["account": account, "email" : eMail])
+        ApiFactory.getApi(type: .post, url: "user/email/password", parameters: parameters)
+                .responseString { response in
+                    switch (response.result) {
+                    case .success(let value):
+                        completion(.success(value))
+                        break
+                    case .failure(let error):
+                        completion(.failure(error))
+                        break
+                    }
+                }
+    }
+    
+    static func sendVerifyCodeForAccountFinding(eMail: String, code: String, completion: @escaping (Result<User, AFError>) -> Void) {
         let parameters = QueryString(query: ["email" : eMail, "code" : code])
         ApiFactory.getApi(type: .get, url: "user/account", parameters: parameters)
                 .responseDecodable(of: User.self) { response in
@@ -112,8 +127,9 @@ class UserRepository {
                 }
     }
     
-    static func findPassword(request: FindPasswordRequest, completion: @escaping (Result<String, AFError>) -> Void) {
-        ApiFactory.getApi(type: .post, url: "user/password", parameters: request)
+    static func sendVerifyCodeForPasswordFinding(account: String, eMail: String, code: String, completion: @escaping (Result<String, AFError>) -> Void) {
+        let parameter = FindPasswordRequest(account: account, email: eMail, code: code)
+        ApiFactory.getApi(type: .post, url: "user/password", parameters: parameter)
                 .responseString() { response in
                     switch (response.result) {
                     case .success(let value):
@@ -126,9 +142,9 @@ class UserRepository {
                 }
     }
     
-    static func changePassword(password: String, completion: @escaping (Result<User, AFError>) -> Void) {
+    static func resetPassword(password: String, token: String, completion: @escaping (Result<User, AFError>) -> Void) {
         let parameters = QueryString(query: ["password" : password])
-        ApiFactory.getApi(type: .patch, url: "user/password", parameters: parameters)
+        ApiFactory.getApi(type: .patch, url: "user/password", parameters: parameters, token: token)
                 .responseDecodable(of: User.self) { response in
                     switch (response.result) {
                     case .success(let value):

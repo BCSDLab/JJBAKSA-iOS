@@ -12,14 +12,18 @@ import Alamofire
 class ApiFactory {
     static let host: String = "https://api.stage.jjbaksa.com:443/"
 
-    static func getApi<T: Encodable>(type: HTTPMethod, url: String, parameters: T = EmptyParameter()) -> DataRequest {
+    static func getApi<T: Encodable>(type: HTTPMethod, url: String, parameters: T = EmptyParameter(), token: String? = nil) -> DataRequest {
 
         var header: HTTPHeaders = []
+        var apiToken: String?
+        if token == nil {
+            apiToken = UserDefaults.standard.string(forKey: "access_token")
+        } else {
+            apiToken = token
+        }
 
-        let token: String? = UserDefaults.standard.string(forKey: "access_token")
-
-        if(token != nil) {
-            header.add(name: "Authorization", value: "Bearer \(token!)")
+        if(apiToken != nil) {
+            header.add(name: "Authorization", value: "Bearer \(apiToken!)")
         }
         
         if parameters is EmptyParameter {
