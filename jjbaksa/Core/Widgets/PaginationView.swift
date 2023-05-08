@@ -1,8 +1,8 @@
 //
-//  NoticeView.swift
+//  PaginationView.swift
 //  jjbaksa
 //
-//  Created by 정영준 on 2023/04/03.
+//  Created by 정영준 on 2023/04/11.
 //
 
 import SwiftUI
@@ -28,13 +28,9 @@ struct PaginationView<T: PaginationProtocol, Content: View>: View {
                 }
                 ).progressViewStyle(CircularProgressViewStyle())
             } else {
-                Divider()
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 2)
-                
                 ScrollView {
-                    ForEach(viewModel.list!, id: \.self) { i in
-                        item(i)
+                    ForEach(viewModel.list!.indices, id: \.self) { index in
+                        item(viewModel.list![index])
                     }
                     if(viewModel.hasMore) {
                         ProgressView()

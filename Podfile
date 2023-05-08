@@ -7,9 +7,6 @@ target 'jjbaksa' do
 
   # Pods for jjbaksa
   pod 'NMapsMap'
-
-  pod "RichEditorView"
-  use_frameworks!
   
   pod 'KakaoSDKAuth'  # 사용자 인증
   pod 'KakaoSDKUser'  # 카카오 로그인, 사용자 관리

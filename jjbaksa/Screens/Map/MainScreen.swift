@@ -68,7 +68,7 @@ struct TabBarView: View {
                         .padding(.bottom, 112)
                 }
             }
-            NavigationLink(destination: PostScreen() ) {
+            NavigationLink(destination: WritingSearchScreen() ) {
                 ZStack {
                     VStack {
                         Image(systemName: "pencil")

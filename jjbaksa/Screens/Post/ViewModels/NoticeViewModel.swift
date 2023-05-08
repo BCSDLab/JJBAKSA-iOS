@@ -13,6 +13,8 @@ class NoticeViewModel: PaginationProtocol {
     @Published var status: Bool?
     @Published var currentPage: Int = 0
     @Published var totalPage: Int = 0
+    @Published var totalElement: Int = 0
+    
     var isLoading: Bool {
         get {
             status == nil

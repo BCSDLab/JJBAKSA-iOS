@@ -6,5 +6,11 @@
 	<string>fizysggxdv</string>
 	<key>NSLocationDefaultAccuracyReduced</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SUIT-Regular.otf</string>
+		<string>SUIT-Bold.otf</string>
+		<string>SUIT-Medium.otf</string>
+	</array>
 </dict>
 </plist>

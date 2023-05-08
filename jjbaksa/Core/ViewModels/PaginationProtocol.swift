@@ -13,9 +13,10 @@ protocol PaginationProtocol: ObservableObject {
     var status: Bool? { get set }
     var currentPage: Int { get set }
     var totalPage: Int { get set }
+    var totalElement: Int { get set }
     
-    var isLoading: Bool {get}
-    var hasMore: Bool {get}
+    var isLoading: Bool { get }
+    var hasMore: Bool { get }
     
     func getList()
     func getNextList()

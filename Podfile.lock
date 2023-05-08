@@ -29,7 +29,6 @@ PODS:
     - KakaoSDKAuth (= 2.13.1)
   - naveridlogin-sdk-ios (4.1.5)
   - NMapsMap (3.16.0)
-  - RichEditorView (5.0.0)
 
 DEPENDENCIES:
   - GoogleSignIn
@@ -38,7 +37,6 @@ DEPENDENCIES:
   - KakaoSDKUser
   - naveridlogin-sdk-ios
   - NMapsMap
-  - RichEditorView
 
 SPEC REPOS:
   trunk:
@@ -53,7 +51,6 @@ SPEC REPOS:
     - KakaoSDKUser
     - naveridlogin-sdk-ios
     - NMapsMap
-    - RichEditorView
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
@@ -67,8 +64,7 @@ SPEC CHECKSUMS:
   KakaoSDKUser: 92d34cf6af7b123c22a7ee44424332123e356901
   naveridlogin-sdk-ios: 4351fe7162cd6b8b6dbb37bd7cc205304fa1d889
   NMapsMap: a2593320fca2bb09e521c05b4dffee4da42e96ed
-  RichEditorView: 1bbb07b87ca2d479ac29a6877014b38b8df233ef
 
-PODFILE CHECKSUM: 62f1befdea744d819bb6aef3a41433d4e3e3a570
+PODFILE CHECKSUM: e9e5fbfb41a5195a4a60754481448c18de89e05e
 
 COCOAPODS: 1.11.3
