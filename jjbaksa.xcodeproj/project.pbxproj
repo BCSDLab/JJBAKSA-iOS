@@ -35,6 +35,9 @@
 		1BA851002A0386F100A80737 /* WritingSearchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA850FF2A0386F100A80737 /* WritingSearchRow.swift */; };
 		1BA851022A0388D000A80737 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA851012A0388D000A80737 /* Shop.swift */; };
 		1BA851042A08A2D500A80737 /* WritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA851032A08A2D500A80737 /* WritingViewModel.swift */; };
+		1BA851062A08E19900A80737 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA851052A08E19900A80737 /* ImageAsset.swift */; };
+		1BA851082A08E68E00A80737 /* WritingImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA851072A08E68E00A80737 /* WritingImagePicker.swift */; };
+		1BA8510A2A09E74400A80737 /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA851092A09E74400A80737 /* ImagePickerViewModel.swift */; };
 		1BCF0B54299239F600E659DC /* MyReviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B53299239F600E659DC /* MyReviewScreen.swift */; };
 		1BCF0B5629923A1900E659DC /* BookmarkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */; };
 		1BD81C5D29DA7A8F00F8AFD4 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD81C5C29DA7A8F00F8AFD4 /* PostRepository.swift */; };
@@ -106,6 +109,9 @@
 		1BA850FF2A0386F100A80737 /* WritingSearchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingSearchRow.swift; sourceTree = "<group>"; };
 		1BA851012A0388D000A80737 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		1BA851032A08A2D500A80737 /* WritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewModel.swift; sourceTree = "<group>"; };
+		1BA851052A08E19900A80737 /* ImageAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
+		1BA851072A08E68E00A80737 /* WritingImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingImagePicker.swift; sourceTree = "<group>"; };
+		1BA851092A09E74400A80737 /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
 		1BCF0B53299239F600E659DC /* MyReviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewScreen.swift; sourceTree = "<group>"; };
 		1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkScreen.swift; sourceTree = "<group>"; };
 		1BD81C5C29DA7A8F00F8AFD4 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 			children = (
 				1BA850CB2A01E45500A80737 /* WritingSearchViewModel.swift */,
 				1BA851032A08A2D500A80737 /* WritingViewModel.swift */,
+				1BA851092A09E74400A80737 /* ImagePickerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -240,6 +247,7 @@
 		1BA850C42A01DFA300A80737 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1BA851052A08E19900A80737 /* ImageAsset.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				1BA850FF2A0386F100A80737 /* WritingSearchRow.swift */,
+				1BA851072A08E68E00A80737 /* WritingImagePicker.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -741,8 +750,10 @@
 				1BA851042A08A2D500A80737 /* WritingViewModel.swift in Sources */,
 				1BFAC8AB291896BE00188F82 /* SignUpViewModel.swift in Sources */,
 				1BA851002A0386F100A80737 /* WritingSearchRow.swift in Sources */,
+				1BA851062A08E19900A80737 /* ImageAsset.swift in Sources */,
 				1BA8506929ECC4A800A80737 /* ReviewRepository.swift in Sources */,
 				1BA850FD2A02887400A80737 /* ButtonStyle.swift in Sources */,
+				1BA851082A08E68E00A80737 /* WritingImagePicker.swift in Sources */,
 				1BFAC8A82918820500188F82 /* SignUpInfoView.swift in Sources */,
 				1BEBF02729C805A6001369F0 /* ChangPasswordScreen.swift in Sources */,
 				1BEBF02329C7F592001369F0 /* UserRequest.swift in Sources */,
@@ -755,6 +766,7 @@
 				1BEBF02129C7ECDA001369F0 /* SettingViewModel.swift in Sources */,
 				E0343E4428E322DB00221072 /* UserRepository.swift in Sources */,
 				1BFAC8C52924B42500188F82 /* Color.swift in Sources */,
+				1BA8510A2A09E74400A80737 /* ImagePickerViewModel.swift in Sources */,
 				1BEBF02529C7FDD6001369F0 /* ChangeAccountScreen.swift in Sources */,
 				1BFAC8B2291B852D00188F82 /* SignUpTermsView.swift in Sources */,
 				1BA850FB2A0204C500A80737 /* Search.swift in Sources */,
@@ -916,6 +928,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = jjbaksa/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사용자 앨범 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -949,6 +962,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = jjbaksa/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사용자 앨범 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -6,19 +6,32 @@
 //
 
 import Foundation
+import PhotosUI
 
 class WritingViewModel: ObservableObject {
-    let storeName: String
+    let shop: Shop
     @Published var content: String = ""
     @Published var isShowPhotoLibrary: Bool = false
-    @Published var imgArr: [imageArray] = []
+    @Published var pickedImages: [ImageAsset] = []
     @Published var rate: Int = 0
     
-    init(storeName: String) {
-        self.storeName = storeName
+    
+    init(shop: Shop) {
+        self.shop = shop
     }
     
     func setRate(index: Int) {
         rate = index
+    }
+    
+    func pickImages(selectedImages: [ImageAsset]) {
+        pickedImages = selectedImages
+    }
+    
+    func removeImage(index: Int) {
+        pickedImages.remove(at: index)
+        pickedImages.enumerated().forEach { item in
+            pickedImages[item.offset].assetIndex = item.offset
+        }
     }
 }

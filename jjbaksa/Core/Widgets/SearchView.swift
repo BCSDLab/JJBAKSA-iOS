@@ -99,6 +99,7 @@ struct SearchView<T, Content: View>: View where T: SearchProtocol, T: Pagination
                 }
                 if !viewModel.autoCompletes.isEmpty {
                     VStack(spacing: 0) {
+                        //TODO: 자동완성 API 구현 시 구현.
                         /*
                         ForEach(viewModel.searchedShops.indices, id: \.self) { index in
                             Button(action: {()}) {

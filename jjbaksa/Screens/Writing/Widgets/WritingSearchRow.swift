@@ -11,7 +11,7 @@ struct WritingSearchRow: View {
     var shop: Shop
     
     var body: some View {
-        NavigationLink(destination: WritingScreen(storeName: shop.placeName) ) {
+        NavigationLink(destination: WritingScreen(shop: shop) ) {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
                     RoundedRectangle(cornerRadius: 5)

@@ -11,8 +11,8 @@ import UIKit
 struct WritingScreen: View {
     @ObservedObject var viewModel: WritingViewModel
     
-    init(storeName: String) {
-        self.viewModel = WritingViewModel(storeName: storeName)
+    init(shop: Shop) {
+        self.viewModel = WritingViewModel(shop: shop)
     }
     
     var body: some View {
@@ -33,25 +33,24 @@ struct WritingScreen: View {
                 .frame(height: 2)
                 .foregroundColor(.base)
                 .padding(.horizontal, 24)
-                .padding(.bottom, 24)
+                .padding(.bottom, 17)
+            
             HStack(spacing: 0) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 8)
-                        .strokeBorder(Color.main)
-                        .frame(width: 31, height: 31)
-                    Image(systemName: "plus")
-                        .frame(width: 12, height: 12)
-                        .foregroundColor(.main)
-                }
-                .onTapGesture() {
-                    viewModel.isShowPhotoLibrary = true
-                }
-                .frame(height: 80)
-                .padding(.leading, 32)
-                .padding(.trailing, 16)
-                
-                if viewModel.imgArr.isEmpty {
-                    VStack(spacing: 0) {
+                NavigationLink(destination: WritingImagePicker(pickedImages: viewModel.pickedImages)
+                    .environmentObject(viewModel)) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 8)
+                                .strokeBorder(Color.main)
+                                .frame(width: 31, height: 31)
+                            Image(systemName: "plus")
+                                .frame(width: 12, height: 12)
+                                .foregroundColor(.main)
+                        }
+                        .padding(.leading, 32)
+                        .padding(.trailing, 16)
+                    }
+                if viewModel.pickedImages.isEmpty {
+                    VStack(alignment: .leading, spacing: 0) {
                         Text("사진 첨부")
                             .size16Regular()
                             .foregroundColor(.textMain)
@@ -64,9 +63,9 @@ struct WritingScreen: View {
                 } else {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 0) {
-                            ForEach(viewModel.imgArr.indices) { index in
+                            ForEach(viewModel.pickedImages.indices, id: \.self) { index in
                                 ZStack {
-                                    Image(uiImage:viewModel.imgArr[index].image)
+                                    Image(uiImage: viewModel.pickedImages[index].thumbnail!)
                                         .resizable()
                                         .frame(width: 80, height: 80)
                                         .cornerRadius(10)
@@ -78,23 +77,24 @@ struct WritingScreen: View {
                                         Image(systemName: "xmark.circle")
                                             .foregroundColor(.main)
                                     }
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                                    .padding(.leading, 3)
+                                    .padding(.bottom, 3)
                                     .font(.system(size: 18))
                                     .onTapGesture() {
-                                        viewModel.imgArr.remove(at: index)
+                                        viewModel.removeImage(index: index)
                                     }
-                                    .padding(.leading, 65)
-                                    .padding(.bottom, 65)
-
                                 }
                             }
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxWidth: .infinity)
                     }
                 }
                 
                 Spacer()
             }
-            .padding(.bottom, 24)
+            .frame(height: 86)
+            .padding(.bottom, 21)
             
             //ScrollView(showsIndicators: true) { //TODO: 스크롤이 꼭 필요한지 물어보기.
             TextEditor(text: $viewModel.content)
@@ -104,64 +104,31 @@ struct WritingScreen: View {
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             //}
         }
-        .sheet(isPresented: $viewModel.isShowPhotoLibrary) {
-            ImagePicker(sourceType: .photoLibrary, imgArray: $viewModel.imgArr)
+        .navigationBarTitle(Text("\(viewModel.shop.placeName)"))
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    () //TODO: 서버에 리뷰 포스트 기능
+                }) {
+                    ZStack {
+                        Capsule()
+                            .strokeBorder(Color.main, lineWidth: 1)
+                        Text("저장")
+                            
+                            .size12Regular()
+                            .foregroundColor(.main)
+                    }
+                    .frame(width: 44, height: 30)
+                    
+                }
+                .padding(.trailing, 8)
+                
+            }
         }
         .navigationBarBackButtonHidden(false)
     }
 }
 
-
-struct ImagePicker: UIViewControllerRepresentable {
-    
-    var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    
-    @Binding var imgArray: [imageArray]
-    @Environment(\.presentationMode) private var presentationMode
-
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = sourceType
-        imagePicker.delegate = context.coordinator
-        
-        return imagePicker
-    }
-    
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
-        
-    }
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-    final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        
-        var parent: ImagePicker
-        
-        init(_ parent: ImagePicker) {
-            self.parent = parent
-        }
-        
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            
-            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                var tmpArray = imageArray(image: image, isImagePick: false)
-                
-                parent.imgArray.append(tmpArray)
-            }
-            
-            parent.presentationMode.wrappedValue.dismiss()
-        }
-    }
-}
-
-struct imageArray {
-    var image: UIImage
-    var isImagePick: Bool
-}
 
 struct Line: Shape {
     func path(in rect: CGRect) -> Path {
