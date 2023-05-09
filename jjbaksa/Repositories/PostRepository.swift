@@ -1,17 +1,22 @@
 //
-//  UserRepository.swift
+//  PostRepository.swift
 //  jjbaksa
 //
-//  Created by 정태훈 on 2022/09/27.
+//  Created by 정영준 on 2023/04/03.
 //
 
 import Foundation
 import Alamofire
 
-class UserRepository {
-    static func logIn(logInRequest: LogInRequest, completion: @escaping (Result<Token, AFError>) -> Void) {
-        ApiFactory.getApi(type: .post, url: "user/login", parameters: logInRequest)
-            .responseDecodable(of: Token.self) { response in
+class PostRepository {
+    static let url: String = "https://api.stage.jjbaksa.com:443"
+    static let token: String = UserDefaults.standard.object(forKey: "access_token") as? String ?? "" //TODO: 로그인 시 토큰 다시 불러오기
+    static let tokenHeader: HTTPHeaders = ["Authorization" : "Bearer \(token)"]
+    
+    static func getPost(boardType: String, page: Int , completion: @escaping (Result<PostResponse, AFError>) -> Void) {
+        let parameters: Parameters = ["boardType": boardType, "page": page]
+        AF.request("\(self.url)/post", method: .get, parameters: parameters, encoding: URLEncoding.queryString)
+            .responseDecodable(of: PostResponse.self) { response in
                 switch (response.result) {
                 case .success(let value):
                     completion(.success(value))
@@ -22,10 +27,10 @@ class UserRepository {
                 }
             }
     }
-
-    static func checkAccountOverlap(account: String, completion: @escaping (Result<String, AFError>) -> Void) {
-        let parameters = QueryString(query: ["account" : account])
-        ApiFactory.getApi(type: .get, url: "user/exists", parameters: parameters)
+/*
+    static func isOverlap(account: String, completion: @escaping (Result<String, AFError>) -> Void) {
+        let parameters: Parameters = ["account": account]
+        AF.request("\(self.url)/user/exists", method: .get, parameters: parameters, encoding: URLEncoding.queryString)
             .responseString { response in
                 switch (response.result) {
                 case .success(let result):
@@ -39,7 +44,7 @@ class UserRepository {
     }
     
     static func getUserInfo(completion: @escaping (Result<User, AFError>) -> Void) {
-        ApiFactory.getApi(type: .get, url: "user/me")
+        AF.request("\(self.url)/user/me", method: .get, headers: tokenHeader)
             .responseDecodable(of: User.self) { response in
                 switch (response.result) {
                 case .success(let result):
@@ -53,8 +58,8 @@ class UserRepository {
     }
     
     static func changeNickname(nickname: String, completion: @escaping (Result<User, AFError>) -> Void) {
-        let parameters = QueryString(query: ["nickname" : nickname])
-        ApiFactory.getApi(type: .patch, url: "user/nickname", parameters: parameters)
+        let parameters: Parameters = ["nickname": nickname]
+        AF.request("\(self.url)/user/nickname", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: tokenHeader)
             .responseDecodable(of: User.self) { response in
                 switch (response.result) {
                 case .success(let result):
@@ -69,7 +74,7 @@ class UserRepository {
     
     //TODO: account를 바꾸는 api가 없는듯..?
     static func changeUserInfo(userRequest: UserRequest, completion: @escaping (Result<User, AFError>) -> Void) {
-        ApiFactory.getApi(type: .patch, url: "user/me", parameters: userRequest)
+        AF.request("\(self.url)/user/me", method: .patch, parameters: userRequest, encoder: .json(), headers: tokenHeader)
             .responseDecodable(of: User.self) { response in
                 switch (response.result) {
                 case .success(let result):
@@ -82,9 +87,9 @@ class UserRepository {
             }
     }
     
-    static func requestVerifyCodeForAccountFinding(eMail: String, completion: @escaping (Result<String, AFError>) -> Void) {
-        let parameters = QueryString(query: ["email" : eMail])
-        ApiFactory.getApi(type: .post, url: "user/email/account", parameters: parameters)
+    static func sendCertCode(eMail: String, completion: @escaping (Result<String, AFError>) -> Void) {
+        let parameters: Parameters = ["email": eMail]
+        AF.request("\(self.url)/user/email", method: .post, parameters: parameters, encoding: URLEncoding.queryString)
                 .responseString { response in
                     switch (response.result) {
                     case .success(let value):
@@ -96,25 +101,10 @@ class UserRepository {
                     }
                 }
     }
-
-    static func requestVerifyCodeForPasswordFinding(account: String, eMail: String, completion: @escaping (Result<String, AFError>) -> Void) {
-        let parameters = QueryString(query: ["account": account, "email" : eMail])
-        ApiFactory.getApi(type: .post, url: "user/email/password", parameters: parameters)
-                .responseString { response in
-                    switch (response.result) {
-                    case .success(let value):
-                        completion(.success(value))
-                        break
-                    case .failure(let error):
-                        completion(.failure(error))
-                        break
-                    }
-                }
-    }
-
-    static func sendVerifyCodeForAccountFinding(eMail: String, code: String, completion: @escaping (Result<User, AFError>) -> Void) {
-        let parameters = QueryString(query: ["email" : eMail, "code" : code])
-        ApiFactory.getApi(type: .get, url: "user/account", parameters: parameters)
+    
+    static func findAccount(eMail: String, code: String, completion: @escaping (Result<User, AFError>) -> Void) {
+        let parameters: Parameters = ["email": eMail, "code": code]
+        AF.request("\(self.url)/user/account", method: .get, parameters: parameters, encoding: URLEncoding.queryString)
                 .responseDecodable(of: User.self) { response in
                     switch (response.result) {
                     case .success(let value):
@@ -126,10 +116,9 @@ class UserRepository {
                     }
                 }
     }
-
-    static func sendVerifyCodeForPasswordFinding(account: String, eMail: String, code: String, completion: @escaping (Result<String, AFError>) -> Void) {
-        let parameter = FindPasswordRequest(account: account, email: eMail, code: code)
-        ApiFactory.getApi(type: .post, url: "user/password", parameters: parameter)
+    
+    static func findPassword(request: FindPasswordRequest, completion: @escaping (Result<String, AFError>) -> Void) {
+        AF.request("\(self.url)/user/password", method: .post, parameters: request, encoder: .json())
                 .responseString() { response in
                     switch (response.result) {
                     case .success(let value):
@@ -141,10 +130,11 @@ class UserRepository {
                     }
                 }
     }
-
-    static func resetPassword(password: String, token: String, completion: @escaping (Result<User, AFError>) -> Void) {
-        let parameters = QueryString(query: ["password" : password])
-        ApiFactory.getApi(type: .patch, url: "user/password", parameters: parameters, token: token)
+    
+    static func changePassword(password: String, token: String, completion: @escaping (Result<User, AFError>) -> Void) {
+        let parameters: Parameters = ["passwrod": password]
+        let header: HTTPHeaders = ["Authorization" : "Bearer \(token)"]
+        AF.request("\(self.url)/user/password", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header)
                 .responseDecodable(of: User.self) { response in
                     switch (response.result) {
                     case .success(let value):
@@ -156,4 +146,5 @@ class UserRepository {
                     }
                 }
     }
+ */
 }

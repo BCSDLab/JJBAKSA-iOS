@@ -22,10 +22,10 @@ class RootViewModel: ObservableObject {
     // 토큰 받아오기
     func setToken(token: Token) {
         self.token = token
-        
+
             UserDefaults.standard.set(token.accessToken, forKey: "access_token")
             UserDefaults.standard.set(token.refreshToken, forKey: "refresh_token")
-        
+
         loadUser()
     }
     
@@ -37,6 +37,7 @@ class RootViewModel: ObservableObject {
         if(accessToken != nil && refreshToken != nil) {
             self.token = Token(accessToken: accessToken!, refreshToken: refreshToken!)
         }
+        print(token)
         loadUser()
     }
 
@@ -94,7 +95,7 @@ class RootViewModel: ObservableObject {
         UserDefaults.standard.removeObject(forKey: "access_token")
         UserDefaults.standard.removeObject(forKey: "refresh_token")
     }
-    
+
     func shutDown() {
         print("shut down")
         if isTokenSave == false {

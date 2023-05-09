@@ -43,9 +43,9 @@ struct PostScreen: View {
                                                 ZStack {
                                                     Button(action: {imgArr.remove(at: idx)}) {
                                                         Image(systemName: "trash.circle.fill")
-                                                            .font(.system(size: 31))
-                                                            .symbolRenderingMode(.palette)
-                                                            .foregroundStyle(Color.main, Color.textSub)
+                                                            .renderingMode(.template)                      .font(.system(size: 31))
+                                                            
+                                                            .foregroundColor(Color.main)
                                                     }
                                                     Rectangle()
                                                         .frame(width: 80, height: 3)
