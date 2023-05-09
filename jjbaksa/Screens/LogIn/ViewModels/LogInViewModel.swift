@@ -10,7 +10,7 @@ import Foundation
 class LogInViewModel: ObservableObject {
     @Published var account: String = ""
     @Published var password: String = ""
-    @Published var isAutoLogIn: Bool = true
+    //@Published var isAutoLogIn: Bool = true
     @Published var isLogInFailed: Bool = false
     @Published var token: Token? = nil
     
@@ -21,7 +21,8 @@ class LogInViewModel: ObservableObject {
     
     func logIn() {
         if(isInfoNotEmpty) {
-            UserRepository.logIn(account: account, password: password) { result in
+            let logInRequest = LogInRequest(account: account, password: password)
+            UserRepository.logIn(logInRequest: logInRequest) { result in
                 switch(result) {
                 case .success(let value):
                     self.token = value

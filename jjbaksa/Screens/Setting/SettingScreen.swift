@@ -28,7 +28,7 @@ struct SettingScreen: View {
                             .padding(.leading, 16)
                             .foregroundColor(.textMain)
                         Spacer()
-                        Text(rootViewModel.user?.account ?? "Nil")
+                        Text(rootViewModel.user?.account ?? "")
                             .size14Regular()
                             .padding(.trailing, 14)
                             .foregroundColor(.main)
@@ -130,7 +130,7 @@ struct SettingScreen: View {
             }
             Spacer()
             
-            Button(action: {()}) {
+            Button(action: { rootViewModel.logOut() }) {
                 Text("로그아웃")
                     .size16Regular()
                     .foregroundColor(.textMain)

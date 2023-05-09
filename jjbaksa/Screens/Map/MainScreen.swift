@@ -13,7 +13,7 @@ struct MainScreen: View {
     var body: some View {
         NavigationView {
             ZStack {
-                VStack{
+                VStack(spacing: 0) {
                     TabView(selection:$index) {
                         MapScreen()
                             .tag(0)
@@ -26,8 +26,18 @@ struct MainScreen: View {
                     }
                     TabBarView(currentTab: $index)
                 }
-                UserEditScreen(viewModel: myPageViewModel)
             }
+        }
+        .popup(isPresented: $myPageViewModel.isEditShow) {
+            UserEditScreen()
+                .environmentObject(myPageViewModel)
+        } customize: {
+            $0
+                .type(.floater(verticalPadding: 0, useSafeAreaInset: false))
+                .position(.bottom)
+                .animation(.spring())
+                .closeOnTapOutside(false)
+                .backgroundColor(.black.opacity(0.35))
         }
     }
 }
@@ -54,11 +64,11 @@ struct TabBarView: View {
                     }
                 }
                 .frame(height: 100)
-                .foregroundColor(currentTab == 0 ? Color.textMain : Color.base)
+                .foregroundColor(currentTab == 0 ? Color.munan : Color.base)
                 
                 if currentTab == 0 {
                     Capsule()
-                        .fill(Color.textMain)
+                        .fill(Color.munan)
                         .frame(height: 2)
                         .padding(.bottom, 112)
                 } else {
@@ -107,10 +117,10 @@ struct TabBarView: View {
                     
                 }
                 .frame(height: 100)
-                .foregroundColor(currentTab == 1 ? Color.textMain : Color.base)
+                .foregroundColor(currentTab == 1 ? Color.munan : Color.base)
                 if currentTab == 1 {
                     Capsule()
-                        .fill(Color.textMain)
+                        .fill(Color.munan)
                         .frame(height: 2)
                         .padding(.bottom, 112)
                 } else {
@@ -121,7 +131,7 @@ struct TabBarView: View {
                 }
             }
         }
-        .frame(height: 0)
+        .frame(height: 16)
 
     }
 }

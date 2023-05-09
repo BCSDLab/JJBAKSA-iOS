@@ -10,9 +10,10 @@ import SwiftUI
 struct LogInScreen: View {
     @ObservedObject var viewModel: LogInViewModel = LogInViewModel()
     @EnvironmentObject var rootViewModel: RootViewModel
-
+    @State var path: NavigationPath = NavigationPath()
+    
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $path) {
             VStack {
                 Spacer()
                 HStack {
@@ -63,29 +64,29 @@ struct LogInScreen: View {
                     ZStack {
                         Capsule()
                             .frame(width:24,height:12)
-                            .foregroundColor(Color(viewModel.isAutoLogIn ? UIColor(.main) : UIColor(.base)))
+                            .foregroundColor(Color(rootViewModel.isTokenSave ? UIColor(.main) : UIColor(.base)))
                         ZStack{
                             Circle()
-                                    .frame(width: 10, height: 10)
-                                    .foregroundColor(.white)
+                                .frame(width: 10, height: 10)
+                                .foregroundColor(.white)
                         }
-                                .offset(x: viewModel.isAutoLogIn ? 6 : -6)
-                                .animation(.spring())
+                        .offset(x: rootViewModel.isTokenSave ? 6 : -6)
+                        .animation(.spring())
                     }
-                            .onTapGesture {
-                                self.viewModel.isAutoLogIn.toggle()
-                            }
-
+                    .onTapGesture {
+                        rootViewModel.isTokenSave.toggle()
+                    }
+                    
                     Text("자동 로그인")
                         .font(.system(size: 11))
-                        .foregroundColor(Color(viewModel.isAutoLogIn ? UIColor(.main) : UIColor(.textMain)))
+                        .foregroundColor(Color(rootViewModel.isTokenSave ? UIColor(.main) : UIColor(.textMain)))
                     
                 }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(EdgeInsets(top: 7, leading: 85, bottom: 51, trailing: 0))
-                        .onChange(of: self.viewModel.token) { token in
+                        .onChange(of: viewModel.token) { token in
                             if (token != nil) {
-                                self.rootViewModel.setToken(token: token!, isSave: viewModel.isAutoLogIn)
+                                rootViewModel.setToken(token: token!)
                             }
                         }
 
@@ -95,8 +96,8 @@ struct LogInScreen: View {
                         viewModel.logIn()
                     }) {
                         Text("로그인")          //button이 아닌 label에 frame을 줘서 버튼 클릭 범위를 늘림
-                            .frame(width: 227, height: 40)
-                            .font(.system(size: 14))
+                            .frame(width: 226, height: 40)
+                            .size16Medium()
                             .foregroundColor(.textSub)
                             .background(Capsule().fill(Color(viewModel.isInfoNotEmpty ? UIColor(.main) : UIColor(.base))))
                             .padding([.bottom], 7)
@@ -104,24 +105,59 @@ struct LogInScreen: View {
 
                     Button(action: { () }) { //TODO: 소셜 로그인 페이지 이동
                         Text("소셜 로그인")      //button이 아닌 label에 frame을 줘서 버튼 클릭 범위를 늘림
-                            .frame(width: 227, height: 40)
-                            .font(.system(size: 14))
+                            .frame(width: 226, height: 40)
+                            .size16Medium()
                             .foregroundColor(.main)
                             .background(Capsule().stroke(Color.main))
                     }
-
-                    NavigationLink(destination: SignUpScreen()) { //TODO: 회원가입 페이지 이동
-                        Text("회원가입")
-                            .foregroundColor(.main)
-                            .font(.system(size: 12))
-                            .underline()
+                    .padding(.bottom, 22)
+                    
+                    HStack(spacing: 0) {
+                        NavigationLink(destination: SignUpScreen()) { //TODO: 회원가입 페이지 이동
+                            Text("회원가입")
+                                .foregroundColor(.main)
+                                .size12Regular()
+                                .underline()
+                        }
+                        
+                        Text("|")
+                            .foregroundColor(.base)
+                            .sizeCustom(9)
+                            .padding(.horizontal, 8)
+                        
+                        NavigationLink(value: "FindAccount") {
+                            Text("아이디 찾기")
+                                .foregroundColor(.munan)
+                                .size12Regular()
+                                .underline()
+                        }
+                        .isDetailLink(false)
+                        
+                        Text("|")
+                            .foregroundColor(.base)
+                            .sizeCustom(9)
+                            .padding(.horizontal, 8)
+                        
+                        NavigationLink(value: "FindPassword") {
+                            Text("비밀번호 찾기")
+                                .foregroundColor(.munan)
+                                .size12Regular()
+                                .underline()
+                        }
                     }
-                            .padding([.top], 32)
                 }
 
                 Spacer()
             }
+            .navigationDestination(for: String.self) { value in
+                if value == "FindAccount" {
+                    FindAccountScreen(path: $path)
+                } else if value == "FindPassword" {
+                    FindPasswordScreen(path: $path)
+                }
+            }
         }
+        .toolbar(.hidden, for: .navigationBar)
     }
 }
 

@@ -42,7 +42,7 @@ class SignUpViewModel: ObservableObject {
     }
 
     func isAccountOverlapValid() {
-        UserRepository.isOverlap(account: account) { result in
+        UserRepository.checkAccountOverlap(account: account) { result in
             switch (result) {
             case .success(let value):
                 if value != "OK" {

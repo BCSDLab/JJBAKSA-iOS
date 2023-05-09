@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct RootScreen: View {
-    @ObservedObject var viewModel: RootViewModel
-    
-    init() {
-        self.viewModel = RootViewModel()
-    }
+    @StateObject var viewModel: RootViewModel = RootViewModel()
+    @StateObject var router: Router = Router()
     
     var body: some View {
         if(viewModel.token != nil && viewModel.user?.id != nil) {
             MainScreen()
                 .environmentObject(viewModel)
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willTerminateNotification), perform: { output in
+                    viewModel.shutDown()
+         })
         } else {
             LogInScreen()
                 .environmentObject(viewModel)
+                //.environmentObject(router)
         }
         
         

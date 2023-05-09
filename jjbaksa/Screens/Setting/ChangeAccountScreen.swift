@@ -20,7 +20,7 @@ struct ChangeAccountScreen: View {
                 .padding(.top, 127)
                 .padding(.bottom, 7)
             
-            Text("@\(rootViewModel.user?.account ?? "nil")")
+            Text("@\(rootViewModel.user?.account ?? "")")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .size14Regular()
                 .foregroundColor(.textMain)

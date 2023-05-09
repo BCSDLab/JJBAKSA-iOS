@@ -15,4 +15,5 @@ extension Color {
     static let textSub = Color("TextSubColor")
     static let base = Color("BaseColor")
     static let line = Color("LineColor")
+    static let munan = Color("MunanColor")
 }
