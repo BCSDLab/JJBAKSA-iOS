@@ -71,6 +71,14 @@ class WritingSearchViewModel: SearchProtocol, PaginationProtocol {
         }*/
     }
     
+    func emptyShopList() {
+        list = []
+    }
+    
+    func addRecentSearch(placeName: String) {
+        recentSearches.append(RecentSearch(text: placeName, isPressed: false))
+    }
+    
     func deleteAllRecentSearch() {
         recentSearches = []
     }

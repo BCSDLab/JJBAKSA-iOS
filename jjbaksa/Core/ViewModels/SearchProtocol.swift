@@ -19,6 +19,8 @@ protocol SearchProtocol: ObservableObject {
     func getAutoComplete()
     func setSearchText(text: String)
     func searchShopList()
+    func emptyShopList()
+    func addRecentSearch(placeName: String)
     func deleteAllRecentSearch()
     func deleteRecentSearch(index: Int)
 }

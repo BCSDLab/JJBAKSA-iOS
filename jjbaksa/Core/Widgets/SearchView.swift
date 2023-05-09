@@ -25,13 +25,13 @@ struct SearchView<T, Content: View>: View where T: SearchProtocol, T: Pagination
                     .onChange(of: viewModel.searchText) { _ in
                         viewModel.getAutoComplete() //TODO: 연관 검색어 API 나올 시 적용
                         viewModel.isSearched = false
+                        viewModel.emptyShopList()
                     }
                 
                 HStack(spacing: 0) {
                     Spacer()
                     Button(action: {
                         if !viewModel.searchText.isEmpty {
-                            //viewModel.getList()
                             viewModel.isSearched = true
                         }
                     }) {
@@ -57,7 +57,7 @@ struct SearchView<T, Content: View>: View where T: SearchProtocol, T: Pagination
                     
                     PaginationView(viewModel: viewModel, content: row)
                         .ignoresSafeArea()
-                    
+                    //TODO: RecentSearch에 Append 기능
                 }
                 
             } else {
@@ -152,7 +152,10 @@ struct SearchView<T, Content: View>: View where T: SearchProtocol, T: Pagination
                         .padding(.bottom, 4)
                         
                         ForEach(viewModel.recentSearches.indices, id: \.self) { index in
-                            Button(action: {()}) {
+                            Button(action: {
+                                viewModel.setSearchText(text: viewModel.recentSearches[index].text)
+                                viewModel.isSearched = true
+                                }) {
                                 HStack(spacing: 0) {
                                     Image(systemName: "clock.arrow.circlepath")
                                         .foregroundColor(.textMain)
