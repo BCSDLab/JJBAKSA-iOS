@@ -13,14 +13,15 @@ protocol SearchProtocol: ObservableObject {
     var recentSearches: [RecentSearch] { get set }
     var autoCompletes: [String] { get set }
     var isSearched: Bool { get set }
+    var isButtonPressed: Bool { get set }
 
     
     func getTrending()
     func getAutoComplete()
     func setSearchText(text: String)
-    func searchShopList()
+    func searchShopList(searchText: String?)
     func emptyShopList()
-    func addRecentSearch(placeName: String)
+    func addRecentSearch(searchText: String)
     func deleteAllRecentSearch()
     func deleteRecentSearch(index: Int)
 }

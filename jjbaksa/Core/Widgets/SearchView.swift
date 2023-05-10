@@ -10,10 +10,13 @@ import SwiftUI
 struct SearchView<T, Content: View>: View where T: SearchProtocol, T: PaginationProtocol {
     @ObservedObject var viewModel: T
     var row:(T.itemType) -> Content
+    @State var currentIndex: Int = 0
+    @State var timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
     
     init(viewModel: T, @ViewBuilder content: @escaping (T.itemType) -> Content ) {
         self.viewModel = viewModel
         self.row = content
+        self.viewModel.getTrending()
     }
     
     var body: some View {
@@ -24,15 +27,21 @@ struct SearchView<T, Content: View>: View where T: SearchProtocol, T: Pagination
                     .autocapitalization(.none)
                     .onChange(of: viewModel.searchText) { _ in
                         viewModel.getAutoComplete() //TODO: 연관 검색어 API 나올 시 적용
-                        viewModel.isSearched = false
-                        viewModel.emptyShopList()
+                        if viewModel.isButtonPressed {
+                            viewModel.isButtonPressed = false
+                        } else {
+                            viewModel.isSearched = false
+                            viewModel.emptyShopList()
+                        }
                     }
                 
                 HStack(spacing: 0) {
                     Spacer()
                     Button(action: {
                         if !viewModel.searchText.isEmpty {
-                            viewModel.isSearched = true
+                            
+                            viewModel.searchShopList(searchText: nil)
+                            
                         }
                     }) {
                         Image(systemName: "magnifyingglass")
@@ -44,11 +53,9 @@ struct SearchView<T, Content: View>: View where T: SearchProtocol, T: Pagination
             }
             .padding(.bottom, 12)
             
-            
+
             if viewModel.isSearched {
-                
                 VStack(alignment: .leading, spacing: 0) {
-                    
                     Text("\(viewModel.totalElement)개의 검색결과")
                         .size12Medium()
                         .foregroundColor(.main)
@@ -57,46 +64,56 @@ struct SearchView<T, Content: View>: View where T: SearchProtocol, T: Pagination
                     
                     PaginationView(viewModel: viewModel, content: row)
                         .ignoresSafeArea()
-                    //TODO: RecentSearch에 Append 기능
+                    
+                    Spacer()
                 }
-                
             } else {
-                ScrollView(.horizontal, showsIndicators: false) { //TODO: 자동으로 ScrollView가 오른쪽에서 왼쪽으로 흐르는 애니매이션.
-                    HStack(spacing: 0) {
-                        ForEach(viewModel.trendings.indices, id: \.self) { index in
-                            Button(action: {
-                                viewModel.setSearchText(text: viewModel.trendings[index].text)
-                                viewModel.isSearched = true //???: 버튼을 두 번 클릭해야 화면이 Update됨.
-                            }) {
-                                ZStack {
-                                    Capsule()
-                                        .strokeBorder(viewModel.trendings[index].isPressed ? Color.main : Color.munan)
-                                        .background(Capsule()
-                                            .fill(viewModel.trendings[index].isPressed ? Color.sub.opacity(0.2) : Color.textSub))
-                                        .frame(height: 27)
-                                    HStack(spacing: 0) {
-                                        Text("# \(viewModel.trendings[index].text)")
-                                            .size12Medium()
-                                            .foregroundColor(viewModel.trendings[index].isPressed ? Color.main : Color.munan)
-                                            .padding(.horizontal, 8)
+                ScrollViewReader { scrollView in
+                    ScrollView(.horizontal, showsIndicators: false) { //TODO: 자동으로 ScrollView가 오른쪽에서 왼쪽으로 흐르는 애니매이션.
+                        
+                        HStack(spacing: 0) {
+                            ForEach(viewModel.trendings.indices, id: \.self) { index in
+                                Button(action: {
+                                    viewModel.searchShopList(searchText: viewModel.trendings[index].text)
+                                    viewModel.isButtonPressed = true
+                                }) {
+                                    ZStack {
+                                        Capsule()
+                                            .strokeBorder(viewModel.trendings[index].isPressed ? Color.main : Color.munan)
+                                            .background(Capsule()
+                                                .fill(viewModel.trendings[index].isPressed ? Color.sub.opacity(0.2) : Color.textSub))
+                                            .frame(height: 27)
+                                        HStack(spacing: 0) {
+                                            Text("# \(viewModel.trendings[index].text)")
+                                                .size12Medium()
+                                                .foregroundColor(viewModel.trendings[index].isPressed ? Color.main : Color.munan)
+                                                .padding(.horizontal, 8)
+                                        }
                                     }
                                 }
+                                .simultaneousGesture(
+                                    DragGesture(minimumDistance: 0)
+                                        .onChanged({ _ in
+                                            viewModel.trendings[index].isPressed = true
+                                        })
+                                        .onEnded({ _ in
+                                            viewModel.trendings[index].isPressed = false
+                                        })
+                                )
+                                .buttonStyle(StaticButtonStyle())
+                                .animation(.easeInOut(duration: 1.0))
+                                .padding(.horizontal, 4)
                             }
-                            .simultaneousGesture(
-                                DragGesture(minimumDistance: 0)
-                                    .onChanged({ _ in
-                                        viewModel.trendings[index].isPressed = true
-                                    })
-                                    .onEnded({ _ in
-                                        viewModel.trendings[index].isPressed = false
-                                    })
-                            )
-                            .buttonStyle(StaticButtonStyle())
-                            .animation(.easeInOut(duration: 1.0))
-                            .padding(.horizontal, 4)
+                        }
+                    }
+                    .onReceive(timer) { _ in
+                        withAnimation(Animation.easeInOut(duration: 1)){
+                            currentIndex = (currentIndex + 1) % viewModel.trendings.count
+                            scrollView.scrollTo(currentIndex, anchor: .center)
                         }
                     }
                 }
+                
                 if !viewModel.autoCompletes.isEmpty {
                     VStack(spacing: 0) {
                         //TODO: 자동완성 API 구현 시 구현.
@@ -153,8 +170,8 @@ struct SearchView<T, Content: View>: View where T: SearchProtocol, T: Pagination
                         
                         ForEach(viewModel.recentSearches.indices, id: \.self) { index in
                             Button(action: {
-                                viewModel.setSearchText(text: viewModel.recentSearches[index].text)
-                                viewModel.isSearched = true
+                                viewModel.searchShopList(searchText: viewModel.recentSearches[index].text)
+                                viewModel.isButtonPressed = true
                                 }) {
                                 HStack(spacing: 0) {
                                     Image(systemName: "clock.arrow.circlepath")
@@ -196,9 +213,6 @@ struct SearchView<T, Content: View>: View where T: SearchProtocol, T: Pagination
                 }
                 Spacer()
             }
-        }
-        .onAppear() {
-            viewModel.getTrending()
         }
     }
 }

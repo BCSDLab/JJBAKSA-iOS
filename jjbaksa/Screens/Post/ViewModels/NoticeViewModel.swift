@@ -36,7 +36,6 @@ class NoticeViewModel: PaginationProtocol {
                 self.totalPage = value.totalPages
                 self.currentPage += 1
                 self.status = true
-                print(value)
                 break
             case .failure(let error):
                 print(error)

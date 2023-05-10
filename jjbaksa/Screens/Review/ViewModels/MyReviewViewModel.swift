@@ -39,7 +39,6 @@ class MyReviewViewModel: PaginationProtocol {
                     self.totalElement = value.totalElements
                     self.setFirstElementID()
                     self.status = true
-                    print(value)
                     break
                 case .failure(let error):
                     print(error)

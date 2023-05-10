@@ -38,6 +38,7 @@
 		1BA851062A08E19900A80737 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA851052A08E19900A80737 /* ImageAsset.swift */; };
 		1BA851082A08E68E00A80737 /* WritingImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA851072A08E68E00A80737 /* WritingImagePicker.swift */; };
 		1BA8510A2A09E74400A80737 /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA851092A09E74400A80737 /* ImagePickerViewModel.swift */; };
+		1BA8510C2A0B6AB900A80737 /* ImageConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8510B2A0B6AB900A80737 /* ImageConverter.swift */; };
 		1BCF0B54299239F600E659DC /* MyReviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B53299239F600E659DC /* MyReviewScreen.swift */; };
 		1BCF0B5629923A1900E659DC /* BookmarkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */; };
 		1BD81C5D29DA7A8F00F8AFD4 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD81C5C29DA7A8F00F8AFD4 /* PostRepository.swift */; };
@@ -112,6 +113,7 @@
 		1BA851052A08E19900A80737 /* ImageAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
 		1BA851072A08E68E00A80737 /* WritingImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingImagePicker.swift; sourceTree = "<group>"; };
 		1BA851092A09E74400A80737 /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
+		1BA8510B2A0B6AB900A80737 /* ImageConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConverter.swift; sourceTree = "<group>"; };
 		1BCF0B53299239F600E659DC /* MyReviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewScreen.swift; sourceTree = "<group>"; };
 		1BCF0B5529923A1900E659DC /* BookmarkScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkScreen.swift; sourceTree = "<group>"; };
 		1BD81C5C29DA7A8F00F8AFD4 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 				1BEBF01A29C7DACB001369F0 /* TextStyle.swift */,
 				1BA850D12A01E88700A80737 /* CustomTextField.swift */,
 				1BA850FC2A02887400A80737 /* ButtonStyle.swift */,
+				1BA8510B2A0B6AB900A80737 /* ImageConverter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BEBF01B29C7DACB001369F0 /* TextStyle.swift in Sources */,
+				1BA8510C2A0B6AB900A80737 /* ImageConverter.swift in Sources */,
 				1BD81C5D29DA7A8F00F8AFD4 /* PostRepository.swift in Sources */,
 				1BA850CA2A01E2DF00A80737 /* SearchProtocol.swift in Sources */,
 				1BD81C6C29DA813E00F8AFD4 /* NoticeRow.swift in Sources */,

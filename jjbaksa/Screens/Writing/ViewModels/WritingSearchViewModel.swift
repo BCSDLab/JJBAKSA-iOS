@@ -5,7 +5,7 @@
 //  Created by 정영준 on 2023/05/03.
 //
 
-import Foundation
+import SwiftUI
 
 class WritingSearchViewModel: SearchProtocol, PaginationProtocol {
     typealias itemType = Shop
@@ -14,6 +14,7 @@ class WritingSearchViewModel: SearchProtocol, PaginationProtocol {
     @Published var trendings: [Trending] = []
     @Published var recentSearches: [RecentSearch] = []
     @Published var autoCompletes: [String] = []
+    @Published var isButtonPressed: Bool = false
     @Published var isSearched: Bool = false
     
     @Published var list: Array<itemType>?
@@ -38,7 +39,6 @@ class WritingSearchViewModel: SearchProtocol, PaginationProtocol {
             switch(result) {
             case .success(let value):
                 self.trendings = value.trendings.map { Trending(text: $0, isPressed: false) }
-                print(value)
                 break
             case .failure(let error):
                 print(error)
@@ -52,31 +52,32 @@ class WritingSearchViewModel: SearchProtocol, PaginationProtocol {
     }
     
     func setSearchText(text: String) {
+        emptyShopList()
         self.searchText = text
     }
 
     
-    func searchShopList() {
-        /*
-        ShopRepository.searchShopList(keyword: searchText) { result in
-            switch(result) {
-            case .success(let value):
-                self.searchedShops = value.content.map { SearchedShop(name: $0.placeName, placeID: $0.placeID, isPressed: false) }
-                break
-            case .failure(let error):
-                print(error)
-                break
-            }
-            
-        }*/
+    func searchShopList(searchText: String?) {
+        let searchText = searchText ?? self.searchText
+        if searchText != self.searchText {
+            setSearchText(text: searchText)
+        }
+        if let index = recentSearches.firstIndex(where: { recentSearch in
+            recentSearch.text == searchText
+        }) {
+            recentSearches.remove(at: index)
+        }
+        recentSearches.insert(RecentSearch(text: searchText, isPressed: false), at: 0)
+
+        isSearched = true
     }
     
     func emptyShopList() {
         list = []
     }
     
-    func addRecentSearch(placeName: String) {
-        recentSearches.append(RecentSearch(text: placeName, isPressed: false))
+    func addRecentSearch(searchText: String) {
+        recentSearches.append(RecentSearch(text: searchText, isPressed: false))
     }
     
     func deleteAllRecentSearch() {
@@ -88,6 +89,7 @@ class WritingSearchViewModel: SearchProtocol, PaginationProtocol {
     }
     
     func getList() {
+        emptyShopList()
         currentPage = 0
         ShopRepository.searchShopList(keyword: searchText, page: currentPage) { result in
             switch(result) {
@@ -96,6 +98,7 @@ class WritingSearchViewModel: SearchProtocol, PaginationProtocol {
                 self.totalPage = value.totalPages
                 self.totalElement = value.totalElements
                 self.currentPage += 1
+                
                 self.status = true
                 break
             case .failure(let error):

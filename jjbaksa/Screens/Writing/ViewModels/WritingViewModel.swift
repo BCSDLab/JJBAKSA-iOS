@@ -34,4 +34,18 @@ class WritingViewModel: ObservableObject {
             pickedImages[item.offset].assetIndex = item.offset
         }
     }
+    
+    func postReview() { //TODO: 리뷰 보낸 후 메인 페이지로.
+        print(shop.shopID)
+        ReviewRepository.postReview(content: content, rate: rate, reviewImages: pickedImages, shopID: shop.shopID) { result in
+            switch(result) {
+            case .success(let value):
+                print(value)
+                break
+            case .failure(let error):
+                print(error)
+                break
+            }
+        }
+    }
 }

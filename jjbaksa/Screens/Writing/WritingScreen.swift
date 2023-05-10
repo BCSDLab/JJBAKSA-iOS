@@ -108,7 +108,7 @@ struct WritingScreen: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    () //TODO: 서버에 리뷰 포스트 기능
+                    viewModel.postReview()
                 }) {
                     ZStack {
                         Capsule()
